@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+	Multiverse by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ollie's Blog</title>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154866877-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-154866877-1');
+		</script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+	<body class="is-preload">
+
+		<header id="nav-bar">
+			<h1><a href="index.html">Ollie Ballinger</a></h1>
+			<nav class="links">
+				<ul>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Projects</a></li>
+					<li><a href="#">Teaching</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id='profile-box'>
+			<div class='frame'>
+				<img src="images/headshot_bw.jpg" class='headshot'>
+			</div>
+			<div class='profile-text'>
+				<h1>Hello!</h1>
+				My name is Ollie Ballinger. I'm a Lecturer in Geocomputation at the Centre for Advanced Spatial Analysis at University College London. I'm finishing up my PhD at the Oxford Department for International Development, where my research focuses on developing computational methods for the study of insurgent recruitment in Southeastern Turkey. I'm a big fan of satellites and strange datasets. Here are some of the projects i've worked on over the years.
+			</div>
+		</div>
+		<!-- Wrapper -->
+			<div id="wrapper">	
+
+				<!-- Main -->
+					<div id="main">
+						<article class="thumb">
+							<a href="https://www.bellingcat.com/resources/2022/02/11/radar-interference-tracker-a-new-open-source-tool-to-locate-active-military-radar-systems/" class="image"><img src="images/thumbs/RIT.jpg" alt="" /></a>
+							<h2>Radar Interference Tracker</h2>
+							<p>Many missile defense radars interfere with open source satellite imagery when they're turned on. I built a tool for Bellingcat that lets anyone monitor when and where these radars are deployed. The tool has since been featured in the Economist, Sky News, Hackaday, and beyond.</p>
+						</article>
+						<article class="thumb">
+							<a href="https://www.bellingcat.com/resources/2021/04/15/what-oil-satellite-technology-and-iraq-can-tell-us-about-pollution/" class="image"><img src="images/thumbs/mishraq.gif" alt="" /></a>
+							<h2>Conflict and Pollution in Iraq</h2>
+							<p>I co-wrote an article for Bellingcat which investigates conflict-related pollution in Iraq. I use remote sensing, machine learning, and geolocation to trace pollution back to facilities operated by multinational oil companies and map out the impacts on nearby communities.</p>
+						</article>
+						<article class="thumb">
+							<a href="https://ollielballinger.users.earthengine.app/view/ukraineconflictmonitor" class="image"><img src="images/thumbs/ukraine.jpg" alt="" /></a>
+							<h2>Ukraine Civilian Risk Assessment Tool</h2>
+							<p>This tool combines geolocated combat footage from social media with high-resolution population data to estimate the risk posed to civilians by Russian attacks in Ukraine. The tool also shows the total and average daily number of civilians estimated to be within a user-specified distance of conflict events.</p>
+						</article>
+						<article class="thumb">
+							<a href="https://oballinger.github.io/beirut-3D-model/" class="image"><img src="images/thumbs/beirut.gif" alt="" /></a>
+							<h2>3D Model of the Beirut Explosion</h2>
+							<p>Following the 2020 Beirut explosion, blast damage assessment was carried out using two-dimensional satellite imagery which fails to capture damage done to the sides of buildings. I develop an alternative approach using Open Street Map data to create a 3D model of Beirut and the explosion to analyze directional blast damage.</p>
+						</article>
+						<article class="thumb">
+							<a href="https://face-network.readthedocs.io/en/latest/?badge=latest" class="image"><img src="images/thumbs/network.jpg" alt="" /></a>
+							<h2>Insurgent Photo Networks</h2>
+							<p>I built an open-source Python package that uses deep learning to create a social network graph based on co-appearance in photographs. When applied to a folder of over 20,000 images scraped from a militant group's website, the resulting network closely mirrors the known structure of the insurgent group.</p>
+						</article>
+						<article class="thumb">
+							<a href="#" class="image"><img src="images/thumbs/elections.gif" alt="" /></a>
+							<h2>Fixing Election Maps with Streetlights</h2>
+							<p>Rural counties take up lots of space on election maps despite being sparsely populated, creating significant visual bias. I develop a new approach to correcting this bias using nighttime satellite imagery. This post won the 2020 Mapbox Election Mapping Challenge</p>
+						</article>
+						<article class="thumb">
+							<a href="https://ollielballinger.users.earthengine.app/view/ism" class="image"><img src="images/thumbs/ISM.jpg" alt="" /></a>
+							<h2>Informal Settlement Mapping</h2>
+							<p>I built a prototype application for the U.N. World Food Programme that identifies informal settlements using a Random Forest algorithm and open source inputs (Sentinel-2 imagery and OSM footprints).</p>
+						</article>
+						<article class="thumb">
+							<a href="#" class="image"><img src="images/thumbs/abqaiq.jpg" alt="" /></a>
+							<h2>Saudi Missile Strike Investigation</h2>
+							<p>In 2019, two Saudi Aramco facilities were hit by cruise missiles leading to the largest 1-day spike in the price of oil ever recorded. The expert consensus is that the attack succeeded because the Saudis were caught off guard. Open-source radar interference from Saudi air defenses may suggest otherwise.</p>
+						</article>
+						<article class="thumb">
+							<a href="#" class="image"><img src="images/thumbs/spei.jpg" alt="" /></a>
+							<h2>High Resolution Drought Index</h2>
+							<p>This post outlines a workflow for the calculation of a high-resolution version of the Stardardized Precipitation-Evapotranspiration Index (SPEI). This is accomplished in four steps, utilizing Python, R, and JavaScript.</p>
+						</article>
+						<article class="thumb">
+							<a href="#" class="image"><img src="images/thumbs/turkish_elections.jpg" alt="" /></a>
+							<h2>Turkish Elections Data</h2>
+							<p>This tool visualizes 2,975,843 ballot-box level election results in Turkey spanning over 10 years and 20 elections. Data was acquired by scraping the Turkish Election Board's website using Selenium in Python. </p>
+						</article>
+						<article class="thumb">
+							<a href="#" class="image"><img src="images/thumbs/Ilisu.gif" alt="" /></a>
+							<h2>Hasankeyf's Last Vote</h2>
+							<p>Months before being flooded, 55% of a town that is currently underwater voted for the party that built the dam. What follows is a geospatial analysis of this historic event, and the strange political economy that led to it.</p>
+						</article>
+						<article class="thumb">
+							<a href="https://oballinger.github.io/PICAN-data/" class="image"><img src="images/thumbs/mosaic.jpg" alt="" /></a>
+							<h2>Spotting Child Soldiers</h2>
+							<p>This interactive visualization was created as part of a paper I'm working on that involves identifying underage militants by using artificial intelligence to estimate apparent age based on photographs. The mosaic is composed of 20,000 images scraped from the insurgents' website.</p>
+						</article>
+						<article class="thumb">
+							<a href="https://ollielballinger.users.earthengine.app/view/rojavaoil" class="image"><img src="images/thumbs/rojava.jpg" alt="" /></a>
+							<h2>Syria Makeshift Refinery Detection</h2>
+							<p>This tool uses machine learning and multispectral satellite imagery to identify oil spills resulting from makeshift oil wells and refineries operated in Northern Syria. Users can draw an box over the map to count the number of unique spills detected, as well as an estimate of the total contaminated area.</p>
+						</article>
+						<article class="thumb">
+							<a href="#" class="image"><img src="images/thumbs/voronoi.jpg" alt="" /></a>
+							<h2>Village Voronoi Polygons</h2>
+							<p>Using the latitude and longitude coordinates of human settlements in Pakistan, I create polygons that approximate the shape of villages using a Voronoi tesselation in Python.</p>
+						</article>
+						<article class="thumb">
+							<a href="#" class="image"><img src="images/thumbs/voronoi.jpg" alt="" /></a>
+							<h2>Village Voronoi Polygons</h2>
+							<p>Using the latitude and longitude coordinates of human settlements in Pakistan, I create polygons that approximate the shape of villages using a Voronoi tesselation in Python.</p>
+						</article>
+					</div>
+
+				<!-- Footer -->
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

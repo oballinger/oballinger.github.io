@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154866877-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-154866877-1');
+	</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+      integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Fixing Election Maps using Street Lamps</title>
+  </head>
+	
+    <!-- NAVIGATION -->
+    
+	<!--
+	<nav class="nav">
+	      <ul class="nav__list">
+		<li class="nav__left">
+		  <ul>
+		    <li><a href="#"><i class="fas fa-bars"></i></a></li>
+		    <li><a href="#"><i class="fas fa-search"></i></a></li>
+		    <li><a class="link--black" href="#">WORLD</a></li>
+		  </ul>
+		</li>
+		<li><a href="#"><img class="logo" src="assets/img/logo.png" alt="The New York Times logo"></a></li>
+		<li class="nav__right">
+		  <ul>
+		    <li><button class="btn-default">SUBSCRIBE NOW</button></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </nav>
+	  -->
+
+    <!-- MAIN CONTENT -->
+<body>
+<main>
+    
+        <!-- SECTION CONTENT -->
+        <div class="article__content">
+          <div class="article--center">
+
+<article>
+
+<header><h1><em>Fixing Election Maps using Street Lamps</em></h1></header>
+
+<p>Using precinct level data from the 2016 election, I explore a fundamental flaw in the conventional approach to election mapping: Rural areas take up lots of space on election maps despite being sparsely populated, creating significant visual bias. I develop a new approach to correcting this bias using nighttime satellite imagery. This post won 1st place in the <a href="https://www.mapbox.com/elections-challenge-2020">Mapbox Election Mapping Challenge</a> (&quot;Best Data Mashup&quot;).</p>
+<br></br>
+    </div>
+      <div class="wide-img-70">
+        <img src="assets/img/nyt.png" alt="">
+      </div>
+    <div class="article--center">
+<br></br>
+
+<p><header><h2>The problem with normal election maps</h2></header></p>
+
+<p>When presenting election results, standard practice is to do so at the level of administrative units (e.g. states, counties, precincts), coloring their whole area according to voteshare. You've come across maps like the one above before.</p>
+<br></br>
+
+<p>The New York Times boasts that this is an <a href="https://www.nytimes.com/interactive/2018/upshot/election-2016-voting-precinct-maps.html">&quot;Extremely Detailed Map of the 2016 Election&quot;</a> because it uses precincts, which are smaller than the more commonly used counties. But this type of map has a fundamental flaw that can't be solved by using smaller administrative units.</p>
+<br></br>
+
+<p>The coloring of the map is supposed to convey the amount of support a candidate recieved. Lots of blue is good for Clinton, lots of red is good for Trump, right? Not quite. Because sparsely populated counties tend to be much larger, coloring in the whole area of a county leads to a strange paradox: it actually creates an inverse relationship between the quantity of red or blue that we observe on the map and the number of votes cast for that candidate. In other words, the only vehicle through which information is transmitted through this map-- color-- actually communicates the opposite of what it says it does.</p>
+<br></br>
+
+<p>To demonstrate how this bias works, let's take a look at the election results for Oregon in 2016 at both the precinct and county level:</p>
+
+<br></br>
+    </div>
+      <div class="wide-img-70">
+        <img src="assets/img/oregon_both.gif" alt="">
+      </div>
+    <div class="article--center">
+<br></br>
+
+<p>The blue-red color scale denotes Trump's voteshare-- if he got 100% of the vote in a precinct, the pixels in that precinct will be 100% red and 0% blue. If he got 0% of the vote, the pixels will be 0% red and 100% blue. If he got 50% of the vote, the pixels will be 50% red and 50% blue (so, purple). Seems pretty straightforward. But without cheating, can you tell who won?</p>
+<br></br>
+
+<p>Despite the fact that the map is overwhelmingly red, Trump only got 44% of the vote, losing the state by a large margin. Below is a histogram showing the color distribution of the map above. Remember, color is the only tool this map has to communicate the election result to us. If it did this job perfectly, the distribution of colors on the map would perfectly match the distribution of votes. Moreover, the average color of the map's pixels would equal the overall voteshare in the state. So given that Trump won 44% of the vote, the average pixel should be 44% red, right?</p>
+
+<br></br>
+<img src="assets/img/oregon_hist.jpg" alt="">
+<br></br>
+
+<p>The histogram shows that the vast majority of pixels on the map are very red. Indeed, the average pixel is 76% red, meaning that the map is overstating Republican support by around 32%. Much of this bias is driven by places like Harney County, Oregon, which is outlined in the map above. At 26,428 square kilometers, it is roughly the size of Belgium. In the 2016 election, Harney County cast fewer than 2000 votes; 1489 for Trump, and 213 for Clinton.</p>
+<br></br>
+
+<p>Another fascinating dimension of this problem is that it actually gets worse when you use smaller administrative units. If we use counties rather than precincts, the average pixel color drops to 68% red, as urban precincts are lumped together with less populated precincts in the same county. So the New York Times' &quot;Highly Detailed&quot; precinct-level map is actually more visually misleading than the standard county-level map.</p>
+<br></br>
+
+<p>The point of these maps is to communicate who won a state, using color. But the bias introduced by precinct size is so extreme that it not only makes these maps useless-- they become actively misleading. This problem is well known, and is often summarized by the phrase &quot;land doesn't vote, people do&quot;. There have been <a href="https://nymag.com/intelligencer/2018/03/a-new-2016-election-voting-map-promotes-subtlety.html">many attempts</a> to correct maps for population size using dots, bubbles, and arrows, but the resulting maps are either highly abstract or lose important spatial infromation in the process. Using a NASA satellite that takes images of the earth at night, I outline a new approach to this problem.</p>
+
+<p><header><h2>Populated Area Voteshares</h2></header></p>
+
+<p>To reduce the bias posed by large, sparsely populated counties and precincts, I propose a straightforward solution: filtering the electoral data to only include populated areas using satellite-derived nighttime lights data. The premise is simple: populated areas are illuminated at night. The more people there are in an area, the brighter it is. Below is a technical overview of the methodology:</p>
+
+<br></br>
+<img src="assets/img/gru meme.jpg" alt="">
+<br></br>
+
+<p>The end result is that only areas in which people live (i.e., areas that give off light at night) are assigned color. Areas that are uninhabited are left blank. Though this introduces large amounts of blank space into the map, the information that is conveyed is more accurate. The GIF below shows this process being applied to Dallas, Texas:</p>
+
+<br></br>
+    </div>
+      <div class="wide-img">
+        <img src="assets/img/texas.gif" alt="">
+      </div>
+    <div class="article--center">
+<br></br>
+
+<p>The precinct level election results give the impression that central Dallas is a blue island in a sea of red. Though this is somewhat true, it massively overstates the quantity of votes coming from rural areas surrounding the city. The nighttime lights layer shows that most of the land around Dallas is sparsely populated. Yet a small town in one of these rural precincts takes up as much space on the map as downtown Dallas. To correct for population density, the Populated Area Voteshare layer simply filters the precinct data to match the distribution of nightlights.</p>
+<br></br>
+
+<p>When we scale this up to the level of a state, it conveys information more accurately than the precinct map. Using our previous example of Oregon, let's see how the Populated Area Voteshare map compares to the precinct level map:</p>
+
+<br></br>
+    </div>
+      <div class="wide-img-70">
+        <img src="assets/img/oregon_pav.gif" alt="">
+      </div>
+    <div class="article--center">
+<br></br>
+
+<p>Remember that the average pixel in Oregon was 76% red at the precinct level. If we plot the histogram of pixel colors for the Populated Area Voteshare map, we get the following distribution:</p>
+
+<br></br>
+<img src="assets/img/PAV histogram.jpg" alt="">
+<br></br>
+
+<p>The average pixel is now only 47% red-- not perfect, but we're now only 3% off instead of 32%. However, the fact that we can get within 3% of the state's true voteshare without using any direct measure of population is pretty astounding-- this means that the correlation between population density and the amount of light pollution is very high.</p>
+<br></br>
+
+<p>Here's the same process applied to Nevada, where the bias posed by sparsely populated precincts is even higher than it was in Oregon:</p>
+
+<br></br>
+<img src="assets/img/nevada.gif" alt="">
+<br></br>
+
+<p>At the precinct level, it looks like a Trump landslide; the average pixel is 80% red, despite the fact that Trump only got 49% of the vote and lost the state. The Populated Area Voteshare map elminiates most of this bias--the average pixel color is within 2% of the state's final voteshare--and in the process highlights the battlegrounds of Reno and Vegas.</p>
+<br></br>
+
+<p>Finally, we can scale this up to the whole country:</p>
+
+<br></br>
+    </div>
+      <div class="wide-img-70">
+        <img src="assets/img/usa.gif" alt="">
+      </div>
+    <div class="article--center">
+<br></br>
+
+<p>In the filtered map, the pattern we saw in Dallas can be observed consistently across the whole country. Huge expanses of red in rural areas are replaced with dots. Greater metropolitan areas become clearly visible, almost always exhibiting a blue center surrounded by a ring of red:</p>
+
+<br></br>
+    </div>
+      <div class="wide-img-70">
+        <img src="assets/img/cities.png" alt="">
+      </div>
+    <div class="article--center">
+<br></br>
+
+<p> The ability to observe the actual spatial distribution of votes is another key advantage of the nightlights approach relative to the <a href="https://www.nytimes.com/interactive/2016/11/01/upshot/many-ways-to-map-election-results.html">dot/bubble approach</a>; here, we can see exactly how the downtown area compares to the suburbs and the outlying towns. You can explore these spatial trends in voting patterns using the interactive Populated Area Voteshare map below:</p>
+<br></br>
+
+</div>
+<div><iframe height="700px" src="https://api.mapbox.com/styles/v1/oballinger/ckh6dx4e20sv31amez9s8m1rv.html?fresh=true&amp;title=view&amp;access_token=pk.eyJ1Ijoib2JhbGxpbmdlciIsImEiOiJjazdvbXFkMWEwYXVrM2ZtdHU0cTd0cG5hIn0.vIj9s8F6M49ZP5DAh9Kd3Q" width="100%">
+</iframe>  </div>
+
+<div class="article--center">
+<br></br>
+
+<p>The map is currently centered on Atlanta. The relative size (and therefore, electoral importance) of the outlying cities and towns is immediately clear, as are their political leanings. Zooming in gradually overlays a satellite basemap, which enables a detailed look at the types of houses and neighborhoods in a given area. Zooming in to central Atlanta reveals strong Democratic support emanating from high-density housing, while zooming in to Republican-leaning northern Atlanta shows the area to be mostly composed of affluent suburbs.</p>
+<br></br>
+
+<p>Though this approach has a number of advantages, it isn't perfect. I was startled to find out that several cities the size of Chicago had sprung up in rural Texas and North Dakota without my knowledge. I soon realized that these were actually huge oil fields whose methane flares light up the night sky (I filtered them out). This reflects the more general issue that the relationship between nighttime luminosity and population isnt perfect--not all that glitters can vote. However, if we mistakenly classify a few ski slopes and highways as rural towns, this bias is small compared to the standard practice of allowing 1700 votes to take up an area the size of Belgium.</p>
+
+<p><header><h2>So What?</h2></header></p>
+
+<p> Poor map design has profound implications for how we understand the information they're trying to convey. The narrative that emerged as journalists tried to metabolize the 2016 election was that a groundswell of support from disaffected rural voters left behind by globalization carried Trump to victory. This is the narrative that jumps out at you from the standard county or precinct level maps: blue coasts, red heartland. It took several years, but the narrative that rural economic anxiety led to Trump's victory was eventually <a href="https://theintercept.com/2018/09/18/2016-election-race-class-trump/">debunked</a> when study after study concluded that <a href="https://www.forbes.com/sites/joelkotkin/2016/11/22/donald-trump-clinton-rural-suburbs/?sh=5d7483838b54">suburban voters</a> were actually the main demographic responsible for his victory.</p>
+<br></br>
+
+<p>When we filter electoral maps using nighttime lights, Trump's &quot;rural base&quot; shrinks to the point of disappearing and his true suburban base becomes clearly visible. The GIF of Dallas illustrates this nicely. The precinct map makes it look like the rural areas around the city delivered Trump the state's 36 electoral college votes. The filtered map shows that these rural precincts are largely empty, and that the driving force behind his victory was the ring of suburbs surrounding the city. This pattern is visible across the whole country, and is particularly strong in the South.</p>
+<br></br>
+
+<p><i><small>Note on Data:  Data on precinct-level results are from <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NH5S2I&version=46.0">Harvard Dataverse</a>, which is missing 10 states (NY, NJ, CT, PA, OH, IN, WV, MS, MO, GA). All analysis uses precinct-level data filtered using nighttime lights, but I interpolated <a href="https://public.opendatasoft.com/explore/dataset/usa-2016-presidential-election-by-county/export/?disjunctive.state">county-level results</a> in states where the precinct-level data was missing.</small></i></p>
+
+</div>
+  <!-- SECTION FOOTER -->
+  <footer class="article-footer">
+    <p> <a href="#">Order Reprints</a> | <a
+        href="#">Today’s Paper</a> | <a href="#">Subscribe</a> </p>
+    <div class="article-footer__content">
+      <button class="btn-default">READ 615 COMMENTS</button>
+      <ul class="social__list">
+        <li><a class="social__icons" href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a class="social__icons" href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a class="social__icons" href="#"><i class="fas fa-envelope"></i></a></li>
+        <li><a class="social__icons" href="#"><i class="fas fa-share"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+
+</article>
