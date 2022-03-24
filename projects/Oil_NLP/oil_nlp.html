@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154866877-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-154866877-1');
+	</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+      integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Shareholder Pressure on Oil and Gas Companies</title>
+  </head>
+	
+    <!-- NAVIGATION -->
+   
+
+    <!-- MAIN CONTENT -->
+<body>
+<main>
+
+  <div id="nav-bar">
+    <h1><a href="https://oballinger.github.io">Ollie Ballinger</a></h1>
+    <nav class="links">
+      <ul>
+        <li><a href="https://oballinger.github.io">Projects</a></li>
+        <li><a href="https://oballinger.github.io/teaching">Teaching</a></li>
+        <li><a href="https://oballinger.github.io/media">Media</a></li>
+        <li><a href="https://oballinger.github.io/teaching">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+<!-- SECTION CONTENT -->
+<div class="article__content">
+  <div class="article--center">
+
+
+<article>
+
+<header><h1><em>Analyzing Shareholder Pressure on Oil and Gas Companies</em></h1></header>
+
+
+<p>How often do oil and gas companies talk about climate change? How do shareholders exert pressure on these issues? This project analyzes the text from 1,656 earnings calls-- over 16,000,000 words in total-- to provide answers.</p>
+
+<p>All available earnings calls for the 10 largest publicly traded oil and gas companies were concatenated into a dataframe. Speech was classified into three categories depending on whether the speaker was a shareholder, a firm representative speaking unprompted, or a firm representative answering a shareholder question. A list of climate-related keywords was then used to extract paragraphs discussing climate change. Finally, depending on the keyword(s) contained therein, the sentiment of the paragraph is classified to reflect whether the speaker appears to accept/reject climate science, environmental regulations, carbon capture and storage, etc.</p>
+
+<p>The output is visualized below. Blue indicates unprompted firm speech, light blue indicates firm responses, and orange denotes shareholder questions. The search bar limits the view to paragraphs containing a certain word. The dropdown filters on the side indicate sentiment to the questions mentioned; for example, to compare relative rates of climate science denial among oil and gas majors, tick the &quot;rejects climate science&quot; box. The time filter allows one to compare how attitudes towards climate change have evolved over time. Finally, the grey tabs at the top toggle between raw word count and total percentages.</p>
+
+</div>
+  <div class="wide-img-70">
+
+<div class="tableauPlaceholder" id="viz1583835906562" style="position: relative;">
+<div style="text-align: left;">
+<noscript><a href='#'>
+<div style="padding: 0px 0px; text-align: justify; text-indent: 0px;">
+<img alt=' ' src='https://public.tableau.com/static/images/Po/PoliticalSpeech/Story1/1_rss.png' style='border: none' /></a></noscript><object class="tableauViz" style="display: none;"><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PoliticalSpeech&#47;Story1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Po&#47;PoliticalSpeech&#47;Story1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>
+</div>
+<script type="text/javascript">                    var divElement = document.getElementById('viz1583835906562');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+</div>
+<div class="article--center">
+<br><br>
+
+<p>The overall picture is bleak. Take Exxon Mobil, for example.<br>
+Exxon had 1,922,756 words' worth of earnings calls. The total word count of paragraphs containing climate-related keywords was 41,201 (2.14%). Among these paragraphs, the total word count of those which were brought up unprompted by the firm was just 24,984 (1.29%). Less than one tenth of one percent of the words spoken in ExxonMobil earnings calls displayed even a partial acceptance of climate change(1,612 words, 0.08%)
+
+<p><header><h2>Some key takeaways</p></header></h2>
+<p> Out of over 16 million words, the combined word count of paragraphs across all firms which displayed an unambiguous acceptance of climate science was less than 1,500. American firms tend reject climate science outright, while European firms combine equivocal support for climate science with an emphasis on carbon capture and storage; this is conveniently not mutually exclusive with increased production and exploration. The amount of shareholder pressure varies considerably between firms.</p>
+
+</div>
+  <!-- SECTION FOOTER -->
+  <footer class="article-footer">
+    <p> <a href="#">Order Reprints</a> | <a
+        href="#">Today’s Paper</a> | <a href="#">Subscribe</a> </p>
+    <div class="article-footer__content">
+      <button class="btn-default">READ 615 COMMENTS</button>
+      <ul class="social__list">
+        <li><a class="social__icons" href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a class="social__icons" href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a class="social__icons" href="#"><i class="fas fa-envelope"></i></a></li>
+        <li><a class="social__icons" href="#"><i class="fas fa-share"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+
+</article>
