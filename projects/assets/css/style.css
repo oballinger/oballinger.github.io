@@ -195,10 +195,11 @@ p {
 
 .wide-img-70{
   width: 70%;
-  height: auto;
+  height: 100%;
   left:50%;
   transform: translateX(20%);
 }
+
 
 img {
   width: 100%;
@@ -397,10 +398,6 @@ header span {
   margin: 4rem 0; 
 }
 
-.youtube__container iframe {
-  width: 70rem;
-  height: 40rem;
-}
 
 .youtube__container p{
   margin-top: 5px;
