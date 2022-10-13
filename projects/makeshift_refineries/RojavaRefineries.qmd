@@ -6,10 +6,10 @@ In Syria, over a decade of war has ravaged one of its most important industries.
 
 The destruction of Syria's oil infrastructure and its importance as a source of revenue for armed groups has led to a massive rise in makeshift oil extraction and refining. These makeshift refineries are often constructed by digging a large pit, lining it with a tarp, and filling it with polluted water. A furnace heats crude oil, which is run through a pipe cooled by the basin and collected in drums. 
 
-![](images/makeshift-refining.png)
+![credit: PAX/Wim Zwijnenburg](images/makeshift-refining.png)
+Wim Zwijnenburg wrote an excellent [Bellingcat article](https://www.bellingcat.com/news/2020/04/24/dying-to-keep-warm-oil-trade-and-makeshift-refining-in-north-west-syria/) on the subject, which you should read before going any further in this tutorial. In the article, Wim notes that these facilities "can be spotted by the ditch and the black spot at the end with oil waste residues, which blacken the soil around the furnace." These refineries also frequently leak, blackening large swaths of land around them. 
 ![source: https://www.bellingcat.com/news/2020/04/24/dying-to-keep-warm-oil-trade-and-makeshift-refining-in-north-west-syria/](images/refinery.png)
 
-Wim Zwijnenburg wrote an excellent [Bellingcat article](https://www.bellingcat.com/news/2020/04/24/dying-to-keep-warm-oil-trade-and-makeshift-refining-in-north-west-syria/) on the subject, which you should read before going any further in this tutorial. In the article, Wim notes that these facilities "can be spotted by the ditch and the black spot at the end with oil waste residues, which blacken the soil around the furnace." These refineries also frequently leak, blackening large swaths of land around them. 
 
 Looking around Northwestern Syria, we can see agricultural fields pockmarked by these makeshift refineries (you can pan around and zoom in):
 ```{python}
