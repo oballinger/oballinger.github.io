@@ -38,7 +38,7 @@ You can draw an Area of Interest (AOI) and get the total number of contaminated 
 
 Different materials reflect light differently. An apple absorbs shorter wavelengths (e.g. blue and green), and reflects longer wavelengths (red). Our eyes use that information-- the color-- to distinguish between different objects. But our eyes can only see a relatively small sliver of the electromagnetic spectrum covering blue, yellow, and red; we can't see UV or infrared wavelengths, for example, though the extent to which different materials reflect or absorb these wavelengths is just as useful for distinguishing between them. For example, Astroturf (fake plastic grass) and real grass will both look green to us, espeically from a satellite image. But living plants absorb radiation from the sun in a part of the light spectrum that we can't see. There's a spectral index called the Normalized Difference Vegetation Index (NDVI) which exploits this fact to isolate vegetation in multispectral satellite imagery. So if we look at [Gilette Stadium](https://en.wikipedia.org/wiki/Gillette_Stadium) near Boston, we can tell that the three training fields south of the stadium are real grass (they generate high NDVI values, showing up red), while the pitch in the stadium itself is astroturf (generating low NDVI values, showing up blue).
 
-![VHR image of Gilette Stadium with Sentinel-2 derived NDVI overlay](/images/NDVI.jpg)
+![VHR image of Gilette Stadium with Sentinel-2 derived NDVI overlay](images/NDVI.jpg)
 
 In other words, even though these fields are all green and indistinguishable to the human eye, their *spectral profiles* beyond the visible light spectrum differ, and we can use this information to distinguish between them. Below is a plot of the spectral profiles of different materials, including oil.
 
@@ -47,7 +47,7 @@ In other words, even though these fields are all green and indistinguishable to 
 
 The European Space Agency's Sentinel-2 satellite collects spectral information well beyond the visible light spectrum, enabling this sort of analysis. It chops the electromagnetic spectrum up into "bands", and measures how strongly wavelengths in each of those bands is reflected:
 
-![](/images/S2_bands.png)
+![](images/S2_bands.png)
 
 We'll be using this satellite to distinguish between oil and other materials, similar to the way we were able to distinguish between real and fake grass at Gilette Stadium. First, we'll have to do a bit of pre-processing on the Sentinel-2 imagery after which we'll train a machine learning model to identify oil. 
 
