@@ -123,7 +123,7 @@ Now that we've loaded and preporcessed our satellite imagery, we can proceed wit
 
 ## 1. Generating Labeled Data 
 
-A vital step in any machine learning workflow is the generation of labeled data, which we will use to train a model to differentiated between different types of land cover and later to test the model's accuracy. By looking around the study area, we can get a sense of the different land cover classes that we might encounter: 
+A vital step in any machine learning workflow is the generation of labeled data, which we will use to train a model to differentiate between different types of land cover and later to test the model's accuracy. By looking around the study area, we can get a sense of the different land cover classes that we might encounter: 
 
   1. Agricultural Land
   2. Urban Areas
