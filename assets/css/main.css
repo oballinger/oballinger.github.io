@@ -198,26 +198,27 @@ input, select, textarea {
 		#profile-box {
 			width: 100%;
 			height: auto; /* Adjust height to auto to fit content */
-			display: block; /* Ensure the div takes full width */
+			display: flex; /* Use flexbox for layout */
+			flex-wrap: wrap; /* Allow wrapping on smaller screens */
+			align-items: center; /* Vertically align content */
 			margin-bottom: 20px; /* Add margin to prevent overlap with the next section */
-			overflow: hidden; /* Clear floats */
+			overflow: hidden; /* Clear any overflow issues */
 		}
 		
 		#profile-box .frame {
-			width: 30%;
-			float: left;
-			vertical-align: middle;
+			width: 30%; /* Keep image container width at 30% */
 			text-align: center;
-			display: table-cell;
+			display: flex;
+			justify-content: center; /* Center image horizontally */
+			align-items: center; /* Center image vertically */
 		}
 		
 		#profile-box .headshot {
-			border-radius: 50%;
-			width: 50%;
-			margin: 0;
-			top: 50%;
-			-ms-transform: translateY(45%);
-			transform: translateY(45%);
+			border-radius: 50%; /* Circular image */
+			width: 100%; /* Ensure the image fills its container */
+			max-width: 250px; /* Add a max-width to prevent the image from getting too large */
+			height: auto; /* Maintain aspect ratio */
+			object-fit: cover; /* Ensure image scales and fits within the circle */
 		}
 		
 		#profile-box .profile-text {
@@ -228,13 +229,11 @@ input, select, textarea {
 			font-weight: 300;
 			letter-spacing: 0.025em;
 			line-height: 1.65;
-			padding-left: 0%;
-			padding-top: 5%;
-			padding-right: 5%;
+			padding: 0 5%; /* Apply equal padding on left and right */
 			text-align: justify;
-			float: right;
+			box-sizing: border-box; /* Ensure padding doesn't affect width */
 		}
-
+		
 
 
 /* Nav Bar */
