@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paginated Scroll-Triggered Gallery (Instant)</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
+      overflow: hidden;
+    }
+
+    .viewport {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="viewport" id="viewport" aria-live="polite">
+    <div class="slide active"><img src="gaza_molnar_files/transformations/transformations_0.png" alt="Transformation 0"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_1.png" alt="Transformation 1"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_2.png" alt="Transformation 2"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_3.png" alt="Transformation 3"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_4.png" alt="Transformation 4"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_5.png" alt="Transformation 5"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_6.png" alt="Transformation 6"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_7.png" alt="Transformation 7"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_8.png" alt="Transformation 8"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_9.png" alt="Transformation 9"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_10.png" alt="Transformation 10"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_11.png" alt="Transformation 11"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_12.png" alt="Transformation 12"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_13.png" alt="Transformation 13"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_14.png" alt="Transformation 14"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_15.png" alt="Transformation 15"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_16.png" alt="Transformation 16"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_17.png" alt="Transformation 17"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_18.png" alt="Transformation 18"></div>
+    <div class="slide"><img src="gaza_molnar_files/transformations/transformations_19.png" alt="Transformation 19"></div>
+  </div>
+
+  <script>
+    (function(){
+      const viewport = document.getElementById('viewport');
+      const slides = Array.from(viewport.querySelectorAll('.slide'));
+      let index = 0;
+      const total = slides.length;
+
+      function show(newIndex) {
+        newIndex = Math.max(0, Math.min(total - 1, newIndex));
+        slides[index].classList.remove('active');
+        slides[newIndex].classList.add('active');
+        index = newIndex;
+      }
+
+      viewport.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+        e.preventDefault();
+        if (e.deltaY > 0) {
+          show(index + 1);
+        } else {
+          show(index - 1);
+        }
+      }, { passive: false });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') show(index + 1);
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') show(index - 1);
+        if (e.key === 'Home') show(0);
+        if (e.key === 'End') show(total - 1);
+      });
+
+      let startY = null;
+      viewport.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+      viewport.addEventListener('touchend', (e) => {
+        if (startY === null) return;
+        const dy = e.changedTouches[0].clientY - startY;
+        if (Math.abs(dy) > 40) {
+          if (dy < 0) show(index + 1);
+          else show(index - 1);
+        }
+        startY = null;
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
