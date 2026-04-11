@@ -803,11 +803,11 @@ function initAudio() {
   lfoNode.start();
 }
 
-async function toggleAudio() {
+function toggleAudio() {
   const btn = document.getElementById('startBtn');
   if (!isPlaying) {
     if (!audioCtx) initAudio();
-    if (audioCtx.state === 'suspended') await audioCtx.resume();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
     isPlaying = true;
     btn.textContent = 'STOP';
     btn.classList.add('active');
