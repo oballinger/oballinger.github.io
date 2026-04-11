@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <title>Laser Sound Visualizer</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,7 +15,12 @@
     font-family: 'Segoe UI', system-ui, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
+
+  button, input, select { font-family: inherit; }
 
   header {
     text-align: center;
@@ -133,6 +140,43 @@
   }
 
   .osc-card.active { border-color: #ff333366; }
+
+  .osc-card.selected {
+    border-color: #ff3333;
+    box-shadow: 0 0 12px rgba(255, 50, 50, 0.15);
+  }
+
+  .master-freq {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: #181824;
+    border: 1px solid #252538;
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+
+  .master-freq label {
+    font-size: 0.7rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 32px;
+  }
+
+  .master-freq input[type="range"] {
+    flex: 1;
+    accent-color: #ff3333;
+  }
+
+  .master-freq .freq-val {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    min-width: 70px;
+    text-align: right;
+  }
 
   .osc-toggle {
     width: 36px;
@@ -399,6 +443,7 @@
 
   #vizCanvas {
     width: 100%;
+    height: auto;
     display: block;
   }
 
@@ -431,9 +476,124 @@
   @media (max-width: 900px) {
     .main-layout {
       flex-direction: column;
+      gap: 12px;
+      padding: 10px;
     }
     .right-panel {
       width: 100%;
+    }
+    header { padding: 16px 12px 4px; }
+    header h1 { font-size: 1.3rem; letter-spacing: 4px; }
+  }
+
+  @media (max-width: 600px) {
+    .panel { padding: 12px; }
+    .master-controls {
+      gap: 10px;
+    }
+    .master-btn {
+      padding: 12px 20px;
+      font-size: 0.85rem;
+    }
+    .master-volume {
+      flex: 1;
+      min-width: 0;
+    }
+    .master-volume input[type="range"] {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+    }
+    #addOsc {
+      margin-left: 0;
+      width: 100%;
+      order: 99;
+    }
+    .osc-card {
+      padding: 12px;
+      gap: 8px 10px;
+    }
+    .osc-params {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .param-group {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .param-group input[type="number"] {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+      padding: 10px 8px;
+      font-size: 16px; /* prevents iOS zoom on focus */
+    }
+    .param-group input[type="range"] {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+      height: 24px;
+    }
+    .param-group select {
+      flex: 1;
+      padding: 10px 8px;
+      font-size: 16px;
+    }
+    .osc-toggle {
+      width: 44px;
+      height: 44px;
+    }
+    .osc-remove {
+      font-size: 1.6rem;
+      padding: 8px 12px;
+      min-width: 44px;
+      min-height: 44px;
+    }
+    /* Bigger touch targets for sliders */
+    input[type="range"] {
+      height: 24px;
+      background: transparent;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 4px;
+      background: #2a2a3a;
+      border-radius: 2px;
+    }
+    input[type="range"]::-moz-range-track {
+      height: 4px;
+      background: #2a2a3a;
+      border-radius: 2px;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      margin-top: -10px;
+      background: #ff3333;
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(255, 50, 50, 0.4);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      background: #ff3333;
+      border-radius: 50%;
+      border: none;
+    }
+    .preset-btn, .chord-btn, .sweep-btn, .viz-opt {
+      padding: 12px 6px;
+      font-size: 0.8rem;
+      min-height: 44px;
+    }
+    .sweep-row input[type="number"] {
+      width: 70px;
+      padding: 8px;
+      font-size: 16px;
+    }
+    .lfo-row select, .sweep-row select {
+      padding: 8px;
+      font-size: 16px;
     }
   }
 
@@ -482,6 +642,12 @@
         <span class="vol-display" id="masterVolDisplay">50%</span>
       </div>
       <button class="master-btn" id="addOsc" onclick="addOscillator()">+ Add Oscillator</button>
+    </div>
+    <div class="master-freq">
+      <label>Freq</label>
+      <input type="range" id="masterFreq" min="20" max="2000" step="0.1" value="220">
+      <span class="freq-val" id="masterFreqVal">220.0 Hz</span>
+      <span class="note-display" id="masterFreqNote" style="min-width:36px;">A3</span>
     </div>
     <div class="oscillators" id="oscContainer"></div>
 
@@ -562,11 +728,11 @@
       <div class="sweep-controls">
         <div class="sweep-row">
           <label>From</label>
-          <input type="number" id="sweepFrom" value="80" min="20" max="2000">
+          <input type="number" id="sweepFrom" value="80" min="20" max="2000" inputmode="decimal">
         </div>
         <div class="sweep-row">
           <label>To</label>
-          <input type="number" id="sweepTo" value="800" min="20" max="2000">
+          <input type="number" id="sweepTo" value="800" min="20" max="2000" inputmode="decimal">
         </div>
         <div class="sweep-row">
           <label>Speed</label>
@@ -595,6 +761,7 @@ let analyser = null;
 let isPlaying = false;
 let oscId = 0;
 const oscillators = new Map();
+let selectedOscId = null;
 
 // LFO state
 let lfoNode = null;
@@ -636,11 +803,11 @@ function initAudio() {
   lfoNode.start();
 }
 
-function toggleAudio() {
+async function toggleAudio() {
   const btn = document.getElementById('startBtn');
   if (!isPlaying) {
     if (!audioCtx) initAudio();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
+    if (audioCtx.state === 'suspended') await audioCtx.resume();
     isPlaying = true;
     btn.textContent = 'STOP';
     btn.classList.add('active');
@@ -721,6 +888,23 @@ function updateOscFreq(id, freq) {
   if (osc.node) osc.node.frequency.value = freq;
   const noteEl = document.querySelector(`[data-note-id="${id}"]`);
   if (noteEl) noteEl.textContent = freqToNote(freq);
+  if (id === selectedOscId) syncMasterFreq(freq);
+}
+
+function syncMasterFreq(freq) {
+  const slider = document.getElementById('masterFreq');
+  slider.value = freq;
+  document.getElementById('masterFreqVal').textContent = freq.toFixed(1) + ' Hz';
+  document.getElementById('masterFreqNote').textContent = freqToNote(freq);
+}
+
+function selectOsc(id) {
+  selectedOscId = id;
+  const osc = oscillators.get(id);
+  if (osc) syncMasterFreq(osc.freq);
+  document.querySelectorAll('.osc-card').forEach(c => c.classList.remove('selected'));
+  const card = document.querySelector(`[data-osc-id="${id}"]`);
+  if (card) card.classList.add('selected');
 }
 
 function updateOscWaveform(id, waveform) {
@@ -744,7 +928,13 @@ function renderOscillators() {
   container.innerHTML = '';
   oscillators.forEach((osc) => {
     const card = document.createElement('div');
-    card.className = 'osc-card' + (osc.enabled ? ' active' : '');
+    card.className = 'osc-card' + (osc.enabled ? ' active' : '') + (osc.id === selectedOscId ? ' selected' : '');
+    card.dataset.oscId = osc.id;
+    card.addEventListener('click', (e) => {
+      if (!e.target.closest('.osc-toggle') && !e.target.closest('.osc-remove') && !e.target.closest('input') && !e.target.closest('select')) {
+        selectOsc(osc.id);
+      }
+    });
     card.innerHTML = `
       <button class="osc-toggle ${osc.enabled ? 'on' : ''}" onclick="toggleOsc(${osc.id})">
         ${osc.enabled ? '&#9654;' : '&#9724;'}
@@ -752,7 +942,7 @@ function renderOscillators() {
       <div class="osc-params">
         <div class="param-group">
           <label>Freq</label>
-          <input type="number" value="${osc.freq}" min="20" max="2000" step="0.1"
+          <input type="number" value="${osc.freq}" min="20" max="2000" step="0.1" inputmode="decimal"
             oninput="updateOscFreq(${osc.id}, parseFloat(this.value))">
           <span class="note-display" data-note-id="${osc.id}">${freqToNote(osc.freq)}</span>
         </div>
@@ -776,7 +966,24 @@ function renderOscillators() {
     `;
     container.appendChild(card);
   });
+  if (selectedOscId === null || !oscillators.has(selectedOscId)) {
+    const first = oscillators.keys().next().value;
+    if (first !== undefined) selectOsc(first);
+  }
 }
+
+// ---- Master Frequency ----
+document.getElementById('masterFreq').addEventListener('input', (e) => {
+  const freq = parseFloat(e.target.value);
+  if (selectedOscId !== null && oscillators.has(selectedOscId)) {
+    updateOscFreq(selectedOscId, freq);
+    const card = document.querySelector(`[data-osc-id="${selectedOscId}"]`);
+    if (card) {
+      const numInput = card.querySelector('input[type="number"]');
+      if (numInput) numInput.value = freq.toFixed(1);
+    }
+  }
+});
 
 // ---- Master Volume ----
 document.getElementById('masterVol').addEventListener('input', (e) => {
@@ -928,6 +1135,19 @@ const canvas = document.getElementById('vizCanvas');
 const ctx = canvas.getContext('2d');
 let vizMode = 'waveform';
 
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  if (rect.width === 0) return;
+  canvas.width = Math.round(rect.width * dpr);
+  canvas.height = Math.round(200 * dpr);
+  canvas.style.height = '200px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('orientationchange', () => setTimeout(resizeCanvas, 100));
+setTimeout(resizeCanvas, 0);
+
 function setViz(btn) {
   document.querySelectorAll('.viz-opt').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -938,8 +1158,9 @@ function drawViz() {
   if (!isPlaying) return;
   requestAnimationFrame(drawViz);
 
-  const w = canvas.width;
-  const h = canvas.height;
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.width / dpr;
+  const h = canvas.height / dpr;
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, w, h);
 
