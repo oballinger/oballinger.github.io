@@ -787,6 +787,17 @@ function freqToNote(freq) {
 
 function initAudio() {
   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  // iOS audio unlock: play a silent buffer in the same user-gesture tick
+  // This is required on iOS Safari/Chrome to unlock the AudioContext
+  try {
+    const buffer = audioCtx.createBuffer(1, 1, 22050);
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioCtx.destination);
+    source.start(0);
+  } catch (e) {}
+
   masterGain = audioCtx.createGain();
   masterGain.gain.value = parseFloat(document.getElementById('masterVol').value);
   analyser = audioCtx.createAnalyser();
