@@ -1,0 +1,91 @@
+<!doctype html><meta charset="utf-8"><title>Bosporus crossings, 2026-09-08 — webcam episode pictures</title>
+<style>
+:root{--bg:#fbfaf8;--fg:#141210;--mut:#6d6659;--line:#ded7cb;--acc:#8c2f1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 18px 40px}
+h1{font-size:19px;margin:0 0 2px;letter-spacing:-.01em}
+p.sub{margin:0 0 16px;color:var(--mut);font-size:12.5px;max-width:74ch}
+.hull{border:1px solid var(--line);background:#fff;border-radius:8px;margin:0 0 18px;overflow:hidden}
+.hull>header{padding:11px 14px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.hull h2{font-size:15px;margin:0;letter-spacing:.02em}
+.hull .meta{color:var(--mut);font-size:12px}
+.tag{display:inline-block;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;
+  background:#f4e7e4;color:var(--acc);border:1px solid #e2c9c4;border-radius:3px;padding:1px 5px}
+.lane{display:flex;gap:0;padding:12px 14px 0;overflow-x:auto;border-bottom:1px solid var(--line)}
+.stop{flex:0 0 auto;min-width:118px;text-align:left;padding:0 14px 12px 0;position:relative;cursor:pointer;
+  border:0;background:none;font:inherit;color:inherit;text-align:left}
+.stop .bar{height:4px;border-radius:2px;background:#e6ded2;margin-bottom:7px}
+.stop.on .bar{background:var(--acc)}
+.stop .cam{font-size:12.5px;font-weight:600}
+.stop .t{font-size:11.5px;color:var(--mut);font-variant-numeric:tabular-nums}
+.stop .n{font-size:11px;color:var(--mut)}
+.gal{padding:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.gal figure{margin:0;border:1px solid var(--line);border-radius:5px;overflow:hidden;background:#f3efe8}
+.gal img{display:block;width:100%;height:auto;cursor:zoom-in}
+.gal figcaption{font-size:10.5px;color:var(--mut);padding:4px 6px;font-variant-numeric:tabular-nums;
+  display:flex;justify-content:space-between;gap:6px}
+.vid{padding:0 14px 14px}
+.vid video{width:100%;max-width:760px;border:1px solid var(--line);border-radius:5px;background:#000}
+.vid p{font-size:12px;color:var(--mut);margin:6px 0 0;max-width:74ch}
+.caveat{border:1px solid #e2c9c4;background:#fdf6f4;border-radius:6px;padding:11px 13px;margin:0 0 18px;font-size:12.5px;max-width:88ch}
+.caveat b{color:var(--acc)}
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog::backdrop{background:rgba(15,12,10,.86)}
+dialog img{max-width:96vw;max-height:90vh;display:block;border-radius:4px}
+dialog .cap{color:#e8e2d8;font-size:12px;padding:7px 2px;font-variant-numeric:tabular-nums}
+a{color:var(--acc)}
+@media (prefers-color-scheme:dark){:root{--bg:#131211;--fg:#eae6df;--mut:#9a9287;--line:#302c27;--acc:#e08a72}
+ .hull,.gal figure{background:#1b1917}.gal figure{background:#1b1917}
+ .caveat{background:#211a18;border-color:#3d2d28}.tag{background:#2a1f1c;border-color:#4a352f}
+ .stop .bar{background:#302c27}}
+</style>
+<div class="wrap">
+<h1>KHRIZOPRAZ and PIROP cross the Bosporus — 2026-09-08</h1>
+<p class="sub">Every picture was cut by the detector from a public İBB webcam stream and assigned to the hull by timing against the KEGM transit queue. Click a camera for that pass; click a picture to enlarge.</p>
+
+<div class="caveat"><b>Caveat.</b> No frame shows a legible name — both identifications rest on KEGM entry time, size, pilot and tug, not on reading the hull.</div>
+
+<div id="app"></div>
+</div>
+<dialog id="lb"><img><div class="cap"></div></dialog>
+<script>
+const lb=document.getElementById('lb');
+lb.addEventListener('click',()=>lb.close());
+fetch('manifest.json').then(r=>r.json()).then(d=>{
+  const VID={'9257022':'video/supercut_pirop.mp4','9337901':'video/supercut_khrizopraz.mp4'};
+  const app=document.getElementById('app');
+  for(const imo of ['9337901','9257022']){
+    const h=d[imo]; if(!h) continue;
+    const sec=document.createElement('section'); sec.className='hull';
+    sec.innerHTML=`<header><h2>${h.name}</h2>
+      <span class="meta">IMO ${h.imo} · ${h.loa} m · KEGM entry ${h.entry_utc.slice(11,16)} UTC
+      (${String((+h.entry_utc.slice(11,13)+3)%24).padStart(2,'0')}:${h.entry_utc.slice(14,16)} local)
+      · ${h.n_pics} pictures on ${h.passes.length} cameras</span>
+      <span class="tag">listed ${h.sanctions.split(',').join(' ')}</span></header>
+      <div class="lane"></div><div class="gal"></div>
+      <div class="vid"><video controls preload="none" src="${VID[imo]}"></video>
+      <p>Supercut, 8× real time, camera and local clock burned in.</p></div>`;
+    const lane=sec.querySelector('.lane'), gal=sec.querySelector('.gal');
+    const draw=(i)=>{
+      [...lane.children].forEach((b,j)=>b.classList.toggle('on',j===i));
+      const p=h.passes[i];
+      gal.innerHTML=p.pics.map(q=>`<figure><img loading="lazy" src="${q.f}" alt="${h.name} at ${p.label}, ${q.local} local">
+        <figcaption><span>${q.local} local</span><span>${q.w} px</span></figcaption></figure>`).join('');
+      gal.querySelectorAll('img').forEach(im=>im.onclick=()=>{
+        lb.querySelector('img').src=im.src;
+        lb.querySelector('.cap').textContent=`${h.name} — ${p.label} — ${im.alt.split(', ').pop()}`;
+        lb.showModal();});
+    };
+    h.passes.forEach((p,i)=>{
+      const b=document.createElement('button'); b.className='stop';
+      const t0=p.pics[0]?p.pics[0].local:'';
+      b.innerHTML=`<div class="bar"></div><div class="cam">${p.label}</div>
+        <div class="t">${t0} local</div>
+        <div class="n">${p.pics.length} pics · resid ${p.resid_min>0?'+':''}${p.resid_min} min</div>`;
+      b.onclick=()=>draw(i); lane.appendChild(b);
+    });
+    app.appendChild(sec); draw(0);
+  }
+});
+</script>

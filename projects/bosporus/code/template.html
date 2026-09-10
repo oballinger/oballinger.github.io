@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{SUB}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{SUB}}">
+<meta property="og:type" content="article">
+<style>{{CSS}}</style>
+</head>
+<body>
+<header class="masthead">
+  <p class="kicker">Global Fishing Watch · GhostShip</p>
+  <h1>{{TITLE}}</h1>
+  <p class="byline"><b>Ollie Ballinger</b> · Global Fishing Watch · September 2026</p>
+</header>
+<div class="shell">
+  <aside>
+    <p class="lab">Contents</p>
+    {{TOC}}
+    <p class="built">Built {{BUILT}}</p>
+  </aside>
+  <main>{{BODY}}</main>
+</div>
+<script>
+// active-section highlight in the sidebar
+const links=[...document.querySelectorAll('aside a')];
+const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{const a=map.get(e.target.id); if(!a)return;
+    if(e.isIntersecting){links.forEach(l=>l.classList.remove('on')); a.classList.add('on');}});
+},{rootMargin:'-15% 0px -70% 0px'});
+document.querySelectorAll('main h2[id]').forEach(h=>io.observe(h));
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Struck tankers — strike positions and resting places</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script><style>
+html,body{margin:0;height:100%;font:12px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#16130f}
+#map{position:absolute;inset:0;background:#dfe9ef}
+.pills{position:absolute;top:10px;left:10px;z-index:1000;display:flex;flex-wrap:wrap;gap:4px;max-width:calc(100% - 80px)}
+.pills button{font:600 11px/1 inherit;font-family:inherit;padding:5px 8px;border-radius:99px;border:1px solid rgba(0,0,0,.18);
+  background:rgba(255,255,255,.94);cursor:pointer;color:#333;display:flex;align-items:center;gap:5px;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.pills button i{width:9px;height:9px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.25)}
+.pills button.off{opacity:.42}
+.pills button.all{background:#16130f;color:#fff;border-color:#16130f}
+.legend{position:absolute;top:80px;right:10px;z-index:1000;background:rgba(255,255,255,.94);border:1px solid rgba(0,0,0,.14);
+  border-radius:6px;padding:7px 9px;font-size:11px;line-height:1.45;max-width:250px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.legend b{font-weight:600}
+.legend .k{display:inline-block;width:14px;text-align:center;margin-right:3px}
+.xmark{font:700 16px/1 sans-serif;text-shadow:0 0 3px #fff,0 0 3px #fff;text-align:center}
+.num{font:700 9.5px/16px sans-serif;color:#fff;text-align:center;width:16px;height:16px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 2px rgba(0,0,0,.5)}
+.tri{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:11px solid;filter:drop-shadow(0 0 1.5px #fff)}
+.star{font:16px/1 sans-serif;text-shadow:0 0 3px #fff,0 0 2px #fff;text-align:center}
+.leaflet-popup-content{margin:10px 12px;font-size:12px;line-height:1.45}
+.leaflet-popup-content img{display:block;width:120px;height:120px;image-rendering:pixelated;border:1px solid #ccc;margin:6px 0 2px}
+.leaflet-popup-content .h{font-weight:600;font-size:12.5px}
+.leaflet-container{font-family:inherit}
+.leaflet-control-attribution{font-size:9.5px}
+</style></head><body>
+<div id="map"></div><div class="pills" id="pills"></div><div class="legend"><b>Drone strikes on tankers, Nov 2025 – Jul 2026</b><br><span class='k'>★</span> strike, placed from the victim's last AIS message<br><span class='k'>☆</span> strike, placed from reported wording<br><span class='k'>●</span> where GhostShip re-identified the hull afterwards (size: days it stayed)<br><span class='k'>┄</span> same hull</div>
+<script>
+const map = L.map('map', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
+L.control.zoom({position:'topright'}).addTo(map);
+map.on('click', ()=>map.scrollWheelZoom.enable()); map.on('mouseout', ()=>map.scrollWheelZoom.disable());
+
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',
+  {maxZoom:13, attribution:'Esri, GEBCO, NOAA, Garmin'}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}',
+  {maxZoom:13, opacity:.85}).addTo(map);
+
+
+// hull pills: click isolates a hull, click again shows all, "all" resets
+const groups = {};                       // name -> L.layerGroup
+const pills = document.getElementById('pills');
+function setVisible(on){ for(const [n,g] of Object.entries(groups)){ if(on.has(n)) g.addTo(map); else map.removeLayer(g);}
+  pills.querySelectorAll('button[data-h]').forEach(b=>b.classList.toggle('off', !on.has(b.dataset.h))); }
+let solo=null;
+function pill(name, color){ const b=document.createElement('button'); b.dataset.h=name;
+  b.innerHTML=`<i style="background:${color}"></i>${name}`;
+  b.onclick=()=>{ solo = (solo===name)? null : name; setVisible(new Set(solo? [solo] : Object.keys(groups))); };
+  pills.appendChild(b); }
+const allBtn=document.createElement('button'); allBtn.className='all'; allBtn.textContent='all';
+allBtn.onclick=()=>{solo=null; setVisible(new Set(Object.keys(groups)));}; pills.appendChild(allBtn);
+
+
+const STRIKES = [{"ship": "KAIROS", "date": "2025-11-28", "lat": 41.2124, "lon": 29.3369, "src": "ais", "grade": "medium-high", "weapon": "Sea Baby USV", "outcome": "caught fire, crew evacuated", "color": "#d55e00"}, {"ship": "VIRAT", "date": "2025-11-28", "lat": 42.5332, "lon": 32.271, "src": "ais", "grade": null, "weapon": "Sea Baby USV", "outcome": "minor damage above the waterline", "color": "#0072b2"}, {"ship": "MIDVOLGA 2", "date": "2025-12-02", "lat": 43.36, "lon": 35.15, "src": "reported", "grade": "medium", "weapon": "shrapnel drone", "outcome": "master and second engineer injured", "color": "#cc3d8a"}, {"ship": "DASHAN", "date": "2025-12-10", "lat": 40.9962, "lon": 29.1734, "src": "ais", "grade": null, "weapon": "naval drone", "outcome": "damaged in the stern section", "color": "#009e73"}, {"ship": "ELBUS", "date": "2026-01-08", "lat": 42.0221, "lon": 33.7374, "src": "ais", "grade": "medium", "weapon": "USV + drone", "outcome": "damaged, no injuries", "color": "#e69f00"}, {"ship": "ALTURA", "date": "2026-03-26", "lat": 41.4012, "lon": 29.3469, "src": "ais", "grade": "medium-low", "weapon": "naval drone", "outcome": "immobilised, escorted into the Marmara", "color": "#56b4e9"}, {"ship": "MARQUISE", "date": "2026-04-29", "lat": 42.7593, "lon": 36.6148, "src": "ais", "grade": "low-medium", "weapon": "naval drones", "outcome": "struck while waiting for an STS", "color": "#7b3294"}, {"ship": "JAMES II", "date": "2026-05-28", "lat": 41.8838, "lon": 29.7082, "src": "ais", "grade": "medium", "weapon": "naval drone", "outcome": "struck, in ballast", "color": "#a6761d"}, {"ship": "ALTURA", "date": "2026-05-28", "lat": 41.6517, "lon": 28.5673, "src": "ais", "grade": "low", "weapon": "naval drone", "outcome": "struck during an STS transfer", "color": "#56b4e9"}, {"ship": "VELORA", "date": "2026-05-28", "lat": 41.6512, "lon": 28.5669, "src": "ais", "grade": "low", "weapon": "naval drone", "outcome": "hit by two drones that failed to detonate", "color": "#1b9e77"}, {"ship": "WEST HORIZON", "date": "2026-06-10", "lat": 43.49, "lon": 37.09, "src": "reported", "grade": "medium", "weapon": "waterborne IED (USV)", "outcome": "struck while underway", "color": "#e7298a"}, {"ship": "BLUE", "date": "2026-07-08", "lat": 44.6917, "lon": 34.3933, "src": "ais", "grade": null, "weapon": "Sea Baby USV", "outcome": "struck", "color": "#66a61e"}, {"ship": "LOUISE 1", "date": "2026-07-16", "lat": 44.3577, "lon": 38.3007, "src": "ais", "grade": null, "weapon": "naval drone", "outcome": "struck", "color": "#7570b3"}, {"ship": "BANDA", "date": "2026-07-16", "lat": 42.7436, "lon": 38.0414, "src": "ais", "grade": null, "weapon": "naval drone", "outcome": "struck, not under command", "color": "#d95f02"}];
+const REST = [{"ship": "VIRAT", "imo": 9832559, "lat": 40.815991, "lon": 29.17405, "place": "Tuzla", "dwell": 63, "n_s2": 1, "color": "#0072b2"}, {"ship": "KAIROS", "imo": 9236004, "lat": 42.504425, "lon": 27.800688, "place": "Burgas Bay", "dwell": 258, "n_s2": 43, "color": "#d55e00"}, {"ship": "MIDVOLGA 2", "imo": 9735139, "lat": 46.98563, "lon": 38.551126, "place": "Yeysk / Azov", "dwell": 120, "n_s2": 3, "color": "#cc3d8a"}, {"ship": "DASHAN", "imo": 9299666, "lat": 40.81846, "lon": 29.205314, "place": "Tuzla", "dwell": 223, "n_s2": 4, "color": "#009e73"}, {"ship": "ELBUS", "imo": 9290385, "lat": 40.954924, "lon": 28.742441, "place": "Ambarli / Marmara W", "dwell": 59, "n_s2": 5, "color": "#e69f00"}, {"ship": "ALTURA", "imo": 9292199, "lat": 41.2822, "lon": 28.964022, "place": "Karaburun\u2013Kiyikoy anch.", "dwell": 104, "n_s2": 33, "color": "#56b4e9"}, {"ship": "MARQUISE", "imo": 9315745, "lat": 40.71549395470704, "lon": 29.470281959144568, "place": "Altinova yards", "dwell": 67, "n_s2": 0, "color": "#7b3294"}, {"ship": "JAMES II", "imo": 9253909, "lat": 40.702389, "lon": 29.345049, "place": "Altinova yards", "dwell": 63, "n_s2": 3, "color": "#a6761d"}, {"ship": "VELORA", "imo": 9290373, "lat": 41.463312, "lon": 28.711562, "place": "Karaburun\u2013Kiyikoy anch.", "dwell": 15, "n_s2": 1, "color": "#1b9e77"}, {"ship": "WEST HORIZON", "imo": 9337327, "lat": 40.696664, "lon": 29.343073, "place": "Altinova yards", "dwell": 64, "n_s2": 5, "color": "#e7298a"}, {"ship": "BLUE", "imo": 9236353, "lat": 41.715209, "lon": 28.620022, "place": "Karaburun\u2013Kiyikoy anch.", "dwell": 40, "n_s2": 9, "color": "#66a61e"}, {"ship": "BANDA", "imo": 9337406, "lat": 41.293202, "lon": 28.979042, "place": "Karaburun\u2013Kiyikoy anch.", "dwell": 15, "n_s2": 8, "color": "#d95f02"}, {"ship": "LOUISE 1", "imo": 9290323, "lat": 41.570484, "lon": 28.687883, "place": "Karaburun\u2013Kiyikoy anch.", "dwell": 32, "n_s2": 16, "color": "#7570b3"}];
+const byShip = {};
+STRIKES.forEach(s=>{ (byShip[s.ship]=byShip[s.ship]||{strikes:[],rest:null,color:s.color}).strikes.push(s); });
+REST.forEach(r=>{ (byShip[r.ship]=byShip[r.ship]||{strikes:[],rest:null,color:r.color}).rest=r; });
+for(const [ship,o] of Object.entries(byShip)){
+  const g=L.layerGroup(); groups[ship]=g; pill(ship, o.color);
+  for(const s of o.strikes){
+    const hollow = s.src!=='ais';
+    L.marker([s.lat,s.lon],{icon:L.divIcon({className:'star',html:`<span style="color:${o.color}">${hollow?'☆':'★'}</span>`,iconSize:[18,18],iconAnchor:[9,9]}),zIndexOffset:600}).addTo(g)
+      .bindPopup(`<div class="h">${ship} · struck ${s.date}</div>${s.weapon}${s.outcome?' — '+s.outcome:''}<br><span style="color:#666">position ${hollow?'from reported wording':"from the victim's own last AIS message"} (${s.grade})</span>`);
+    if(o.rest) L.polyline([[s.lat,s.lon],[o.rest.lat,o.rest.lon]],{color:o.color,weight:1.3,dashArray:'4 5',opacity:.8}).addTo(g);
+  }
+  if(o.rest){ const r=o.rest; const rad=Math.max(5, Math.min(13, 3+Math.sqrt(r.dwell)*0.65));
+    L.circleMarker([r.lat,r.lon],{radius:rad,color:'#fff',weight:1.5,fillColor:o.color,fillOpacity:.85}).addTo(g)
+      .bindPopup(`<div class="h">${ship} · IMO ${r.imo}</div>re-identified afterwards at <b>${r.place}</b><br>sat there ${r.dwell} days · ${r.n_s2} dark Sentinel-2 sightings`); }
+  g.addTo(map);
+}
+map.fitBounds([[40.4,26.8],[47.2,41.2]]);
+
+</script></body></html>

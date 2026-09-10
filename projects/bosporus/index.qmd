@@ -1,0 +1,22 @@
+---
+title: "Eight sanctioned tankers, one frozen transponder each"
+subtitle: "How a rushed Cyrillic paint job on the Bosporus led to a 31-ship fleet, a room in Wan Chai, and a decoy AIS emitter"
+author: "Ollie Ballinger — Global Fishing Watch"
+date: today
+format:
+  html:
+    theme: none
+    css: code/site.css
+    toc: true
+    toc-location: right
+    toc-depth: 2
+    toc-title: Contents
+    embed-resources: false
+    link-external-newwindow: true
+    fig-cap-location: bottom
+    self-contained: false
+execute:
+  enabled: false
+---
+
+{{< include body.md >}}

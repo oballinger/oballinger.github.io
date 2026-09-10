@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frozen transponders in the Bosporus</title>
+<meta name="description" content="">
+<meta property="og:title" content="Frozen transponders in the Bosporus">
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<style>:root{
+  --bg:#fbfaf8; --panel:#ffffff; --fg:#16130f; --mut:#6d6659; --faint:#8f887b;
+  --line:#e2dbcf; --line2:#efeae1; --acc:#8c2f1f; --acc2:#2f5f75; --hl:#fdf6ee;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#131110; --panel:#1b1917; --fg:#eae5dd; --mut:#a09889; --faint:#847c6f;
+        --line:#302b25; --line2:#26221e; --acc:#e28c73; --acc2:#7fb0c4; --hl:#221b17;}
+}
+*{box-sizing:border-box}
+img{max-width:100%;height:auto}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.62 var(--serif);
+  text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.shell{display:grid;grid-template-columns:minmax(0,1fr) 224px;gap:44px;
+  max-width:1180px;margin:0 auto;padding:0 24px 90px}
+main{min-width:0;max-width:760px;grid-column:1;grid-row:1}
+header.masthead{max-width:1180px;margin:0 auto;padding:40px 24px 22px}
+header.masthead .kicker{font:600 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);margin:0 0 14px}
+header.masthead h1{font-size:clamp(28px,4.4vw,44px);line-height:1.1;letter-spacing:-.022em;
+  margin:0 0 12px;max-width:24ch;font-weight:600}
+header.masthead .sub{font:400 19px/1.45 var(--serif);color:var(--mut);margin:0 0 18px;max-width:52ch}
+header.masthead .byline{font:12.5px/1.5 var(--sans);color:var(--faint);border-top:1px solid var(--line);
+  padding-top:14px;max-width:56ch}
+header.masthead .byline b{color:var(--mut);font-weight:600}
+
+.standfirst{font:400 18.5px/1.55 var(--serif);color:var(--fg);border-left:3px solid var(--acc);
+  padding:2px 0 2px 18px;margin:0 0 36px}
+h2{font:600 13px/1.35 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--acc);
+  margin:52px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font:600 16px/1.4 var(--sans);margin:26px 0 8px;letter-spacing:-.005em}
+p{margin:0 0 17px}
+a{color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(140,47,31,.32)}
+a:hover{border-bottom-color:var(--acc)}
+strong,b{font-weight:600}
+code{font:0.86em/1 var(--mono);background:var(--line2);padding:1.5px 4px;border-radius:3px}
+main>p:first-of-type::first-letter{}
+
+/* tables */
+table{border-collapse:collapse;width:100%;font:13.5px/1.45 var(--sans);margin:6px 0 22px;
+  display:block;overflow-x:auto;white-space:nowrap}
+th,td{padding:6px 11px 6px 0;text-align:left;border-bottom:1px solid var(--line2);vertical-align:top}
+thead th{font-weight:600;color:var(--mut);border-bottom:1px solid var(--line);
+  font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+tbody tr:hover td{background:var(--hl)}
+td:nth-child(n+2){font-variant-numeric:tabular-nums}
+
+/* figures */
+figure{margin:26px 0}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:5px;background:var(--panel)}
+figcaption{font:12.5px/1.5 var(--sans);color:var(--mut);margin-top:8px;max-width:64ch}
+.gallery .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:22px 0}
+.gallery .tiles figure{margin:0}
+
+/* embeds */
+.embed{margin:30px 0 34px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--panel)}
+.embed .embed-title{font:600 12px/1.35 var(--sans);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--fg);margin:0;padding:12px 15px 11px;border:0;border-bottom:1px solid var(--line2);
+  display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.embed .embed-title+p{margin:0;padding:0 15px 12px;border-bottom:1px solid var(--line2);
+  font:12.5px/1.5 var(--sans);color:var(--mut)}
+.embed .embed-title+p a{font-size:12px}
+.embed iframe{display:block;width:100%;height:520px;border:0;background:var(--bg)}
+.embed.tall iframe{height:720px}
+.embed>p:last-child{margin:0;padding:11px 15px;font:12.5px/1.5 var(--sans);color:var(--mut);
+  border-top:1px solid var(--line2)}
+.embed>p:last-child:first-of-type{border-top:0}
+
+/* notes */
+.caveat,.fignote,.todo,.provenance{border-radius:7px;padding:14px 16px;margin:24px 0;
+  font:14px/1.55 var(--sans)}
+.caveat{background:var(--hl);border:1px solid var(--line);border-left:3px solid var(--acc)}
+.caveat p:last-child,.fignote p:last-child,.todo p:last-child,.provenance p:last-child{margin-bottom:0}
+.fignote{background:transparent;border-left:3px solid var(--line);color:var(--mut);
+  border-radius:0;padding:2px 0 2px 16px}
+.todo{background:transparent;border:1px dashed var(--acc);color:var(--mut)}
+.provenance{background:transparent;border-top:1px solid var(--line);border-radius:0;
+  padding:18px 0 0;margin-top:54px;color:var(--faint);font-size:12.5px;line-height:1.6}
+
+/* toc */
+aside{grid-column:2;grid-row:1;position:sticky;top:0;align-self:start;padding:44px 0 0;font:13px/1.5 var(--sans);
+  max-height:100vh;overflow-y:auto}
+aside .lab{font:600 10.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--faint);margin:0 0 11px}
+aside ul{list-style:none;margin:0;padding:0}
+aside li{margin:0 0 3px}
+aside a{display:block;color:var(--mut);border:0;padding:4px 0 4px 11px;
+  border-left:2px solid var(--line2);font-size:12.5px;line-height:1.35}
+aside a:hover{color:var(--acc);border-left-color:var(--acc)}
+aside a.on{color:var(--fg);border-left-color:var(--acc);font-weight:600}
+.built{font:11.5px/1.5 var(--sans);color:var(--faint);margin-top:22px;padding-top:14px;
+  border-top:1px solid var(--line2)}
+
+@media (max-width:940px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:0}
+  aside{grid-column:1;grid-row:1;position:static;max-height:none;padding:0 0 20px;margin:0 0 30px;
+    border-bottom:1px solid var(--line)}
+  main{grid-column:1;grid-row:2}
+  aside ul{columns:2;column-gap:22px}
+  main{max-width:none}
+  .embed iframe{height:440px}.embed.tall iframe{height:560px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  header.masthead{padding:26px 18px 16px}
+  .shell{padding:0 18px 60px}
+  aside ul{columns:1}
+  .embed iframe{height:380px}.embed.tall iframe{height:480px}
+}
+
+/* no-TOC layout, video pair, embed link bar */
+.shell.notoc{grid-template-columns:minmax(0,1fr)}
+.shell.notoc main{max-width:760px;margin:0 auto}
+.embed>p:first-child{margin:0;padding:8px 15px;border-bottom:1px solid var(--line2);font:12.5px/1.5 var(--sans);color:var(--mut)}
+.embed>p:first-child a{font-size:12px}
+.embed.short iframe{height:400px}
+.videos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.videos figure{margin:0}
+.videos video{width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:5px;display:block}
+@media (max-width:700px){.videos{grid-template-columns:1fr}}
+header.masthead .byline{border-top:0;padding-top:0;margin-top:6px}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:22px 0}
+.tiles figure{margin:0}.tiles img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:5px}
+.tiles.three{grid-template-columns:1fr 1fr 1fr}.tiles.three img{aspect-ratio:3/4;object-fit:cover}
+.tiles figcaption{font:12px/1.45 var(--sans);color:var(--mut);margin-top:6px}
+@media (max-width:600px){.tiles.three{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <p class="kicker">Global Fishing Watch · GhostShip</p>
+  <h1>Frozen transponders in the Bosporus</h1>
+  <p class="byline"><b>Ollie Ballinger</b> · Global Fishing Watch · September 2026</p>
+</header>
+<div class="shell notoc">
+  
+  <main><p>when i spotted this giant tanker with a clearly rushed name change to cyrillic (DEMANTOID,
+imo 9388780, sanctioned). quickly pulled up marinetraffic only to find that it was not
+broadcasting AIS; the tug's signal is visible, but the tanker's wasn't in the bosporus. it
+was around 100km north in the black sea (in fact, as of a few minutes ago, it still
+apparently: <a href="https://www.marinetraffic.com/en/ais/details/ships/shipid:726867">marinetraffic.com/…/shipid:726867</a>)</p>
+<div class="tiles three">
+  <figure><a href="figures/demantoid/img_7986.jpg"><img loading="lazy" src="figures/demantoid/img_7986.jpg" alt="DEMANTOID bow, the previous name painted over"></a><figcaption>ДЕМАНТОИД, with the old name still showing through the paint</figcaption></figure>
+  <figure><a href="figures/demantoid/img_7988.jpg"><img loading="lazy" src="figures/demantoid/img_7988.jpg" alt="DEMANTOID stern with the tug KURTARMA 12"></a><figcaption>stern, with the KEGM tug KURTARMA 12 alongside</figcaption></figure>
+  <figure><a href="figures/demantoid/img_7989.jpg"><img loading="lazy" src="figures/demantoid/img_7989.jpg" alt="MarineTraffic showing only the tug"></a><figcaption>MarineTraffic at that moment: the tug, and nothing where the tanker is</figcaption></figure>
+</div>
+<p>i checked our AIS data, and sure enough it had been broadcasting a static position for the
+past two weeks. i looked for other static AIS broadcast, and quickly found 7 more sanctioned
+tankers doing the exact same thing. but in their ~two week spoof, ghostship tracks them
+nicely hugging the turkish coast and going to russia:</p>
+<div class="embed">
+<p><a href="interactive/frozen_fleet_map.html">open full-screen ↗</a></p>
+<iframe src="interactive/frozen_fleet_map.html" loading="lazy" title="Map: the eight frozen transmitters — broadcast position vs where Sentinel-2 re-identified the hull"></iframe>
+<p>✕ = the position each MMSI was broadcasting while frozen. Dots = every dark Sentinel-2
+detection GhostShip re-identified to that hull between its entry into the Black Sea and its
+exit, numbered and linked in date order (click for the chip). Click a name to isolate one hull.</p>
+</div>
+<div class="embed">
+<p><a href="interactive/dark_tankers_map.html">open full-screen ↗</a></p>
+<iframe src="interactive/dark_tankers_map.html" loading="lazy" title="Map: every dark tanker detection in the Black Sea in 2026, one colour per re-identified hull"></iframe>
+<p>Every dark tanker detection in the Black Sea in 2026, one colour per re-identified hull.
+Dark ring = sanctioned. Click a dot to isolate that hull and link its detections in date order.</p>
+</div>
+<p>it seemed insane to me that a vessel could transit the bosporus while spoofing. Looked into
+it, and Turkey requires a pilot to take over the vessel to transit (and usually an
+accompanying tugboat as well, all of whom are employed by the Turkish government). Another
+cool thing is that they announce crossings in real time on their website. as i was looking
+at the website, i could see that two of the 7 remaining frozen tankers had filed a crossing
+plan for the next day.</p>
+<p>so i slapped together this app: <a href="https://straitwatch.twitcher.cc/">straitwatch.twitcher.cc</a>.
+I found 6 high resolution web cams that have full coverage of the bosporus, and started
+running YOLO tanker/cargo detection on them, cross referencing automatically with the
+crossing schedule. now it saves 10-20 images per vessel from different angles as they cross</p>
+<div class="embed tall">
+<p><a href="crossing/">open full-screen ↗</a></p>
+<iframe src="crossing/" loading="lazy" title="Webcam pictures of the two crossings, camera by camera"></iframe>
+</div>
+<p>the next day, i woke up around 6 am to catch the two spoofing sanctioned tankers crossing
+(PIROP, 9257022 and KHRIZOPRAZ, 9337901 both of whom are still broadcasting their spoofed
+position in the black sea today).
+<a href="https://www.marinetraffic.com/en/ais/details/ships/shipid:730500/mmsi:273128820/imo:9257022/vessel:PIROP">PIROP on marinetraffic</a> ·
+<a href="https://www.marinetraffic.com/en/ais/details/ships/shipid:10060946/mmsi:273123820/imo:9337901/vessel:KHRIZOPRAZ">KHRIZOPRAZ on marinetraffic</a></p>
+<p>The webcams caught them and i made this supercut of their crossings.</p>
+<div class="videos">
+  <figure><video controls preload="metadata" src="crossing/video/supercut_khrizopraz.mp4"></video><figcaption>KHRIZOPRAZ, 8×, six cameras, 2026-09-08 07:24–08:01 local</figcaption></figure>
+  <figure><video controls preload="metadata" src="crossing/video/supercut_pirop.mp4"></video><figcaption>PIROP, 8×, six cameras, 2026-09-08 08:44–09:29 local</figcaption></figure>
+</div>
+<p>one interesting wrinkle was that while MarineTraffic showed their spoofed frozen position in
+the black sea, i could see their AIS track on Vesselfinder. Afterwards, i queried our own
+data and found that these hulls broadcast two AIS signals simultaneously: a real one, which
+is satellite capable, and a terrestrial one with the spoofed position. it seems they briefly
+turn the real broadcast on during the crossing, but leave the spoofing one running at the
+same time. i guess Marinetraffic and Vesselfinder have different ways of picking between two
+simultaneous MMSI broadcasts.</p>
+<div class="embed short">
+<p><a href="interactive/dual_stream_gantt.html">open full-screen ↗</a></p>
+<iframe src="interactive/dual_stream_gantt.html" loading="lazy" title="One MMSI, two transmitters: fixed and moving lanes per hull"></iframe>
+</div>
+<div class="embed">
+<p><a href="interactive/dual_stream_map.html">open full-screen ↗</a></p>
+<iframe src="interactive/dual_stream_map.html" loading="lazy" title="Map: the fixed transmitter against the same MMSI's moving track"></iframe>
+<p>✕ = the fixed transmitter. Line = the same MMSI's moving broadcast, hour by hour, 12 Aug – 6 Sep.</p>
+</div>
+<p>for good measure, i also took some pictures with a DSLR camera. KHRIZOPRAZ also had the
+rushed-paintjob-name.</p>
+<div class="gallery">
+<div class="tiles">
+<figure><a href="figures/dslr/dsc09752.jpg"><img loading="lazy" src="figures/dslr/dsc09752.jpg" alt="DSLR photograph of the crossing"></a></figure>
+<figure><a href="figures/dslr/dsc09757.jpg"><img loading="lazy" src="figures/dslr/dsc09757.jpg" alt="DSLR photograph of the crossing"></a></figure>
+<figure><a href="figures/dslr/dsc09761.jpg"><img loading="lazy" src="figures/dslr/dsc09761.jpg" alt="DSLR photograph of the crossing"></a></figure>
+<figure><a href="figures/dslr/dsc09763.jpg"><img loading="lazy" src="figures/dslr/dsc09763.jpg" alt="DSLR photograph of the crossing"></a></figure>
+<figure><a href="figures/dslr/dsc09771.jpg"><img loading="lazy" src="figures/dslr/dsc09771.jpg" alt="DSLR photograph of the crossing"></a></figure>
+<figure><a href="figures/dslr/dsc09774.jpg"><img loading="lazy" src="figures/dslr/dsc09774.jpg" alt="DSLR photograph of the crossing"></a></figure>
+<figure><a href="figures/dslr/dsc09777.jpg"><img loading="lazy" src="figures/dslr/dsc09777.jpg" alt="DSLR photograph of the crossing"></a></figure>
+<figure><a href="figures/dslr/dsc09780.jpg"><img loading="lazy" src="figures/dslr/dsc09780.jpg" alt="DSLR photograph of the crossing"></a></figure>
+</div>
+</div>
+<p>if you look closely on the bridge, you'll see anti-drone netting that some tankers are using
+these days, which i think is the root cause of all of this. Ukraine struck 13 tankers in the
+past year. this map combines their last AIS message (stars, likely strike locations), with
+the ghostship-reidentified resting place</p>
+<div class="embed">
+<p><a href="interactive/strikes_map.html">open full-screen ↗</a></p>
+<iframe src="interactive/strikes_map.html" loading="lazy" title="Map: drone strikes on tankers (stars) and where GhostShip re-identified each hull afterwards"></iframe>
+<p>★ = strike, placed from the victim's own last AIS message (hollow = placed from reported
+wording). ● = where the hull was re-identified afterwards, sized by days it sat there.</p>
+</div>
+<p>notice from the above, that the strike locations are in the middle of the black sea. then,
+look back at the map of ghostship re-ids of these spoofing tankers: they are all staying more
+or less in the Turkish EEZ, going the long way around</p>
+<p>another detail i noticed was that KHRIZOPRAZ, PIROP, and DEMANTOID are all gemstone names in
+russian, and all three were renamed within days of each other. i found 31 more vessels
+displaying the same pattern. all sanctioned, bearing Russian names for gemstones, reflagged to
+Russia within a few weeks of each other (as recent as last week), all tech managed by a
+random hong kong shell company: "[chinese mountain or river] Shipmanagement Co"</p>
+<div class="embed tall">
+<p><a href="interactive/gemstone_roster.html">open full-screen ↗</a></p>
+<iframe src="interactive/gemstone_roster.html" loading="lazy" title="The gemstone fleet: sortable roster"></iframe>
+</div></main>
+</div>
+<script>
+// active-section highlight in the sidebar
+const links=[...document.querySelectorAll('aside a')];
+const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{const a=map.get(e.target.id); if(!a)return;
+    if(e.isIntersecting){links.forEach(l=>l.classList.remove('on')); a.classList.add('on');}});
+},{rootMargin:'-15% 0px -70% 0px'});
+document.querySelectorAll('main h2[id]').forEach(h=>io.observe(h));
+</script>
+</body>
+</html>
