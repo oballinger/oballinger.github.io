@@ -138,6 +138,17 @@ header.masthead .byline{border-top:0;padding-top:0;margin-top:6px}
 .tiles.three{grid-template-columns:1fr 1fr 1fr}.tiles.three img{aspect-ratio:3/4;object-fit:cover}
 .tiles figcaption{font:12px/1.45 var(--sans);color:var(--mut);margin-top:6px}
 @media (max-width:600px){.tiles.three{grid-template-columns:1fr 1fr}}
+
+/* media at 75% of the page, text keeps its measure (2026-09-11).
+   .shell.notoc centres main, so left:50% + translateX(-50%) centres on the
+   viewport. Only above 1000px: below it 75vw is NARROWER than the text column. */
+@media (min-width:1000px){
+  main > figure, main > .embed, main > .videos, main > .tiles, main > .gallery{
+    width:75vw;max-width:75vw;position:relative;left:50%;transform:translateX(-50%)}
+  main > .gallery .tiles{margin-left:0;margin-right:0}
+}
+.embed.gantt iframe{height:700px}
+@media (max-width:900px){.embed.gantt iframe{height:520px}}
 </style>
 </head>
 <body>
@@ -206,7 +217,7 @@ is satellite capable, and a terrestrial one with the spoofed position. it seems 
 turn the real broadcast on during the crossing, but leave the spoofing one running at the
 same time. i guess Marinetraffic and Vesselfinder have different ways of picking between two
 simultaneous MMSI broadcasts.</p>
-<div class="embed tall">
+<div class="embed gantt">
 <p><a href="interactive/dual_stream_gantt.html">open full-screen ↗</a></p>
 <iframe src="interactive/dual_stream_gantt.html" loading="lazy" title="One MMSI, two transmitters: the decoy and the ship, lane by lane"></iframe>
 <p>Red is the decoy, blue is the ship's own unit, and both lanes run the whole record — where they

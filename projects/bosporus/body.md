@@ -78,7 +78,7 @@ turn the real broadcast on during the crossing, but leave the spoofing one runni
 same time. i guess Marinetraffic and Vesselfinder have different ways of picking between two
 simultaneous MMSI broadcasts.
 
-::: {.embed .tall}
+::: {.embed .gantt}
 [open full-screen ↗](interactive/dual_stream_gantt.html)
 ```{=html}
 <iframe src="interactive/dual_stream_gantt.html" loading="lazy" title="One MMSI, two transmitters: the decoy and the ship, lane by lane"></iframe>
