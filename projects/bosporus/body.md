@@ -78,19 +78,24 @@ turn the real broadcast on during the crossing, but leave the spoofing one runni
 same time. i guess Marinetraffic and Vesselfinder have different ways of picking between two
 simultaneous MMSI broadcasts.
 
-::: {.embed .short}
+::: {.embed .tall}
 [open full-screen ↗](interactive/dual_stream_gantt.html)
 ```{=html}
-<iframe src="interactive/dual_stream_gantt.html" loading="lazy" title="One MMSI, two transmitters: fixed and moving lanes per hull"></iframe>
+<iframe src="interactive/dual_stream_gantt.html" loading="lazy" title="One MMSI, two transmitters: the decoy and the ship, lane by lane"></iframe>
 ```
+Red is the decoy, blue is the ship's own unit, and both lanes run the whole record — where they
+are filled in the same column that MMSI was in two places at once. The shaded windows are the
+hull's Bosporus transits: on 8 September the decoys of KHRIZOPRAZ and PIROP were still
+transmitting 20 messages an hour from the Black Sea while the ships themselves were in the strait.
 :::
 
 ::: {.embed}
 [open full-screen ↗](interactive/dual_stream_map.html)
 ```{=html}
-<iframe src="interactive/dual_stream_map.html" loading="lazy" title="Map: the fixed transmitter against the same MMSI's moving track"></iframe>
+<iframe src="interactive/dual_stream_map.html" loading="lazy" title="Map: every raw AIS message from the eleven hulls, decoy and ship"></iframe>
 ```
-✕ = the fixed transmitter. Line = the same MMSI's moving broadcast, hour by hour, 12 Aug – 6 Sep.
+✕ = a decoy point, and there are 29 of them: the box moves to a new coordinate and keeps going.
+Every raw AIS message from the eleven hulls, 12 Aug – 9 Sep; drag the slider or press play.
 :::
 
 for good measure, i also took some pictures with a DSLR camera. KHRIZOPRAZ also had the
