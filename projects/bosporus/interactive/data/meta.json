@@ -1,7 +1,7 @@
 {
- "n": 996485,
- "nofix": 7310,
- "corrupt": 3293,
+ "n": 1153197,
+ "nofix": 8396,
+ "corrupt": 3319,
  "hulls": [
   "AKKORD",
   "ANEMON",
@@ -89,49 +89,49 @@
   ]
  },
  "t0": 1786492800,
- "t1": 1788998390,
+ "t1": 1789343999,
  "counts": {
-  "AKKORD": 25363,
-  "ANEMON": 52916,
-  "DEMANTOID": 83806,
-  "INVICTA": 118219,
-  "KHRIZOPRAZ": 88908,
-  "LABRADOR": 146402,
-  "MIMOZA": 79407,
-  "NASLEDIE": 171594,
-  "PIONER 1": 71387,
-  "PIROP": 73323,
-  "STRATEG": 85160
+  "AKKORD": 33124,
+  "ANEMON": 72397,
+  "DEMANTOID": 96130,
+  "INVICTA": 124715,
+  "KHRIZOPRAZ": 113028,
+  "LABRADOR": 152598,
+  "MIMOZA": 85262,
+  "NASLEDIE": 193068,
+  "PIONER 1": 76183,
+  "PIROP": 106701,
+  "STRATEG": 99991
  },
  "offsets": {
   "AKKORD": 0,
-  "ANEMON": 25363,
-  "DEMANTOID": 78279,
-  "INVICTA": 162085,
-  "KHRIZOPRAZ": 280304,
-  "LABRADOR": 369212,
-  "MIMOZA": 515614,
-  "NASLEDIE": 595021,
-  "PIONER 1": 766615,
-  "PIROP": 838002,
-  "STRATEG": 911325
+  "ANEMON": 33124,
+  "DEMANTOID": 105521,
+  "INVICTA": 201651,
+  "KHRIZOPRAZ": 326366,
+  "LABRADOR": 439394,
+  "MIMOZA": 591992,
+  "NASLEDIE": 677254,
+  "PIONER 1": 870322,
+  "PIROP": 946505,
+  "STRATEG": 1053206
  },
  "cls_counts": {
-  "0": 899745,
-  "1": 64856,
-  "2": 31884
+  "0": 1030709,
+  "1": 70115,
+  "2": 52373
  },
  "decoy_points": [
   {
    "hull": "AKKORD",
    "lat": 41.566655,
    "lon": 29.11995,
-   "n": 13250,
-   "hours": 662.4,
+   "n": 14685,
+   "hours": 734.2,
    "cadence_s": 180.0,
    "sog": 0.0,
    "first": "2026-08-13 09:32",
-   "last": "2026-09-09 23:57"
+   "last": "2026-09-12 23:45"
   },
   {
    "hull": "AKKORD",
@@ -143,6 +143,17 @@
    "sog": 9.399999618530273,
    "first": "2026-08-12 21:20",
    "last": "2026-08-13 09:32"
+  },
+  {
+   "hull": "AKKORD",
+   "lat": 41.365002,
+   "lon": 29.916662,
+   "n": 2205,
+   "hours": 6.2,
+   "cadence_s": 10.0,
+   "sog": 5.0,
+   "first": "2026-09-13 07:22",
+   "last": "2026-09-13 13:31"
   },
   {
    "hull": "ANEMON",
@@ -302,12 +313,12 @@
    "hull": "LABRADOR",
    "lat": 41.55645,
    "lon": 29.097833,
-   "n": 3611,
-   "hours": 180.6,
+   "n": 4924,
+   "hours": 246.2,
    "cadence_s": 180.0,
    "sog": 0.0,
    "first": "2026-09-02 11:24",
-   "last": "2026-09-09 23:57"
+   "last": "2026-09-12 17:37"
   },
   {
    "hull": "LABRADOR",
@@ -401,12 +412,23 @@
    "hull": "PIROP",
    "lat": 41.488667,
    "lon": 29.19955,
-   "n": 6916,
-   "hours": 346.3,
+   "n": 7062,
+   "hours": 353.7,
    "cadence_s": 180.0,
    "sog": 0.0,
    "first": "2026-08-26 13:40",
-   "last": "2026-09-09 23:59"
+   "last": "2026-09-10 07:20"
+  },
+  {
+   "hull": "PIROP",
+   "lat": 40.599828,
+   "lon": 27.121975,
+   "n": 64,
+   "hours": 0.2,
+   "cadence_s": 10.0,
+   "sog": 13.5,
+   "first": "2026-09-10 16:25",
+   "last": "2026-09-10 16:36"
   },
   {
    "hull": "STRATEG",
@@ -440,6 +462,17 @@
    "sog": 0.0,
    "first": "2026-08-31 09:53",
    "last": "2026-08-31 10:16"
+  },
+  {
+   "hull": "STRATEG",
+   "lat": 19.8133,
+   "lon": 38.7433,
+   "n": 96,
+   "hours": 9.2,
+   "cadence_s": 369.0,
+   "sog": 25.0,
+   "first": "2026-09-10 19:59",
+   "last": "2026-09-11 05:11"
   }
  ]
 }

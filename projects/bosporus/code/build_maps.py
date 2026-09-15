@@ -106,9 +106,9 @@ def chips_for(name, tags):
 # southbound exit (KEGM/webcam/AIS, o-23 notes) or the data frontier, inside the Black Sea,
 # numbered and linked in date order. Source: code/pull_frozen_fleet_dets.py (prod re-id +
 # raw inference + embedding hunt, deduped) — no distinction by source or serving status.
-EXIT = {"STRATEG": "2026-08-31", "MIMOZA": "2026-08-28", "DEMANTOID": "2026-09-06",
+EXIT = {"STRATEG": "2026-08-31", "MIMOZA": "2026-08-28", "DEMANTOID": "2026-09-06", "LABRADOR": "2026-09-14", "AKKORD": "2026-09-15",
         "KHRIZOPRAZ": "2026-09-08", "PIROP": "2026-09-08"}          # others: not out by the frontier
-FRONTIER = "2026-09-06"
+FRONTIER = "2026-09-12"   # S2 precursor + GNN re-id frontier on the 2026-09-15 refresh
 ENTRY = {"MIMOZA": "2026-07-01"}   # already inside the Black Sea when the hourly record starts (at Samsun since July)
 BOX = dict(lat0=40.9, lat1=47.5, lon0=27.4, lon1=42.0)
 ALL = pd.read_csv(S / "build/frozen_fleet_all_dets.csv")
