@@ -23,7 +23,11 @@ HULLS = {h["imo"]: h for h in D["hulls"]}
 lst = "','".join(HULLS)
 IMO_RE = r"^IMO-(\d{7})"
 
-excl_cols = query(f"SELECT column_name FROM `world-fishing-827.scratch_ollie.INFORMATION_SCHEMA.COLUMNS` WHERE table_name='gnn_serving_exclusion_v1' ORDER BY ordinal_position",
+# The exclusion table is versioned (v1 -> v2 on the 2026-09-16 d-17 promotion) and its
+# flag columns change with it, so read the name from config rather than typing it.
+_EXCL_PROJ, _EXCL_DS, _EXCL_TBL = C.SERVING_EXCLUSION_TABLE.split(".")
+excl_cols = query(f"""SELECT column_name FROM `{_EXCL_PROJ}.{_EXCL_DS}.INFORMATION_SCHEMA.COLUMNS`
+                      WHERE table_name='{_EXCL_TBL}' ORDER BY ordinal_position""",
                   cap_gb=1, why="frozen fleet: exclusion schema", quiet=True).column_name.tolist()
 flag_cols = [c for c in excl_cols if c.startswith("excluded_")]
 flags_sel = ", ".join(f"x.{c}" for c in flag_cols) if flag_cols else "NULL AS no_flags"

@@ -1,7 +1,7 @@
 {
- "n": 1153197,
- "nofix": 8396,
- "corrupt": 3319,
+ "n": 1272705,
+ "nofix": 9175,
+ "corrupt": 3342,
  "hulls": [
   "AKKORD",
   "ANEMON",
@@ -13,7 +13,8 @@
   "NASLEDIE",
   "PIONER 1",
   "PIROP",
-  "STRATEG"
+  "STRATEG",
+  "VAGA"
  ],
  "imo": {
   "AKKORD": "9259599",
@@ -26,7 +27,8 @@
   "NASLEDIE": "9293002",
   "PIONER 1": "9378618",
   "PIROP": "9257022",
-  "STRATEG": "9589750"
+  "STRATEG": "9589750",
+  "VAGA": "9314882"
  },
  "ssvid": {
   "AKKORD": "273271560",
@@ -39,7 +41,8 @@
   "NASLEDIE": "273279840",
   "PIONER 1": "273271320",
   "PIROP": "273128820",
-  "STRATEG": "273277650"
+  "STRATEG": "273277650",
+  "VAGA": "273125900"
  },
  "control": [],
  "freeze": {
@@ -86,40 +89,46 @@
   "STRATEG": [
    41.5905,
    29.0911
+  ],
+  "VAGA": [
+   41.5667,
+   29.1199
   ]
  },
  "t0": 1786492800,
- "t1": 1789343999,
+ "t1": 1789516798,
  "counts": {
-  "AKKORD": 33124,
-  "ANEMON": 72397,
-  "DEMANTOID": 96130,
-  "INVICTA": 124715,
-  "KHRIZOPRAZ": 113028,
-  "LABRADOR": 152598,
-  "MIMOZA": 85262,
-  "NASLEDIE": 193068,
-  "PIONER 1": 76183,
-  "PIROP": 106701,
-  "STRATEG": 99991
+  "AKKORD": 41861,
+  "ANEMON": 88724,
+  "DEMANTOID": 106051,
+  "INVICTA": 124866,
+  "KHRIZOPRAZ": 121214,
+  "LABRADOR": 158228,
+  "MIMOZA": 86011,
+  "NASLEDIE": 205631,
+  "PIONER 1": 77737,
+  "PIROP": 117310,
+  "STRATEG": 100363,
+  "VAGA": 44709
  },
  "offsets": {
   "AKKORD": 0,
-  "ANEMON": 33124,
-  "DEMANTOID": 105521,
-  "INVICTA": 201651,
-  "KHRIZOPRAZ": 326366,
-  "LABRADOR": 439394,
-  "MIMOZA": 591992,
-  "NASLEDIE": 677254,
-  "PIONER 1": 870322,
-  "PIROP": 946505,
-  "STRATEG": 1053206
+  "ANEMON": 41861,
+  "DEMANTOID": 130585,
+  "INVICTA": 236636,
+  "KHRIZOPRAZ": 361502,
+  "LABRADOR": 482716,
+  "MIMOZA": 640944,
+  "NASLEDIE": 726955,
+  "PIONER 1": 932586,
+  "PIROP": 1010323,
+  "STRATEG": 1127633,
+  "VAGA": 1227996
  },
  "cls_counts": {
-  "0": 1030709,
-  "1": 70115,
-  "2": 52373
+  "0": 1147750,
+  "1": 71921,
+  "2": 53034
  },
  "decoy_points": [
   {
@@ -376,6 +385,17 @@
    "last": "2026-08-24 20:55"
   },
   {
+   "hull": "NASLEDIE",
+   "lat": 21.5664,
+   "lon": 37.8648,
+   "n": 43,
+   "hours": 4.2,
+   "cadence_s": 367.5,
+   "sog": 37.5,
+   "first": "2026-09-13 21:34",
+   "last": "2026-09-14 01:45"
+  },
+  {
    "hull": "PIONER 1",
    "lat": 41.656167,
    "lon": 29.1125,
@@ -473,6 +493,28 @@
    "sog": 25.0,
    "first": "2026-09-10 19:59",
    "last": "2026-09-11 05:11"
+  },
+  {
+   "hull": "VAGA",
+   "lat": 41.566655,
+   "lon": 29.11995,
+   "n": 1483,
+   "hours": 73.8,
+   "cadence_s": 180.0,
+   "sog": 0.0,
+   "first": "2026-09-12 22:09",
+   "last": "2026-09-15 23:58"
+  },
+  {
+   "hull": "VAGA",
+   "lat": 41.566638,
+   "lon": 29.119965,
+   "n": 280,
+   "hours": 0.8,
+   "cadence_s": 10.0,
+   "sog": 9.800000190734863,
+   "first": "2026-09-12 21:22",
+   "last": "2026-09-12 22:09"
   }
  ]
 }

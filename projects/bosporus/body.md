@@ -20,7 +20,7 @@ nicely hugging the turkish coast and going to russia:
 ::: {.embed}
 [open full-screen ↗](interactive/frozen_fleet_map.html)
 ```{=html}
-<iframe src="interactive/frozen_fleet_map.html" loading="lazy" title="Map: the eight frozen transmitters — broadcast position vs where Sentinel-2 re-identified the hull"></iframe>
+<iframe src="interactive/frozen_fleet_map.html" loading="lazy" title="Map: the nine frozen transmitters — broadcast position vs where Sentinel-2 re-identified the hull"></iframe>
 ```
 ✕ = the position each MMSI was broadcasting while frozen. Dots = every dark Sentinel-2
 detection GhostShip re-identified to that hull between its entry into the Black Sea and its
@@ -89,17 +89,19 @@ hull's Bosporus transits: on 8 September the decoys of KHRIZOPRAZ and PIROP were
 transmitting 20 messages an hour from the Black Sea while the ships themselves were in the strait.
 AKKORD, LABRADOR and ANEMON handed over differently: the decoy steamed a computed track out to
 where the ship was, went quiet, and the ship's own unit took over before it crossed (ANEMON
-12 Sep, LABRADOR 14 Sep, AKKORD 15 Sep; the last two from the Turkish crossing ledger, past the
-end of the AIS record). INVICTA is the only one of the eleven still in the Black Sea.
+12 Sep, LABRADOR 14 Sep, AKKORD 15 Sep — all three now in the AIS record, not just the Turkish
+crossing ledger). Two of the twelve are still in the Black Sea: INVICTA, transmitting off
+Samsun, and VAGA, whose own unit has said nothing since 12 Sep while its decoy sits on the
+coordinate AKKORD's was broadcasting.
 :::
 
 ::: {.embed}
 [open full-screen ↗](interactive/dual_stream_map.html)
 ```{=html}
-<iframe src="interactive/dual_stream_map.html" loading="lazy" title="Map: every raw AIS message from the eleven hulls, decoy and ship"></iframe>
+<iframe src="interactive/dual_stream_map.html" loading="lazy" title="Map: every raw AIS message from the twelve hulls, decoy and ship"></iframe>
 ```
-✕ = a decoy point, and there are 32 of them: the box moves to a new coordinate and keeps going.
-Every raw AIS message from the eleven hulls, 12 Aug – 13 Sep; drag the slider or press play.
+✕ = a decoy point, and there are 35 of them: the box moves to a new coordinate and keeps going.
+Every raw AIS message from the twelve hulls, 12 Aug – 15 Sep; drag the slider or press play.
 :::
 
 for good measure, i also took some pictures with a DSLR camera. KHRIZOPRAZ also had the

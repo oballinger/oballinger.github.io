@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Build the three bare Leaflet maps for the page.
 
-  interactive/frozen_fleet_map.html   8 frozen transmitters: broadcast X, hourly AIS,
+  interactive/frozen_fleet_map.html   9 frozen transmitters: broadcast X, hourly AIS,
                                       Sentinel-2 re-ids during the freeze (with chips)
   interactive/strikes_map.html        14 drone strikes (o-23 placement) + the hull's
                                       re-identified resting place (o-26)
@@ -21,9 +21,10 @@ OIL = pathlib.Path("/home/sai/users/ollie/GFW/GhostShip/experiments/oil")
 D = json.load(open(S / "build/frozen_data.json"))
 CHIPS = json.load(open(S / "build/frozen_chips.json"))
 
-HULL_ORDER = ["AKKORD", "STRATEG", "PIROP", "KHRIZOPRAZ", "DEMANTOID", "MIMOZA", "LABRADOR", "INVICTA"]
+HULL_ORDER = ["AKKORD", "STRATEG", "PIROP", "KHRIZOPRAZ", "DEMANTOID", "MIMOZA", "LABRADOR", "INVICTA", "VAGA"]
 COL = {"AKKORD": "#d55e00", "STRATEG": "#0072b2", "PIROP": "#cc3d8a", "KHRIZOPRAZ": "#009e73",
-       "DEMANTOID": "#e69f00", "MIMOZA": "#56b4e9", "LABRADOR": "#7b3294", "INVICTA": "#444444"}
+       "DEMANTOID": "#e69f00", "MIMOZA": "#56b4e9", "LABRADOR": "#7b3294", "INVICTA": "#444444",
+       "VAGA": "#8c6d1f"}
 
 CSS = """
 html,body{margin:0;height:100%;font:12px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#16130f}
@@ -108,7 +109,9 @@ def chips_for(name, tags):
 # raw inference + embedding hunt, deduped) — no distinction by source or serving status.
 EXIT = {"STRATEG": "2026-08-31", "MIMOZA": "2026-08-28", "DEMANTOID": "2026-09-06", "LABRADOR": "2026-09-14", "AKKORD": "2026-09-15",
         "KHRIZOPRAZ": "2026-09-08", "PIROP": "2026-09-08"}          # others: not out by the frontier
-FRONTIER = "2026-09-12"   # S2 precursor + GNN re-id frontier on the 2026-09-15 refresh
+# INVICTA and VAGA have no EXIT: both were still in the Black Sea on 2026-09-17 —
+# INVICTA transmitting off Samsun, VAGA silent since 09-12 with its box on AKKORD's point.
+FRONTIER = "2026-09-14"   # S2 precursor + GNN re-id frontier on the 2026-09-17 refresh
 ENTRY = {"MIMOZA": "2026-07-01"}   # already inside the Black Sea when the hourly record starts (at Samsun since July)
 BOX = dict(lat0=40.9, lat1=47.5, lon0=27.4, lon1=42.0)
 ALL = pd.read_csv(S / "build/frozen_fleet_all_dets.csv")

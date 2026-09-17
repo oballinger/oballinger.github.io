@@ -1,0 +1,2 @@
+# pull_frozen_fleet_dets.py query caches — regenerate, never commit
+build/ff_*.parquet
