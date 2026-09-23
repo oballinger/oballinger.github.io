@@ -1,8 +1,7 @@
-when i spotted this giant tanker with a clearly rushed name change to cyrillic (DEMANTOID,
-imo 9388780, sanctioned). quickly pulled up marinetraffic only to find that it was not
-broadcasting AIS; the tug's signal is visible, but the tanker's wasn't in the bosporus. it
-was around 100km north in the black sea (in fact, as of a few minutes ago, it still
-apparently: [marinetraffic.com/…/shipid:726867](https://www.marinetraffic.com/en/ais/details/ships/shipid:726867))
+On september 6th, i spotted this giant tanker in the bosporus with a clearly rushed name change
+to cyrillic (DEMANTOID, imo 9388780, sanctioned). I quickly pulled up marinetraffic, only to
+find that it wasn't broadcasting AIS from the strait at all: the tug's signal was there, but
+according to its transponder the tanker was around 100km north in the black sea. 
 
 ```{=html}
 <div class="tiles three">
@@ -12,10 +11,11 @@ apparently: [marinetraffic.com/…/shipid:726867](https://www.marinetraffic.com/
 </div>
 ```
 
-i checked our AIS data, and sure enough it had been broadcasting a static position for the
-past two weeks. i looked for other static AIS broadcast, and quickly found 7 more sanctioned
-tankers doing the exact same thing. but in their ~two week spoof, ghostship tracks them
-nicely hugging the turkish coast and going to russia:
+Later, i checked our raw AIS data, and sure enough it had been broadcasting a static position
+for the past two weeks. so i looked for other static AIS broadcasts, and quickly found 7 more
+sanctioned tankers doing the exact same thing. their transponders sat still, but the ships
+didn't: over their ~two week spoof, ghostship tracks them in satellite imagery, hugging
+the turkish coast on their way to russia. 
 
 ::: {.embed}
 [open full-screen ↗](interactive/frozen_fleet_map.html)
@@ -36,17 +36,16 @@ Every dark tanker detection in the Black Sea in 2026, one colour per re-identifi
 Dark ring = sanctioned. Click a dot to isolate that hull and link its detections in date order.
 :::
 
-it seemed insane to me that a vessel could transit the bosporus while spoofing. Looked into
-it, and Turkey requires a pilot to take over the vessel to transit (and usually an
-accompanying tugboat as well, all of whom are employed by the Turkish government). Another
-cool thing is that they announce crossings in real time on their website. as i was looking
-at the website, i could see that two of the 7 remaining frozen tankers had filed a crossing
+it seemed insane to me that a vessel could transit the bosporus while spoofing. so i looked
+into it: turkey requires a pilot to take over the vessel to transit (and usually an
+accompanying tugboat as well, all of whom are employed by the Turkish government). the other
+cool thing is that they announce crossings in real time on their website, and as i was looking
+at it, i could see that two of the 7 remaining frozen tankers had filed a crossing
 plan for the next day.
 
-so i slapped together this app: [straitwatch.twitcher.cc](https://straitwatch.twitcher.cc/).
-I found 6 high resolution web cams that have full coverage of the bosporus, and started
+that gave me a day to prepare. I found 6 high resolution web cams that have full coverage of the bosporus, and started
 running YOLO tanker/cargo detection on them, cross referencing automatically with the
-crossing schedule. now it saves 10-20 images per vessel from different angles as they cross
+crossing schedule. now it saves 10-20 images per vessel from different angles as they cross. I put it all together this app: [straitwatch.twitcher.cc](https://straitwatch.twitcher.cc/).
 
 ::: {.embed .tall}
 [open full-screen ↗](crossing/)
@@ -56,12 +55,7 @@ crossing schedule. now it saves 10-20 images per vessel from different angles as
 :::
 
 the next day, i woke up around 6 am to catch the two spoofing sanctioned tankers crossing
-(PIROP, 9257022 and KHRIZOPRAZ, 9337901 both of whom are still broadcasting their spoofed
-position in the black sea today).
-[PIROP on marinetraffic](https://www.marinetraffic.com/en/ais/details/ships/shipid:730500/mmsi:273128820/imo:9257022/vessel:PIROP) ·
-[KHRIZOPRAZ on marinetraffic](https://www.marinetraffic.com/en/ais/details/ships/shipid:10060946/mmsi:273123820/imo:9337901/vessel:KHRIZOPRAZ)
-
-The webcams caught them and i made this supercut of their crossings.
+(PIROP, 9257022 and KHRIZOPRAZ, 9337901 both of whom continued to broadcast their spoofed positions for the next few days). the webcams caught both of them, and i made this supercut of their crossings:
 
 ```{=html}
 <div class="videos">
@@ -70,8 +64,8 @@ The webcams caught them and i made this supercut of their crossings.
 </div>
 ```
 
-one interesting wrinkle was that while MarineTraffic showed their spoofed frozen position in
-the black sea, i could see their AIS track on Vesselfinder. Afterwards, i queried our own
+watching them go by, i noticed one interesting wrinkle: while MarineTraffic showed their spoofed frozen position in
+the black sea, i could see their AIS track on Vesselfinder. afterwards, i queried our own
 data and found that these hulls broadcast two AIS signals simultaneously: a real one, which
 is satellite capable, and a terrestrial one with the spoofed position. it seems they briefly
 turn the real broadcast on during the crossing, but leave the spoofing one running at the
@@ -110,9 +104,9 @@ rushed-paintjob-name.
 {{< include dslr.md >}}
 
 if you look closely on the bridge, you'll see anti-drone netting that some tankers are using
-these days, which i think is the root cause of all of this. Ukraine struck 13 tankers in the
-past year. this map combines their last AIS message (stars, likely strike locations), with
-the ghostship-reidentified resting place
+these days, which i think is the root cause of all of this: ukraine struck 13 tankers in the
+past year. this map combines each one's last AIS message (stars, likely strike locations), with
+the ghostship-reidentified resting place:
 
 ::: {.embed}
 [open full-screen ↗](interactive/strikes_map.html)
@@ -123,11 +117,11 @@ the ghostship-reidentified resting place
 wording). ● = where the hull was re-identified afterwards, sized by days it sat there.
 :::
 
-notice from the above, that the strike locations are in the middle of the black sea. then,
-look back at the map of ghostship re-ids of these spoofing tankers: they are all staying more
-or less in the Turkish EEZ, going the long way around
+notice that the strike locations are out in the middle of the black sea. then look back at
+the map of ghostship re-ids of the spoofing tankers: they all stay more or less inside the
+turkish EEZ, going the long way around.
 
-another detail i noticed was that KHRIZOPRAZ, PIROP, and DEMANTOID are all gemstone names in
+one last detail: KHRIZOPRAZ, PIROP, and DEMANTOID are all gemstone names in
 russian, and all three were renamed within days of each other. i found 31 more vessels
 displaying the same pattern. all sanctioned, bearing Russian names for gemstones, reflagged to
 Russia within a few weeks of each other (as recent as last week), all tech managed by a
