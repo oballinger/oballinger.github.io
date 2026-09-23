@@ -159,22 +159,20 @@ header.masthead .byline{border-top:0;padding-top:0;margin-top:6px}
 </header>
 <div class="shell notoc">
   
-  <main><p>it started when i spotted this giant tanker in the bosporus with a clearly rushed name change
-to cyrillic (DEMANTOID, imo 9388780, sanctioned). i quickly pulled up marinetraffic, only to
+  <main><p>On september 6th, i spotted this giant tanker in the bosporus with a clearly rushed name change
+to cyrillic (DEMANTOID, imo 9388780, sanctioned). I quickly pulled up marinetraffic, only to
 find that it wasn't broadcasting AIS from the strait at all: the tug's signal was there, but
-according to its transponder the tanker was around 100km north in the black sea (in fact, as
-of a few minutes ago, it apparently still is:
-<a href="https://www.marinetraffic.com/en/ais/details/ships/shipid:726867">marinetraffic.com/…/shipid:726867</a>)</p>
+according to its transponder the tanker was around 100km north in the black sea. </p>
 <div class="tiles three">
   <figure><a href="figures/demantoid/img_7986.jpg"><img loading="lazy" src="figures/demantoid/img_7986.jpg" alt="DEMANTOID bow, the previous name painted over"></a><figcaption>ДЕМАНТОИД, with the old name still showing through the paint</figcaption></figure>
   <figure><a href="figures/demantoid/img_7988.jpg"><img loading="lazy" src="figures/demantoid/img_7988.jpg" alt="DEMANTOID stern with the tug KURTARMA 12"></a><figcaption>stern, with the KEGM tug KURTARMA 12 alongside</figcaption></figure>
   <figure><a href="figures/demantoid/img_7989.jpg"><img loading="lazy" src="figures/demantoid/img_7989.jpg" alt="MarineTraffic showing only the tug"></a><figcaption>MarineTraffic at that moment: the tug, and nothing where the tanker is</figcaption></figure>
 </div>
-<p>later, i checked our AIS data, and sure enough it had been broadcasting a static position
+<p>Later, i checked our raw AIS data, and sure enough it had been broadcasting a static position
 for the past two weeks. so i looked for other static AIS broadcasts, and quickly found 7 more
 sanctioned tankers doing the exact same thing. their transponders sat still, but the ships
-didn't: over their ~two week spoof, ghostship tracks them in satellite imagery, nicely hugging
-the turkish coast on their way to russia:</p>
+didn't: over their ~two week spoof, ghostship tracks them in satellite imagery, hugging
+the turkish coast on their way to russia. </p>
 <div class="embed">
 <p><a href="interactive/frozen_fleet_map.html">open full-screen ↗</a></p>
 <iframe src="interactive/frozen_fleet_map.html" loading="lazy" title="Map: the nine frozen transmitters — broadcast position vs where Sentinel-2 re-identified the hull"></iframe>
@@ -194,20 +192,15 @@ accompanying tugboat as well, all of whom are employed by the Turkish government
 cool thing is that they announce crossings in real time on their website, and as i was looking
 at it, i could see that two of the 7 remaining frozen tankers had filed a crossing
 plan for the next day.</p>
-<p>that gave me a day to prepare, so i slapped together this app: <a href="https://straitwatch.twitcher.cc/">straitwatch.twitcher.cc</a>.
-I found 6 high resolution web cams that have full coverage of the bosporus, and started
+<p>that gave me a day to prepare. I found 6 high resolution web cams that have full coverage of the bosporus, and started
 running YOLO tanker/cargo detection on them, cross referencing automatically with the
-crossing schedule. now it saves 10-20 images per vessel from different angles as they cross:</p>
+crossing schedule. now it saves 10-20 images per vessel from different angles as they cross. I put it all together this app: <a href="https://straitwatch.twitcher.cc/">straitwatch.twitcher.cc</a>.</p>
 <div class="embed tall">
 <p><a href="crossing/">open full-screen ↗</a></p>
 <iframe src="crossing/" loading="lazy" title="Webcam pictures of the two crossings, camera by camera"></iframe>
 </div>
 <p>the next day, i woke up around 6 am to catch the two spoofing sanctioned tankers crossing
-(PIROP, 9257022 and KHRIZOPRAZ, 9337901 both of whom are still broadcasting their spoofed
-position in the black sea today).
-<a href="https://www.marinetraffic.com/en/ais/details/ships/shipid:730500/mmsi:273128820/imo:9257022/vessel:PIROP">PIROP on marinetraffic</a> ·
-<a href="https://www.marinetraffic.com/en/ais/details/ships/shipid:10060946/mmsi:273123820/imo:9337901/vessel:KHRIZOPRAZ">KHRIZOPRAZ on marinetraffic</a></p>
-<p>the webcams caught both of them, and i made this supercut of their crossings:</p>
+(PIROP, 9257022 and KHRIZOPRAZ, 9337901 both of whom continued to broadcast their spoofed positions for the next few days). the webcams caught both of them, and i made this supercut of their crossings:</p>
 <div class="videos">
   <figure><video controls preload="metadata" src="crossing/video/supercut_khrizopraz.mp4"></video><figcaption>KHRIZOPRAZ, 8×, six cameras, 2026-09-08 07:24–08:01 local</figcaption></figure>
   <figure><video controls preload="metadata" src="crossing/video/supercut_pirop.mp4"></video><figcaption>PIROP, 8×, six cameras, 2026-09-08 08:44–09:29 local</figcaption></figure>
