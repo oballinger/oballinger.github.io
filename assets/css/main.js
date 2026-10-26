@@ -209,44 +209,126 @@
 	// Main.
 		var $main = $('#main');
 
-		// Thumbs.
-			$main.children('.thumb').each(function() {
+	// Thumbs: images and videos load only when their card nears the viewport.
+	// Cards on hidden tabs are display:none, so they never intersect until shown.
+		function loadThumb(thumb) {
+			var $this = $(thumb);
+			if ($this.data('loaded')) return;
+			$this.data('loaded', true);
 
-				var	$this = $(this),
-					$image = $this.find('.image'), $image_img = $image.children('img'),
-					x;
+			var $image = $this.children('.image'),
+				$img = $image.children('img'),
+				src = $img.attr('data-src') || $img.attr('src');
 
-				// No image? Bail.
-					if ($image.length == 0)
-						return;
+			if ($image.length && src) {
+				$image.css('background-image', 'url(' + src + ')');
+				if ($img.data('position'))
+					$image.css('background-position', $img.data('position'));
+				$img.hide();
+			}
 
-				// Image.
-				// This sets the background of the "image" <span> to the image pointed to by its child
-				// <img> (which is then hidden). Gives us way more flexibility.
+			$this.find('video[data-src]').each(function() {
+				this.poster = this.getAttribute('data-poster') || '';
+				this.src = this.getAttribute('data-src');
+				this.removeAttribute('data-src');
+				// Start straight away; the player observer pauses it again once it leaves the screen.
+				var p = this.play();
+				if (p && p.catch) p.catch(function() {});
+			});
+		}
 
-					// Set background.
-						$image.css('background-image', 'url(' + $image_img.attr('src') + ')');
+		function setPlaying(thumb, on) {
+			$(thumb).find('video').each(function() {
+				if (on) { var p = this.play(); if (p && p.catch) p.catch(function() {}); }
+				else this.pause();
+			});
+		}
 
-					// Set background position.
-						if (x = $image_img.data('position'))
-							$image.css('background-position', x);
+		var $allThumbs = $main.children('.thumb');
 
-					// Hide original img.
-						$image_img.hide();
+		if ('IntersectionObserver' in window) {
+			var loader = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) loadThumb(entry.target);
+				});
+			}, { rootMargin: '400px 0px' });
 
+			var player = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					setPlaying(entry.target, entry.isIntersecting);
+				});
+			}, { threshold: 0.1 });
+
+			$allThumbs.each(function() {
+				// Hide the placeholder <img> right away; the image shows as a background once loaded.
+				$(this).children('.image').children('img').hide();
+				loader.observe(this);
+				if ($(this).find('video').length) player.observe(this);
+			});
+		}
+		else {
+			$allThumbs.each(function() { loadThumb(this); setPlaying(this, true); });
+		}
+
+	// Hover overlay with the description (mouse/trackpad only; touch layouts show it inline).
+		if (window.matchMedia('(hover: hover)').matches) {
+			$('.thumb').on('mouseenter', function() {
+				var s = $(this).find('p')[0].innerHTML;
+				$(this).append('<div class="overlay"><p>' + s + '</p></div>');
+			}).on('mouseleave', function() {
+				$('.overlay', this).remove();
+			});
+		}
+
+	// Whole card is a link (the title and description sit outside the <a> on touch layouts).
+		$('.thumb').on('click', function(event) {
+			if ($(event.target).closest('a').length)
+				return;
+			var href = $(this).find('a').attr('href');
+			if (href && href != '#')
+				window.location.href = href;
+		});
+
+	// Tabs.
+		var $tabs = $('#tabs button'),
+			$thumbs = $main.children('.thumb'),
+			$empty = $('#tab-empty');
+
+		function showTab(name) {
+			if (!$tabs.filter('[data-tab="' + name + '"]').length)
+				name = $tabs.first().data('tab');
+
+			$tabs.each(function() {
+				$(this).attr('aria-selected', $(this).data('tab') == name ? 'true' : 'false');
 			});
 
-	$('.thumb').on("click", function(){
-		var link = $(this).find('href')
-	})
+			var $visible = $thumbs.filter('[data-tab="' + name + '"]');
+			$thumbs.addClass('is-hidden');
+			$visible.removeClass('is-hidden');
+			$('.tab-section').each(function() {
+				var show = $(this).data('tab') == name;
+				$(this).prop('hidden', !show);
+				// Images in a section only start loading once its tab is opened (then lazily by the browser).
+				if (show)
+					$(this).find('img[data-src]').each(function() {
+						this.src = this.getAttribute('data-src');
+						this.removeAttribute('data-src');
+					});
+			});
+			$empty.prop('hidden', $visible.length > 0);
+		}
 
+		$tabs.on('click', function() {
+			var name = $(this).data('tab');
+			showTab(name);
+			if (history.replaceState)
+				history.replaceState(null, '', '#' + name);
+		});
 
-	$('.thumb').on("mouseover", function(){
-		var s = $(this).find('p')[0].innerHTML
-		$(this).append('<div class="overlay"><p>'+s+'</p></div>')
-	})
-	$('.thumb').on("mouseout", function(){
-	  $('.overlay', this).remove();
-	})
+		$window.on('hashchange', function() {
+			showTab(location.hash.slice(1));
+		});
+
+		showTab(location.hash.slice(1));
 
 })(jQuery);

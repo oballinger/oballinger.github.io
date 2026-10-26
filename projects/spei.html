@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<title>Calculating High-Resolution Standardized Precipitation-Evapotranspiration Index</title>
+<style>
+      .article--center article > div, .article--center article blockquote, .article--center td {  font-size: 2rem; line-height: 1.6; color: #333; }
+      .article--center article div div { font-size: inherit; }
+      .article--center pre, .article--center .caption, .article--center .tr-caption { font-size: 1.3rem !important; }
+      .article--center img { max-width: 100%; height: auto; }
+      .article--center table { margin: 1em auto; }
+      .article--center .tr-caption, .article--center .caption { font-size: 0.85em; color: #666; text-align: center; }
+      .article--center .separator { text-align: center; margin: 1em 0; }
+      .article--center pre { overflow-x: auto; background: #f6f6f6; padding: 1em; font-size: 0.85em; }
+      .article--center iframe, .article--center object { max-width: 100%; }
+    </style>
+</head>
+<body>
+<main>
+<div id="nav-bar">
+<h1><a href="https://oballinger.github.io">Ollie Ballinger</a></h1>
+<nav class="links">
+<ul>
+<li><a href="https://oballinger.github.io">Projects</a></li>
+</ul>
+</nav>
+</div>
+<div class="article__content">
+<div class="article--center">
+<article>
+<header><h1><em>Calculating High-Resolution Standardized Precipitation-Evapotranspiration Index</em></h1><p class="caption">2019-12-24</p></header>
+<div>
+<b:if cond="data:view.isSingleItem">
+<style>
+        .post-body { padding: 0px 150px 0px 150px; }
+    </style>
+</b:if>
+<br/>
+<div>
+<i>This post outlines a workflow for the calculation of a high-resolution version of the Stardardized Precipitation-Evapotranspiration Index (SPEI). This is accomplished in four steps, utilizing Python, R, and JavaScript.</i><br/>
+<br/>
+Quantifying the precise onset, duration, and end of droughts is difficult. Most approaches have historically measured drought as a prolonged deviation from the mean rainfall in an area. The <a href="https://spei.csic.es/index.html" target="_blank">Standardized Precipitation-Evapotranspiration Index</a> (SPEI) builds on previous approaches by incorporating temperature data to account for the amount of water lost to evaporation. This is important because in an arid climate, a six week shortage in rainfall during the summer would have a much greater impact on soil moisture than the same shortage during the winter. This is especially important for drought forecasting that accounts for anthropogenic climate change. Indices that do not incorporate temperature data will persistently underestimate drought incidence as global temperatures continue to rise</div>
+<div>
+<br/></div>
+<div>
+The graph below compares the response of various other drought indices-- the Palmer Drought Severity Index (PDSI) and the Standardized Precipitation Index (SPI)-- to the SPEI under various warming scenarios. As we can see, the SPEI values become negative in response to greater warming, whereas the other drought indices stay relatively static: </div>
+<div class="separator">
+<a href="assets/img/spei/00.png"><img src="assets/img/spei/00.png"/></a></div>
+<div>
+<br/></div>
+</div>
+<div>
+<div>
+<br/></div>
+</div>
+<div>
+There is a wealth of SPEI data on the official <a href="https://spei.csic.es/database.html" target="_blank">website</a>, which is suitable for most applications. However, the spatial resolution of 0.5˚ is relatively coarse, with each cell representing roughly 3080 km<sup>2 </sup>at the equator. Using the TerraClimate dataset on Google Earth Engine, we can calculate SPEI at a spatial resolution of 0.1˚, or just 110 km<sup>2</sup>. The image below demonstrates the difference in resolution between a 0.5˚ square depicted in red, and the underlying raster which represents SPEI calculated at 0.1˚:<br/>
+<br/>
+<br/>
+<div class="separator" style="text-align: center">
+<a href="assets/img/spei/01.png"><img src="assets/img/spei/01.png"/></a></div>
+</div>
+<div>
+<br/>
+A considerable amount of variation in local climactic dynamics is lost by aggregating data at such a coarse level. This post will walk through four simple steps to calculate SPEI at a much more granular level. </div>
+<div>
+<br/>
+<br/></div>
+<div>
+<div>
+<b>1. Generating SPEI input data (Google Earth Engine/Javascript).</b></div>
+<div>
+<b><br/></b></div>
+</div>
+<div>
+<div>
+The input for the calculation of SPEI is the climactic water balance of region <i>i</i>, measured as precipitation minus potential evapotranspiration:</div>
+<div>
+<br/></div>
+<div class="separator" style="text-align: center">
+<a href="assets/img/spei/02.png"><img src="assets/img/spei/02.png"/></a></div>
+<div class="separator">
+<br/></div>
+</div>
+<div>
+<div>
+The first step is to acquire imagery from the TerraClimate dataset and a 10km-by-10km grid shapefile of your region of interest. You can download a global shapefile <a href="https://figshare.com/articles/Global_10_x_10-km_grids_suitable_for_use_in_IUCN_Red_List_of_Ecosystems_assessments_vector_and_raster_format_/4653439/1" target="_blank">here</a>, and clip it according to your region. Alternatively, many countries publish grid shapefiles for areas within their borders. Once you upload your shapefile as an asset to Earth Engine, assign it to a variable called "regions", and load the TerraClimate dataset:<br/>
+<br/></div>
+</div>
+<div>
+<br/>
+<div>
+<pre style="line-height: 125%; margin: 0px;">var regions = ee.FeatureCollection("users/ollie/Grid10km")
+var dataset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
+              .filter(ee.Filter.date('1985-01-01', '2018-02-01'))
+var precip=dataset.select('pr')
+var pet=dataset.select('pet')</pre>
+</div>
+<br/>
+Within TerraClimate, we are selecting two bands: precipitation, and potential evapotranspiration. Also, I have selected a date range of 1985 to 2018 (line 4), but you can go as far back as 1958. Next, we simply convert these bands to image layers and subtract potential evapotranspiration from precipitation. The "rename_band" selects each month within the TerraClimate dataset individually, converting them all to images:<br/>
+<br/></div>
+<div>
+<div>
+<pre style="line-height: 125%; margin: 0px;">var rename_band = function(img){
+    return img.select([0], [img.id()])};
+
+var image1 = precip.map(rename_band).toBands().clip(regions);
+var image2 = pet.map(rename_band).toBands().clip(regions);
+
+var diff= image1.subtract(image2)
+</pre>
+</div>
+<div>
+<br/>
+Now that we have a stacked image of the monthly climactic water balance in our study region, we must export the values to a .csv file so that we can ultimately calculate our drought index using the SPEI package in R. To export the data, we can define a function that creates a table of the mean values of our water balance variable by grid cell, and exports the table to Google Drive:</div>
+<div>
+<br/>
+<div>
+<pre style="line-height: 125%; margin: 0px;">var zonalstats = function(collection, regions, level, filename){
+    var scale = collection.first().projection().nominalScale();
+    var mean = ee.Image(collection)
+                       .reduceRegions({collection: regions, reducer: 
+                       ee.Reducer.mean()});
+    var mean1 = mean.select(['.*'],null,false);
+    var file=filename
+    var levels=level
+
+    return 
+       Export.table.toDrive({
+              collection: mean1, 
+              description: level+"_Mean_"+file, 
+              fileNamePrefix: level+"_Mean_"+file,
+              fileFormat: 'CSV'
+})}
+
+
+zonalstats(diff, regions, 'Grid_10km', "WaterBalance")
+</pre>
+</div>
+<br/></div>
+<div>
+Note: this step can generate a huge number of values and max out your alloted user memory on the Google servers if you aren't careful with your specification. If the computation fails, it's probably because your geographic region was too large or your timescale was too long. Try splitting either one and conducting the export in batches.</div>
+<div>
+<br/>
+<br/></div>
+<div>
+<b>2. Formatting input data (Python).</b></div>
+<br/>
+<br/>
+<div>
+Once we have our monthly water balance .csv files, we must format them. The raw output from Earth Engine needs some cleaning before it is readable by the SPEI package in R, which only accepts time-ordered panel data. I do this using Pandas because the datasets can get pretty huge and are being transposed, which Python is good at handling. You will need to edit two parts of this code; first, you'll need to input the total number of months that your timescale encompasses, and second, edit the "path" variable to point to the location of the water balance data from the previous section.</div>
+<br/>
+<div>
+<div>
+<pre style="line-height: 125%; margin: 0px;">import csv
+import pandas as pd
+from pathlib import Path
+
+months=398
+path="/Users/ollie/Google Drive/"
+
+df=pd.read_csv(path+"Grid_10km_Mean_WaterBalance.csv"), header=None)
+
+df.iloc[0]=df.iloc[0].str.split('_').str[0]
+df.iloc[0]=(df.iloc[0].str[:4])+"_"+(df.iloc[0].str[4:])
+df.columns=df.iloc[0]
+df=df.iloc[1:]
+
+df=df.T.reset_index()
+df.columns=df.loc[months]
+df=df.iloc[1:]
+df=df.iloc[:months-1]
+
+df.to_csv("SPEI_Input10k.csv")
+</pre>
+</div>
+<br/></div>
+<div>
+You could do this in R-- the objective here is to simply transpose the data such that the columns correspond to 10km grid-cells, and the rows correspond to chronologically ordered monthly water balance values (starting with the earliest date).</div>
+<div>
+<br/>
+<br/></div>
+<div>
+<b>3. Calculating SPEI (R).</b></div>
+<div>
+<br/></div>
+<div>
+Now that we have properly formatted input data, we can calculate SPEI in R. The code below calculates 3-month, 6-month, and 12-month rolling SPEI values, and exports them. Once again, you'll have edit the working directory information. You can calculate SPEI for a custom period by editing the number at the end of the spei() command.</div>
+<div>
+<br/>
+<div>
+<pre style="line-height: 125%; margin: 0px;">library(SPEI)
+
+setwd('/Users/ollie/Google Drive/')
+data = read.csv("SPEI_Input10k.csv")
+
+data$CELL_CODE&amp;lt;-NULL
+
+spei3 &lt;- spei(data,na.rm=TRUE, 3)
+spei6 &lt;- spei(data,na.rm=TRUE, 6)
+spei12 &lt;-  spei(data,na.rm=TRUE, 12)
+
+write.csv(spei3,'SPEI_3_month_raw.csv')
+write.csv(spei6,'SPEI_6_month_raw.csv')
+write.csv(spei12,'SPEI_12_month_raw.csv')
+</pre>
+</div>
+<br/></div>
+<div>
+You could stop here. However, the format of the output is the same as the input, and does not contain any date information. To turn the output into a usable panel, we turn back to Python.</div>
+<div>
+<br/></div>
+<div>
+<b>4. Final formatting (Python).</b></div>
+<div>
+<br/></div>
+<div>
+The R output does not contain a date variable, but we know the base year/month (in my case, January 1985), and that the values are chronologically ordered. The first step is to define a function that converts the index value-- which conveniently indicates the number of months since our base date-- into a year-month string. You could use "datetime" commands, but it's a relatively simple task (divide by 12 and add the remainder), so you can even just do it mathematically as I've done below.</div>
+<br/>
+<br/>
+<div>
+<pre style="line-height: 125%; margin: 0px;">import os
+import glob
+import csv
+import numpy as np
+import pandas as pd
+from pathlib import Path
+import re
+
+def monthly(f):
+      baseyear=1985
+      basemonth=0
+      newmonth=basemonth+f
+      newyear=baseyear+int(newmonth/12)
+      if newmonth&gt;12:
+           month=newmonth%12
+      else:
+           month=newmonth
+      if newmonth%12==0:
+           newyear=newyear-1
+           month=12
+      else:
+           pass
+      return(str(newyear)+"-"+str(month))
+
+folder="/Users/ollie/Google Drive/"
+</pre>
+<pre style="line-height: 125%; margin: 0px;">path=folder+"*_month_*"
+</pre>
+<pre style="line-height: 125%; margin: 0px;">files=glob.glob(path)
+
+for f in files:
+      df=pd.read_csv(f, header=None,dtype=object)
+      filename= os.path.basename(f)
+      df=df.reset_index()
+      for a in range(len(df)-1):
+            df.loc[[a],0]=df.loc[[a],0].fillna("cell")
+            inp=int(df.loc[[a+1],0])
+            df.loc[[a+1],0]=monthly(inp)
+      df=df.T
+      df=df.reset_index()
+      df.columns=df.iloc[1]
+      df=df.iloc[3:]
+      df.to_csv(filename+".csv")
+</pre>
+<pre style="line-height: 125%; margin: 0px;">
+</pre>
+</div>
+<div>
+<br/>
+After reformatting, we have several SPEI panel datasets in which columns correspond to dates (month-year combinations) and rows correspond to locations (10km grid-cells).From here, the data can easily be converted to cell-month dyads using pd.melt(). <br/>
+<br/><br/><b>Notes on usage</b><br/>
+<b><br/></b>The rolling SPEI value for a given month is calculated for the specified number of months preceding it. Thus, for a timescale <i>n</i>, the SPEI value for a given month is more representative of the <i>n</i> months preceding it.<br/>
+<br/>
+I've illustrated this in the figure below, with 3-month SPEI is represented in red, 6 month SPEI in green, and 12 month SPEI in blue. The numbers at the top correspond to months, and the numbers in the colored SPEI boxes indicate the month for which that SPEI value was calculated; for example, the red box in the top left corner is the SPEI value for March, with the box indicating that rainfall and evapotranspiration data from January, February, and March were used to calculate its value.<br/>
+<br/>
+<br/>
+<div class="separator" style="text-align: center">
+<a href="assets/img/spei/03.png"><img src="assets/img/spei/03.png"/></a></div>
+<br/>
+This can be misleading. In an arid climate in which June is typically hot and dry, the 3-month SPEI value for June would probably be quite high (i.e. wet), because it is using data from April, May, and June to calculate it. Similarly, 3-month SPEI for September would seem unusually low because it uses data from July and August as well. Accounting for this lag is very important, especially when selecting the appropriate SPEI values to cover a certain set of months (e.g. during part of a crop cycle). </div>
+</div>
+</article>
+</div>
+</div>
+</main>
+</body>
+</html>

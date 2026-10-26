@@ -1,0 +1,282 @@
+[
+  {
+    "date": "2022-02-19",
+    "outlet": "The Economist",
+    "headline": "A new era of transparent warfare beckons",
+    "url": "https://www.economist.com/briefing/2022/02/19/a-new-era-of-transparent-warfare-beckons",
+    "synopsis": "Briefing on how commercial satellites and OSINT are making military build-ups visible ahead of Russia's invasion of Ukraine. Describes Ballinger's Radar Interference Tracker, which picked up likely radar emissions from Russia's Pogonovo base; an image is credited to him.",
+    "image": "images/press/2022-02-19_economist.jpg",
+    "confidence": "verified",
+    "evidence": "Archived copy (Wayback) text: 'Ollie Ballinger, a lecturer at University College London, built a tool called the Radar Interference Tracker'; image credit 'Source: Ollie Ballinger, UCL/Google'."
+  },
+  {
+    "date": "2022-03-02",
+    "outlet": "Hackaday",
+    "headline": "You Can Find Military Radars On Publicly-Available Satellite Data",
+    "url": "https://hackaday.com/2022/03/02/you-can-find-military-radars-on-publicly-available-satellite-data/",
+    "synopsis": "Explainer on how military radars leave interference stripes in Sentinel-1 imagery. Built around Ballinger's Radar Interference Tracker and how it can reveal Patriot, S-400 and other systems.",
+    "image": "images/press/2022-03-02_hackaday.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'a new tool built by geocomputation lecturer Ollie Ballinger' (4 mentions)."
+  },
+  {
+    "date": "2022-03-04",
+    "outlet": "Sky News",
+    "headline": "Ukraine invasion: How satellites as small as a shoebox are giving the public eyes and ears on a conflict zone",
+    "url": "https://news.sky.com/story/ukraine-invasion-how-satellites-as-small-as-a-shoebox-are-giving-the-public-eyes-and-ears-on-a-conflict-zone-12556864",
+    "synopsis": "Feature on commercial and open satellite imagery of the Ukraine war. Describes Ballinger's Radar Interference Tracker and his use of it to detect a Russian exercise in Belarus before the invasion.",
+    "image": "images/press/2022-03-04_sky-news.jpg",
+    "confidence": "verified",
+    "evidence": "Archived copy (Wayback) text: 'Ollie Ballinger, a remote imaging specialist at University College London, has written an open source tool called the Radar Interference Tracker'."
+  },
+  {
+    "date": "2023-02-16",
+    "outlet": "The Economist",
+    "headline": "Poor areas suffered 3.5 times more damage in Turkey's earthquake",
+    "url": "https://www.economist.com/graphic-detail/2023/02/16/poor-areas-suffered-35-times-more-damage-in-turkeys-earthquake",
+    "synopsis": "Data analysis of building damage from the February 2023 Turkey earthquakes, linked to property prices. The Sentinel-1 damage estimates were produced by Ballinger at the Economist's request.",
+    "image": "images/press/2023-02-16_economist.jpg",
+    "confidence": "verified",
+    "evidence": "Archived copy (Wayback): 'At our request Ollie Ballinger of University College London compared images...'; chart sources list 'Ollie Ballinger'."
+  },
+  {
+    "date": "2023-02-23",
+    "outlet": "The Economist",
+    "headline": "Data from satellites reveal the vast extent of fighting in Ukraine",
+    "url": "https://www.economist.com/interactive/briefing/2023/02/23/data-from-satellites-reveal-the-vast-extent-of-fighting-in-ukraine",
+    "synopsis": "Interactive briefing marking a year of war in Ukraine, using fire data and radar imagery. Damage estimates, such as for Bakhmut, come from SAR analysis; Ballinger is credited among the sources.",
+    "image": "images/press/2023-02-23_economist.jpg",
+    "confidence": "verified",
+    "evidence": "Archived copy (Wayback): sources line reads '... NASA; Ollie Ballinger; WorldPop; The Economist'."
+  },
+  {
+    "date": "2023-05-16",
+    "outlet": "Kyiv Post",
+    "headline": "Deadline Looms Over Grain Deal Amid 'Ghost Ships' and Blackmail",
+    "url": "https://www.kyivpost.com/post/17115",
+    "synopsis": "Report on the Black Sea grain deal and Russian 'ghost ships' moving grain from occupied Crimea. Cites Bellingcat's satellite investigation and quotes Ballinger on ships at Sevastopol's Avlita terminal with transponders off.",
+    "image": "images/press/2023-05-16_kyiv-post.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: quote attributed to 'Ollie Balinger, Bellingcat's geocomputational specialist' (name misspelled in original)."
+  },
+  {
+    "date": "2023-10-13",
+    "outlet": "Lloyd's List",
+    "headline": "Russia's suspected grain laundering fleet undergoes major reshuffle, but only on paper",
+    "url": "https://www.lloydslist.com/LL1146913/Russias-suspected-grain-laundering-fleet-undergoes-major-reshuffle-but-only-on-paper",
+    "synopsis": "Shipping trade press investigation into ownership changes in a fleet suspected of laundering Ukrainian grain. Features Ballinger's interactive tool mapping ship-to-ship transfer networks at the Kavkaz anchorage.",
+    "image": "images/press/2023-10-13_lloyds-list.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'Ollie Ballinger, a lecturer in geocomputation at University College London, created an interactive tool...'."
+  },
+  {
+    "date": "2024-09-25",
+    "outlet": "Misbar",
+    "headline": "Widespread Destruction: Satellite Images Disprove Israeli, U.S. Claims of Limited Invasion in Rafah",
+    "url": "https://www.misbar.com/en/editorial/2024/09/25/widespread-destruction-satellite-images-disprove-israeli-us-claims-of-limited-invasion-in-rafah",
+    "synopsis": "Fact-checking outlet's analysis of destruction in Rafah, contradicting claims of a limited operation. Uses findings from Ballinger's Gaza Damage Proxy Map.",
+    "image": "images/press/2024-09-25_misbar.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'the Gaza Damage Proxy Map tool, developed by Ollie Ballinger, a researcher and lecturer at ... CASA ... UCL'."
+  },
+  {
+    "date": "2024-10-17",
+    "outlet": "Meduza",
+    "headline": "За год боев в секторе Газа разрушены более 60% домов (More than 60% of homes in Gaza destroyed in a year of fighting)",
+    "url": "https://meduza.io/feature/2024/10/17/za-god-boev-v-sektore-gaza-razrusheny-bolee-60-domov-my-znaem-eto-blagodarya-oon-i-karte-fiksiruyuschey-povrezhdeniya-v-realnom-vremeni",
+    "synopsis": "Russian-language interview with Ballinger, creator of the Gaza damage map, marking a year of war in Gaza. Covers how the tool, first built for Ukraine, estimates damage from radar imagery.",
+    "image": "images/press/2024-10-17_meduza.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: title says 'Интервью ее создателя Олли Бэллинджера'; images credited 'Ollie Ballinger'."
+  },
+  {
+    "date": "2025-11-12",
+    "outlet": "BBC Verify",
+    "headline": "Israel has destroyed more than 1,500 buildings in Gaza since ceasefire",
+    "url": "https://www.bbc.co.uk/news/articles/c0mxylxw48yo",
+    "synopsis": "BBC Verify investigation into demolitions in Israeli-controlled areas of Gaza after the October 2025 ceasefire, using my pixel-wise t-test change detection method to flag destruction.",
+    "image": "images/thumbs/bbc_gaza_demolitions.jpg",
+    "confidence": "verified",
+    "evidence": "Article headline/date from bbc.co.uk og metadata; BBC Verify Instagram video (posted 12.11.2025) shows the pixel-wise t-test method. Added by Ollie (2026-10-25)."
+  },
+  {
+    "date": "2025-11-21",
+    "outlet": "The New York Times",
+    "headline": "Satellite Data Reveals How the U.S. Navy Is Deployed Near Venezuela",
+    "url": "https://www.nytimes.com/2025/11/21/world/americas/us-navy-venezuela-satellite-data.html",
+    "synopsis": "Visual investigation mapping nearly 100 U.S. Navy vessel sightings near Venezuela over two and a half months. The detections came from Ballinger's vessel-detection model and were verified by the Times.",
+    "image": "images/press/2025-11-21_nyt.jpg",
+    "confidence": "verified",
+    "evidence": "Paywalled. Google News exact-phrase search for \"Ollie Ballinger\" returns this article; corroborated by Ballinger's own site description of the collaboration. Body text not fetched."
+  },
+  {
+    "date": "2025-12-19",
+    "outlet": "Financial Times",
+    "headline": "Satellite images track Donald Trump's squeeze on Venezuela",
+    "url": "https://www.ft.com/content/234a7494-daf4-43df-902e-444237a308dc",
+    "synopsis": "Satellite-based look at U.S. military deployments and oil-blockade pressure on Venezuela, drawing on my satellite vessel detections.",
+    "image": "images/press/2025-12-19_ft.jpg",
+    "confidence": "verified",
+    "evidence": "Paywalled. Returned by Google News exact-phrase search for \"Ollie Ballinger\"; body text not accessible. Mention confirmed by Ollie (2026-10-24)."
+  },
+  {
+    "date": "2026-01-08",
+    "outlet": "The New York Times",
+    "headline": "U.S. Navy Is Chasing Several Oil Tankers in the Atlantic",
+    "url": "https://www.nytimes.com/2026/01/08/world/americas/navy-chasing-tankers-venezuela.html",
+    "synopsis": "Report on sanctioned tankers fleeing the U.S. blockade of Venezuela, some reflagged as Russian. The Times tracked the vessels with me using my ship-detection program.",
+    "image": "images/press/2026-01-08_nyt.jpg",
+    "confidence": "verified",
+    "evidence": "Paywalled. Returned by Google News exact-phrase search for \"Ollie Ballinger\"; Riviera (9 Jan 2026) states the NYT and Ballinger used his programme to track the vessels. Mention confirmed by Ollie (2026-10-24)."
+  },
+  {
+    "date": "2026-01-09",
+    "outlet": "Riviera Maritime Media",
+    "headline": "Video: US confirms fifth Venezuela-linked tanker seized in Caribbean Sea",
+    "url": "https://www.rivieramm.com/news-content-hub/video-us-confirms-fifth-venezuela-linked-tanker-seized-in-caribbean-sea-87366",
+    "synopsis": "Maritime news report on U.S. seizures of tankers that broke out of the Venezuela blockade. Notes the New York Times and Ballinger tracked the escaping vessels with a program he developed.",
+    "image": "images/press/2026-01-09_riviera.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'The New York Times and ... CASA lecturer, Ollie Ballinger, used a computer programme developed by Mr Ballinger to track the vessels'."
+  },
+  {
+    "date": "2026-01-10",
+    "outlet": "The Washington Post",
+    "headline": "11 tankers under U.S. sanctions defy blockade in Venezuela, satellite imagery indicates",
+    "url": "https://www.washingtonpost.com/investigations/2026/01/10/venezuela-oil-tankers-us-blockade/",
+    "synopsis": "Investigation using Sentinel satellite imagery to show sanctioned tankers sailing beyond the U.S. blockade of Venezuela. My satellite analysis underpins the tanker detections.",
+    "image": "images/press/2026-01-10_washington-post.jpg",
+    "confidence": "verified",
+    "evidence": "Paywalled, page not fetchable. Returned by Google News exact-phrase search for \"Ollie Ballinger\"; a UCL news item with the same headline attributes the analysis to Ballinger (seen as search snippet only). Mention confirmed by Ollie (2026-10-24)."
+  },
+  {
+    "date": "2026-01-15",
+    "outlet": "Financial Times",
+    "headline": "Middle East governments believe US-Iran tension has 'de-escalated'",
+    "url": "https://www.ft.com/content/df0c0833-59f6-45d6-a74f-008b46756e72",
+    "synopsis": "Report on Gulf states urging Washington to hold off on strikes against Iran. Cites my satellite analysis showing the USS Abraham Lincoln carrier group heading toward the region.",
+    "image": "images/press/2026-01-15_ft.jpg",
+    "confidence": "verified",
+    "evidence": "Paywalled. Returned by Google News search for \"Ollie Ballinger\"; Vijesti's syndicated version (16 Jan 2026) contains the Ballinger passage. Mention confirmed by Ollie (2026-10-24)."
+  },
+  {
+    "date": "2026-01-16",
+    "outlet": "Vijesti",
+    "headline": "The Arabs convinced the barterer to wait",
+    "url": "https://en.vijesti.me/world-a/globus/791462/The-Arabs-convinced-the-barterer-to-wait.",
+    "synopsis": "Montenegrin outlet's version of the FT report on Gulf states lobbying Trump to delay Iran strikes. Cites satellite analysis by Ballinger tracking the USS Abraham Lincoln strike group.",
+    "image": "images/press/2026-01-16_vijesti.jpg",
+    "confidence": "verified",
+    "evidence": "Archived copy (Wayback): 'according to a diplomat and satellite analysis by Ollie Ballinger, a lecturer in geospatial computing at University College London'."
+  },
+  {
+    "date": "2026-03-20",
+    "outlet": "Texty.org.ua",
+    "headline": "Satellite images indicate serious damage to the Druzhba oil pipeline",
+    "url": "https://texty.org.ua/articles/117107/satellite-images-indicate-serious-damage-to-the-druzhba-oil-pipeline/",
+    "synopsis": "Ukrainian data-journalism analysis of strike damage to a Druzhba pipeline facility. Uses Ballinger's Sentinel-1 damage algorithm to confirm extensive damage.",
+    "image": "images/press/2026-03-20_texty.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'an algorithm based on Sentinel-1 proposed by British scientist and geospatial computing expert Ollie Ballinger'."
+  },
+  {
+    "date": "2026-04-24",
+    "outlet": "Linkiesta",
+    "headline": "Il satellite europeo che vede quando gli altri si spengono (The European satellite that sees when others go dark)",
+    "url": "https://www.linkiesta.it/2026/04/il-satellite-europeo-che-vede-quando-gli-altri-si-spengono/",
+    "synopsis": "Italian feature on how Sentinel-1 radar fills the gap left by commercial imagery restrictions over Iran and the Gulf. Covers Bellingcat's damage map built on Ballinger's method; figures credited to him.",
+    "image": "images/press/2026-04-24_linkiesta.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'Fonte: Bellingcat / Ollie Ballinger' (2 mentions)."
+  },
+  {
+    "date": "2026-10-18",
+    "outlet": "Financial Times",
+    "headline": "Russian ships fake locations to appear in two places at once",
+    "url": "https://www.ft.com/content/f9dd0c26-3de3-4ecc-8a08-7d08f0946d08",
+    "synopsis": "Report on a new AIS spoofing tactic in Russia's shadow fleet. Based on Ballinger's finding that at least 12 sanctioned tankers broadcast identical frozen positions, some appearing in two places at once.",
+    "image": "images/press/2026-10-18_ft.jpg",
+    "confidence": "verified",
+    "evidence": "Paywalled, but multiple outlets (TVP World, TradeWinds, i Paper, Chosunbiz, GEO) attribute the findings to Ballinger 'told the Financial Times'; also returned by Google News exact-phrase search."
+  },
+  {
+    "date": "2026-10-18",
+    "outlet": "BNR Nieuwsradio",
+    "headline": "Russische schaduwvloot gebruikt nieuwe misleidingsmethode om sancties te ontwijken",
+    "url": "https://www.bnr.nl/nieuws/internationaal/10613804/russische-schaduwvloot-gebruikt-nieuwe-misleidingsmetode-om-sancties-en-droneaanvallen-te-ontwijken",
+    "synopsis": "Dutch radio news write-up of the FT shadow-fleet spoofing story. Credits Ballinger with finding at least twelve sanctioned tankers broadcasting false frozen positions.",
+    "image": "images/press/2026-10-18_bnr.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'Ollie Ballinger, op University College Londen expert in het opsporen van schaduwvloten, ontdekte...'."
+  },
+  {
+    "date": "2026-10-19",
+    "outlet": "Chosunbiz",
+    "headline": "Russia shadow fleet fakes ship locations to dodge drones and sanctions",
+    "url": "https://biz.chosun.com/en/en-international/2026/10/19/Q3CWMIJSYVEKNGVLQR6Z4EHKLE/",
+    "synopsis": "Korean business daily's report on the FT story about Black Sea tankers spoofing their positions. Attributes the detection to Ballinger.",
+    "image": "images/press/2026-10-19_chosunbiz.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'Oli Ballinger, a shadow fleet-tracking expert at University College London' (name spelled 'Oli')."
+  },
+  {
+    "date": "2026-10-19",
+    "outlet": "TVP World",
+    "headline": "Russian oil tankers fake locations to evade Ukrainian attacks",
+    "url": "https://tvpworld.com/96004280/russian-oil-tankers-fake-locations-to-evade-ukrainian-attacks-in-black-sea",
+    "synopsis": "Polish public broadcaster's English service on shadow-fleet tankers transmitting frozen AIS positions in the Black Sea. Cites Ballinger's findings as reported by the FT.",
+    "image": "images/press/2026-10-19_tvp-world.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'Ollie Ballinger, a shadow fleet tracking specialist at University College London, told the Financial Times'."
+  },
+  {
+    "date": "2026-10-19",
+    "outlet": "The i Paper",
+    "headline": "Why Putin's shadow fleet now poses greater danger to UK",
+    "url": "https://inews.co.uk/news/why-putins-shadow-fleet-greater-danger-uk-4836697",
+    "synopsis": "Analysis of the growing security threat from Russia's shadow fleet around the UK. Mentions the 'two places at once' spoofing technique first catalogued by Ballinger.",
+    "image": "images/press/2026-10-19_i-paper.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'The technique, first catalogued by Ollie Ballinger, a researcher at University College London...'."
+  },
+  {
+    "date": "2026-10-20",
+    "outlet": "TradeWinds",
+    "headline": "Russian shadow fleet tankers 'adopt new spoofing technique'",
+    "url": "https://www.tradewindsnews.com/tankers/russian-shadow-fleet-tankers-adopt-new-spoofing-technique-/2-1-2061027",
+    "synopsis": "Shipping trade press report on tankers broadcasting a fixed position alongside their real one. Built on Ballinger's findings, including the tanker Pirop appearing in the Bosphorus.",
+    "image": "images/press/2026-10-20_tradewinds.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'according to Ollie Ballinger, a researcher at University College London (UCL)'."
+  },
+  {
+    "date": "2026-10-20",
+    "outlet": "TASR (teraz.sk)",
+    "headline": "Tankery tieňovej flotily údajne falšujú údaje AIS o svojej polohe",
+    "url": "https://www.teraz.sk/zahranicie/ft-tankery-tienovej-flotily-falsuju/1001305-clanok.html",
+    "synopsis": "Slovak news agency report on shadow-fleet tankers faking AIS positions, based on the FT story. Ballinger is the cited expert.",
+    "image": "images/press/2026-10-20_tasr.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: summary cites 'expert na sledovanie tieňovej flotily Ollie Ballinger' (8 mentions)."
+  },
+  {
+    "date": "2026-10-21",
+    "outlet": "STVR",
+    "headline": "Lode ruskej tieňovej flotily v Čiernom mori menia svoje údaje, píše FT",
+    "url": "https://spravy.stvr.sk/2026/10/lode-ruskej-tienovej-flotily-v-ciernom-mori-menia-svoje-udaje-pise-ft-chrania-sa-tak-pred-dronovymi-utokmi",
+    "synopsis": "Slovak public broadcaster's report on Black Sea shadow-fleet ships altering location data to avoid drone strikes. Cites Ballinger of UCL CASA.",
+    "image": "images/press/2026-10-21_stvr.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: '...Centra pre pokročilú priestorovú analýzu (CASA) na University College London (UCL) Ollie Ballinger'."
+  },
+  {
+    "date": "2026-10-22",
+    "outlet": "GEO (France)",
+    "headline": "Dans les eaux internationales, des pétroliers russes fantômes apparaissent soudain à deux endroits",
+    "url": "https://www.geo.fr/geopolitique/dans-les-eaux-internationales-des-petroliers-russes-fantomes-apparaissent-a-deux-endroits-234123",
+    "synopsis": "French magazine's report on Russian shadow-fleet tankers appearing in two places at once. Relays Ballinger's observations from the FT.",
+    "image": "images/press/2026-10-22_geo.jpg",
+    "confidence": "verified",
+    "evidence": "Fetched page: 'Selon les observations d'Ollie Ballinger, spécialiste de la traque de la flotte fantôme...'."
+  }
+]

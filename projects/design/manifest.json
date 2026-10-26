@@ -1,0 +1,257 @@
+{
+ "wibbler": {
+  "title": "Wibbler",
+  "media": [
+   {
+    "type": "img",
+    "src": "media/01.jpg",
+    "w": 1200,
+    "h": 900
+   },
+   {
+    "type": "img",
+    "src": "media/02.jpg",
+    "w": 1100,
+    "h": 750
+   },
+   {
+    "type": "img",
+    "src": "media/03.jpg",
+    "w": 1100,
+    "h": 750
+   },
+   {
+    "type": "img",
+    "src": "media/04.jpg",
+    "w": 900,
+    "h": 900
+   },
+   {
+    "type": "img",
+    "src": "media/05.jpg",
+    "w": 1400,
+    "h": 900
+   }
+  ],
+  "drawings": [
+   {
+    "svg": "drawings/arrangement.svg",
+    "pdf": "drawings/arrangement.pdf",
+    "title": "GA-001 \u2014 General arrangement",
+    "note": "Jar and glove diaphragm, three lasers at 45\u00b0 onto three mirrors; laser bracket, membrane plan and the wibble detail."
+   }
+  ],
+  "cta": {
+   "href": "../../../wibbler/",
+   "label": "Launch Wibbler"
+  }
+ },
+ "staabi-lamp": {
+  "title": "Staabi Lamp",
+  "media": [
+   {
+    "type": "img",
+    "src": "media/01.jpg",
+    "w": 1600,
+    "h": 1083
+   },
+   {
+    "type": "img",
+    "src": "media/02.jpg",
+    "w": 1600,
+    "h": 1040
+   },
+   {
+    "type": "vid",
+    "src": "media/03.mp4",
+    "poster": "media/03.jpg",
+    "w": 960,
+    "h": 1280
+   },
+   {
+    "type": "img",
+    "src": "media/04.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "vid",
+    "src": "media/05.mp4",
+    "poster": "media/05.jpg",
+    "w": 720,
+    "h": 1280
+   },
+   {
+    "type": "img",
+    "src": "media/06.jpg",
+    "w": 1600,
+    "h": 1200
+   },
+   {
+    "type": "img",
+    "src": "media/07.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/08.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "vid",
+    "src": "media/09.mp4",
+    "poster": "media/09.jpg",
+    "w": 720,
+    "h": 1280
+   },
+   {
+    "type": "img",
+    "src": "media/10.jpg",
+    "w": 1200,
+    "h": 1600
+   }
+  ]
+ },
+ "slide-projector": {
+  "title": "GB1-C Slide Projector",
+  "media": [
+   {
+    "type": "img",
+    "src": "media/01.jpg",
+    "w": 900,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/02.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/03.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/04.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/05.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/06.jpg",
+    "w": 1200,
+    "h": 1600
+   }
+  ],
+  "drawings": [
+   {
+    "svg": "drawings/schematic.svg",
+    "pdf": "drawings/schematic.pdf",
+    "title": "GA-001 \u2014 Connector (Canon FD) and stand",
+    "note": "Dimensioned sheet: section through the connector, mount face, stand elevation and plan."
+   },
+   {
+    "svg": "drawings/arrangement.svg",
+    "pdf": "drawings/arrangement.pdf",
+    "title": "GA-002 \u2014 General arrangement",
+    "note": "The stack sectioned on its axis, exploded order of assembly, Section A-A and parts list."
+   }
+  ]
+ },
+ "anti-tank-lamp": {
+  "title": "Anti-Tank Lamp",
+  "media": [
+   {
+    "type": "img",
+    "src": "media/01.jpg",
+    "w": 1600,
+    "h": 1039
+   },
+   {
+    "type": "img",
+    "src": "media/02.jpg",
+    "w": 1600,
+    "h": 1200
+   },
+   {
+    "type": "vid",
+    "src": "media/03.mp4",
+    "poster": "media/03.jpg",
+    "w": 720,
+    "h": 1280
+   },
+   {
+    "type": "vid",
+    "src": "media/04.mp4",
+    "poster": "media/04.jpg",
+    "w": 720,
+    "h": 1280
+   },
+   {
+    "type": "vid",
+    "src": "media/05.mp4",
+    "poster": "media/05.jpg",
+    "w": 720,
+    "h": 1280
+   }
+  ]
+ },
+ "tent-jacket": {
+  "title": "Tent Jacket",
+  "media": [
+   {
+    "type": "img",
+    "src": "media/01.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/02.jpg",
+    "w": 1600,
+    "h": 1200
+   },
+   {
+    "type": "img",
+    "src": "media/03.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/04.jpg",
+    "w": 900,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/05.jpg",
+    "w": 1200,
+    "h": 1600
+   },
+   {
+    "type": "img",
+    "src": "media/06.jpg",
+    "w": 1600,
+    "h": 1200
+   },
+   {
+    "type": "img",
+    "src": "media/07.jpg",
+    "w": 1600,
+    "h": 1200
+   }
+  ]
+ }
+}

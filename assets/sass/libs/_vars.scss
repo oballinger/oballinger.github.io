@@ -53,8 +53,8 @@
 
 // Font.
 	$font: (
-		family:				('Source Sans Pro', Helvetica, sans-serif),
-		family-fixed:		('Courier New', monospace),
+		family:				(Menlo, Monaco, Consolas, monospace),
+		family-fixed:		(Menlo, Monaco, Consolas, monospace),
 		weight:				300,
 		weight-bold:		300,
 		weight-extrabold:	400,
@@ -77,5 +77,5 @@
 		border:				#36383c,
 		border-bg:			#34363b,
 		border-bg-alt:		#44464b,
-		accent1:			#34a58e
+		accent1:			#707071
 	);

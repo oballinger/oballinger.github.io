@@ -1,0 +1,555 @@
+/* Scrollytelling layout for design project pages */
+
+:root {
+	--bg: #242629;
+	--panel: #1d1f22;
+	--text: #c9c9ca;
+	--heading: #ffffff;
+	--accent: #a0a0a1;
+	--rule: rgba(255, 255, 255, 0.12);
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	background: var(--bg);
+	color: var(--text);
+	font-family: Menlo, Monaco, Consolas, monospace;
+	font-size-adjust: 0.42;
+	font-size: 17px;
+	font-weight: 300;
+	letter-spacing: 0.01em;
+	line-height: 1.7;
+	margin: 0;
+}
+
+a {
+	color: var(--accent);
+}
+
+/* Top bar */
+
+.topbar {
+	align-items: center;
+	background: var(--bg);
+	border-bottom: solid 1px var(--rule);
+	display: flex;
+	gap: 1rem;
+	height: 3.25rem;
+	justify-content: space-between;
+	padding: 0 1.25rem;
+	position: sticky;
+	top: 0;
+	z-index: 20;
+}
+
+	.topbar a {
+		color: var(--heading);
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: 0.25em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+		.topbar a:hover {
+			color: var(--accent);
+		}
+
+	.topbar .crumb {
+		color: rgba(255, 255, 255, 0.55);
+		font-size: 0.75rem;
+		letter-spacing: 0.2em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+/* Intro */
+
+.intro {
+	margin: 0 auto;
+	max-width: 46rem;
+	padding: 4.5rem 1.5rem 3rem;
+	text-align: center;
+}
+
+	.intro .kicker {
+		color: var(--accent);
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: 0.25em;
+		margin: 0 0 0.75rem;
+		text-transform: uppercase;
+	}
+
+	.intro h1 {
+		color: var(--heading);
+		font-size: clamp(2rem, 5vw, 3.25rem);
+		font-weight: 300;
+		letter-spacing: 0.08em;
+		line-height: 1.15;
+		margin: 0 0 1rem;
+		text-transform: uppercase;
+	}
+
+	.intro p {
+		font-size: 1.1rem;
+		margin: 0;
+	}
+
+/* Scrolly: media pinned left, text steps on the right */
+
+.scrolly {
+	display: grid;
+	grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+	position: relative;
+}
+
+.frame {
+	height: calc(100vh - 3.25rem);
+	height: calc(100svh - 3.25rem);
+	overflow: hidden;
+	position: sticky;
+	top: 3.25rem;
+}
+
+	.layer {
+		inset: 0;
+		opacity: 0;
+		position: absolute;
+		transition: opacity 0.6s ease;
+		visibility: hidden;
+	}
+
+		.layer.is-active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		/* Blurred copy of the same media fills any letterboxing, so portrait,
+		   landscape and square media all sit comfortably in the same frame. */
+		.layer .fill {
+			background-position: center;
+			background-size: cover;
+			filter: blur(28px) brightness(0.45) saturate(1.2);
+			inset: -40px;
+			position: absolute;
+		}
+
+		/* Media fills the whole frame (scaled to fit, never cropped); the
+		   caption floats over the bottom edge instead of taking space. */
+		.layer figure {
+			height: 100%;
+			margin: 0;
+			position: relative;
+		}
+
+		.layer img,
+		.layer video {
+			display: block;
+			height: 100%;
+			object-fit: contain;
+			width: 100%;
+		}
+
+		.layer .model {
+			cursor: grab;
+			height: 100%;
+			position: relative;
+			touch-action: pan-y;
+			width: 100%;
+		}
+
+			.layer .model:active {
+				cursor: grabbing;
+			}
+
+			.layer .model canvas {
+				display: block;
+			}
+
+			/* Hint until the model has loaded, then a quiet "drag to rotate" label */
+			.layer .model::after {
+				color: rgba(255, 255, 255, 0.6);
+				content: "Loading 3D model\2026";
+				font-size: 0.75rem;
+				left: 50%;
+				letter-spacing: 0.15em;
+				pointer-events: none;
+				position: absolute;
+				text-transform: uppercase;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				white-space: nowrap;
+			}
+
+			.layer .model.is-loaded::after {
+				content: "Drag to rotate";
+				top: 1.25rem;
+				transform: translateX(-50%);
+			}
+
+			.layer .model.is-error::after {
+				content: "Model failed to load";
+			}
+
+		.layer figcaption {
+			background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+			bottom: 0;
+			color: rgba(255, 255, 255, 0.85);
+			font-size: 0.8rem;
+			left: 0;
+			letter-spacing: 0.05em;
+			padding: 2rem 5rem 0.9rem;
+			position: absolute;
+			right: 0;
+			text-align: center;
+		}
+
+	.counter {
+		bottom: 1rem;
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.75rem;
+		font-variant-numeric: tabular-nums;
+		letter-spacing: 0.2em;
+		position: absolute;
+		right: 1.25rem;
+		z-index: 2;
+	}
+
+.steps {
+	padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+/* Full-screen panels: the media widens over the text column and is scaled
+   to fit the whole window (never cropped; the blurred fill covers the rest);
+   text cards float over it on a dark backing. */
+
+.frame {
+	transition: width 0.6s ease;
+	width: 100%;
+	z-index: 1;
+}
+
+.steps {
+	position: relative;
+	z-index: 2;
+}
+
+	.step .card {
+		transition: background-color 0.4s ease, padding 0.4s ease;
+	}
+
+		.step .card:empty,
+		.step .card.is-empty {
+			display: none;
+		}
+
+.topbar {
+	transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+	.is-full-panel .topbar {
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+	}
+
+@media (min-width: 801px) {
+
+	/* The media column is 3/5 of the scrolly, so 5/3 of it spans the full width. */
+	.scrolly.is-full .frame {
+		width: calc(100% * 5 / 3);
+	}
+
+	.scrolly.is-full .step .card {
+		-webkit-backdrop-filter: blur(6px);
+		backdrop-filter: blur(6px);
+		background: rgba(29, 31, 34, 0.82);
+		border-radius: 4px;
+		padding: 1.5rem 1.75rem;
+	}
+
+
+	/* Over a full-screen image only the current card shows, so neighbours
+	   scrolling past don't cover the picture. */
+	.scrolly.is-full .step:not(.is-active) {
+		opacity: 0;
+	}
+
+}
+
+	.step {
+		align-items: center;
+		display: flex;
+		min-height: 85vh;
+		min-height: 85svh;
+		opacity: 0.35;
+		transition: opacity 0.4s ease;
+	}
+
+		.step.is-active {
+			opacity: 1;
+		}
+
+		.step:first-child {
+			min-height: 70vh;
+			min-height: 70svh;
+		}
+
+		.step:last-child {
+			min-height: 100vh;
+			min-height: 100svh;
+		}
+
+		.step .card {
+			max-width: 30rem;
+		}
+
+		.step h2 {
+			color: var(--heading);
+			font-size: 1.15rem;
+			font-weight: 400;
+			letter-spacing: 0.15em;
+			margin: 0 0 0.6rem;
+			text-transform: uppercase;
+		}
+
+		.step p {
+			margin: 0 0 1em;
+		}
+
+			.step p:last-child {
+				margin-bottom: 0;
+			}
+
+/* Outro */
+
+.outro {
+	border-top: solid 1px var(--rule);
+	padding: 3rem 1.5rem 4rem;
+	text-align: center;
+}
+
+	.outro a {
+		border: solid 1px rgba(255, 255, 255, 0.35);
+		border-radius: 2em;
+		color: var(--heading);
+		display: inline-block;
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: 0.25em;
+		padding: 0.8em 1.8em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+		.outro a:hover {
+			border-color: var(--heading);
+		}
+
+/* Wide screens: while the media is pinned, the top bar sits over the text
+   column only, so the media runs the full height of the window. Above and
+   below the scrolly section the bar spans the page. */
+
+@media (min-width: 801px) {
+
+	.topbar {
+		left: 0;
+		position: fixed;
+		right: 0;
+	}
+
+		.is-pinned .topbar {
+			left: 60%;
+		}
+
+	body {
+		padding-top: 3.25rem;
+	}
+
+	.frame {
+		height: 100vh;
+		height: 100svh;
+		top: 0;
+	}
+
+}
+
+/* Narrow screens: media pinned to the top half, text scrolls up underneath it */
+
+@media (max-width: 800px) {
+
+	body {
+		font-size: 16px;
+	}
+
+	.intro {
+		padding: 3rem 1.25rem 2rem;
+	}
+
+	.scrolly {
+		display: block;
+	}
+
+	.frame {
+		border-bottom: solid 1px var(--rule);
+		height: 52vh;
+		height: 52svh;
+		z-index: 10;
+	}
+
+	.layer figcaption {
+		display: none;
+	}
+
+	.steps {
+		padding: 0 1.25rem;
+	}
+
+		.step,
+		.step:first-child {
+			align-items: flex-start;
+			min-height: 60vh;
+			min-height: 60svh;
+			padding-top: 2rem;
+		}
+
+			.step:last-child {
+				min-height: 50vh;
+				min-height: 50svh;
+			}
+
+			.step .card {
+				max-width: none;
+			}
+
+}
+
+/* Very short landscape phones: shrink the pinned frame */
+
+@media (max-width: 800px) and (max-height: 500px) {
+
+	.frame {
+		height: 40vh;
+		height: 40svh;
+	}
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.layer,
+	.step {
+		transition: none;
+	}
+
+}
+
+/* Without JS, show every step at full strength and the first media item */
+
+.no-js .step {
+	opacity: 1;
+}
+
+/* Call to action in the intro */
+
+.intro .cta {
+	margin-top: 1.75rem;
+}
+
+	.intro .cta a {
+		background: var(--heading);
+		border-radius: 2em;
+		color: var(--bg);
+		display: inline-block;
+		font-size: 0.8rem;
+		font-weight: 400;
+		letter-spacing: 0.2em;
+		padding: 0.85em 2em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: background-color 0.2s ease-in-out;
+	}
+
+		.intro .cta a:hover {
+			background: var(--accent);
+		}
+
+/* Engineering drawings: full width, white sheets on the dark page */
+
+.drawings {
+	border-top: solid 1px var(--rule);
+	margin: 0 auto;
+	max-width: 1400px;
+	padding: 4rem clamp(1rem, 4vw, 3rem) 2rem;
+}
+
+	.drawings > h2 {
+		color: var(--heading);
+		font-size: 1rem;
+		font-weight: 400;
+		letter-spacing: 0.25em;
+		margin: 0 0 2rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.drawing {
+		margin: 0 0 3.5rem;
+	}
+
+		.drawing > a {
+			background: #ffffff;
+			border-radius: 2px;
+			box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+			cursor: zoom-in;
+			display: block;
+			padding: 0.5rem;
+		}
+
+		.drawing img {
+			display: block;
+			height: auto;
+			width: 100%;
+		}
+
+		.drawing figcaption {
+			display: flex;
+			flex-direction: column;
+			gap: 0.2rem;
+			padding-top: 1rem;
+		}
+
+			.drawing figcaption strong {
+				color: var(--heading);
+				font-weight: 400;
+				letter-spacing: 0.05em;
+			}
+
+			.drawing figcaption span {
+				font-size: 0.9rem;
+			}
+
+			.drawing .links {
+				font-size: 0.8rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+			}
+
+				.drawing .links a {
+					text-decoration: none;
+				}
+
+					.drawing .links a:hover {
+						text-decoration: underline;
+					}

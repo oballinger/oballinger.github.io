@@ -2,17 +2,9 @@
 <html>
 	<head>
 		<title>Ollie Ballinger</title>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154866877-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-
-		  gtag('config', 'UA-154866877-1');
-		</script>
 		<meta name="google-site-verification" content="MHZJKKeQb1PsIO4HUsO38ZGAqV5AxGwDtdkqFyu3t6Q" />
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="icon" href="images/favicon.ico">
@@ -25,147 +17,375 @@
 			<nav class="links">
 				<ul>
 					<li><a href="https://profiles.ucl.ac.uk/86776-ollie-ballinger">UCL Page</a></li>
-					<li><a href="https://scholar.google.co.uk/citations?user=Qwt1nhoAAAAJ&hl=en&oi=ao">Publications</a></li>
+					<li><a href="https://scholar.google.co.uk/citations?user=Qwt1nhoAAAAJ&amp;hl=en&amp;oi=ao">Publications</a></li>
 					<li><a href="https://oballinger.github.io/CASA0025">Teaching</a></li>
-					<a href="https://twitter.com/oballinger"><img src="images/socials/twitter.png" id='socials'></a>
-					<a href="https://github.com/oballinger"><img src="images/socials/github.png" id='socials'></a>
-					<a href="mailto:o.ballinger@ucl.ac.uk"><img src="images/socials/email.png" id='socials'></a>
 				</ul>
-			<img src="images/socials/twitter.png" id='socials'>
-			hello world
-
+				<div class="socials">
+					<a href="https://twitter.com/oballinger" aria-label="Twitter"><img src="images/socials/twitter.png" alt="Twitter"></a>
+					<a href="https://github.com/oballinger" aria-label="GitHub"><img src="images/socials/github.png" alt="GitHub"></a>
+					<a href="mailto:o.ballinger@ucl.ac.uk" aria-label="Email"><img src="images/socials/email.png" alt="Email"></a>
+				</div>
 			</nav>
 		</header>
 		<div id='profile-box'>
 			<div class='frame'>
-				<img src="images/headshot.jpg" class='headshot'>
+				<img src="images/headshot.jpg" class='headshot' alt="Ollie Ballinger">
 			</div>
 			<div class='profile-text'>
 				<h1>Hello!</h1>
-				My name is Ollie Ballinger. I'm a Lecturer in Geocomputation at the Centre for Advanced Spatial Analysis at University College London. I did my PhD at the Oxford Department for International Development, where my research focused on the social and political effects of dam construction in Southeastern Turkey. I'm a big fan of satellites and strange datasets. Here are some of the projects i've worked on over the years.
+				My name is Ollie Ballinger. I'm a Lecturer in Geocomputation at the Centre for Advanced Spatial Analysis at University College London. I did my PhD at the Oxford Department for International Development, where my research focused on the social and political effects of dam construction in Southeastern Turkey. I'm a big fan of satellites and strange datasets. Here are some of the projects I've worked on over the years.
 			</div>
+		</div>
+		<div id="tabs" role="tablist" aria-label="Project categories">
+			<button role="tab" data-tab="research" aria-selected="true">Research</button>
+			<button role="tab" data-tab="journalism" aria-selected="false">Journalism</button>
+			<button role="tab" data-tab="design" aria-selected="false">DIY</button>
 		</div>
 		<!-- Wrapper -->
 			<div id="wrapper">	
 
 				<!-- Main -->
 					<div id="main">
-						<article class="thumb">
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.ft.com/content/f9dd0c26-3de3-4ecc-8a08-7d08f0946d08" class="video"><video data-src="images/press/2026-10-18_ft.mp4" data-poster="images/press/2026-10-18_ft_poster.jpg" muted loop playsinline preload="none" aria-label="Russian ships fake locations to appear in two places at once"></video></a>
+							<h2><span class="kicker">Financial Times &middot; Oct 2026</span>Russian ships fake locations to appear in two places at once</h2>
+							<p>Report on a new AIS spoofing tactic in Russia&#x27;s shadow fleet. Based on my finding that at least 12 sanctioned tankers broadcast identical frozen positions, some appearing in two places at once.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.bbc.co.uk/sounds/play/m003259d" class="image"><img data-src="images/press/2026-09-29_bbc.jpg" alt="Google Maps update reveals the scale of destruction in Gaza" /></a>
+							<h2><span class="kicker">BBC World Service / Radio 5 Live &middot; Sep 2026</span>Google Maps update reveals the scale of destruction in Gaza</h2>
+							<p>Interviewed on BBC World Service and BBC Radio 5 Live about the destruction in Gaza now visible to anyone through the update to Google Maps&#x27; basemap satellite imagery.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.ft.com/content/df0c0833-59f6-45d6-a74f-008b46756e72" class="image"><img data-src="images/press/2026-01-15_ft.jpg" alt="Middle East governments believe US-Iran tension has &#x27;de-escalated&#x27;" /></a>
+							<h2><span class="kicker">Financial Times &middot; Jan 2026</span>Middle East governments believe US-Iran tension has &#x27;de-escalated&#x27;</h2>
+							<p>Report on Gulf states urging Washington to hold off on strikes against Iran. Cites my satellite analysis showing the USS Abraham Lincoln carrier group heading toward the region.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.washingtonpost.com/investigations/2026/01/10/venezuela-oil-tankers-us-blockade/" class="image"><img data-src="images/press/2026-01-10_washington-post.jpg" alt="11 tankers under U.S. sanctions defy blockade in Venezuela, satellite imagery indicates" /></a>
+							<h2><span class="kicker">The Washington Post &middot; Jan 2026</span>11 tankers under U.S. sanctions defy blockade in Venezuela, satellite imagery indicates</h2>
+							<p>Investigation using Sentinel satellite imagery to show sanctioned tankers sailing beyond the U.S. blockade of Venezuela. My satellite analysis underpins the tanker detections.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.nytimes.com/2026/01/08/world/americas/navy-chasing-tankers-venezuela.html" class="image"><img data-src="images/press/2026-01-08_nyt.jpg" alt="U.S. Navy Is Chasing Several Oil Tankers in the Atlantic" /></a>
+							<h2><span class="kicker">The New York Times &middot; Jan 2026</span>U.S. Navy Is Chasing Several Oil Tankers in the Atlantic</h2>
+							<p>Report on sanctioned tankers fleeing the U.S. blockade of Venezuela, some reflagged as Russian. The Times tracked the vessels with me using my ship-detection program.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.ft.com/content/234a7494-daf4-43df-902e-444237a308dc" class="image"><img data-src="images/press/2025-12-19_ft.jpg" alt="Satellite images track Donald Trump&#x27;s squeeze on Venezuela" /></a>
+							<h2><span class="kicker">Financial Times &middot; Dec 2025</span>Satellite images track Donald Trump&#x27;s squeeze on Venezuela</h2>
+							<p>Satellite-based look at U.S. military deployments and oil-blockade pressure on Venezuela, drawing on my satellite vessel detections.</p>
+						</article>
+						<article class="thumb" data-tab="journalism">
 							<a href="https://www.nytimes.com/2025/11/21/world/americas/us-navy-venezuela-satellite-data.html?unlocked_article_code=1.208.d0hC.nxvv3V9uaJeA&smid=url-share" class="video">
-								<video 
-									src="images/thumbs/nyt_venezuela.webm"
-									autoplay
-									loop
-									muted
-									playsinline
-									style="width: 100%; height: 100%; object-fit: cover;"
-								></video>
+								<video data-src="images/thumbs/nyt_venezuela.mp4" data-poster="images/thumbs/nyt_venezuela.jpg" muted loop playsinline preload="none" aria-label="Tracking the US Navy in Venezuela"></video>
 							</a>
-							<h2>Tracking the US Navy in Venezuela</h2>
-							<p> Using a model that I developed to search for specific vessels in satellite imagery, I was able to detect roughly 100 instances of US Navy ships operating in the Carribean Sea near Venezuela over a two month period. I sent these detections to the New York Times, who verified the data and determined that the US presence is far more consistent with an invasion force than the stated counternarcotics mission.</p>
-						</article>						<article class="thumb">
-							<a href="https://www.bellingcat.com/resources/2023/11/15/a-new-tool-allows-researchers-to-track-damage-in-gaza/" class="image"><img src="images/thumbs/gaza_damage_cumulative.gif" alt="" /></a>
+							<h2><span class="kicker">The New York Times &middot; Nov 2025</span>Tracking the US Navy in Venezuela</h2>
+							<p> Using a model that I developed to search for specific vessels in satellite imagery, I was able to detect roughly 100 instances of US Navy ships operating in the Caribbean Sea near Venezuela over a two month period. I sent these detections to the New York Times, who verified the data and determined that the US presence is far more consistent with an invasion force than the stated counternarcotics mission.</p>
+						</article>
+						<article class="thumb" data-tab="journalism">
+							<a href="https://www.bbc.co.uk/news/articles/c0mxylxw48yo" class="video">
+								<video data-src="images/thumbs/bbc_gaza_demolitions.mp4" data-poster="images/thumbs/bbc_gaza_demolitions.jpg" muted loop playsinline preload="none" aria-label="Israel has destroyed more than 1,500 buildings in Gaza since ceasefire"></video>
+							</a>
+							<h2><span class="kicker">BBC Verify &middot; Nov 2025</span>Israel has destroyed more than 1,500 buildings in Gaza since ceasefire</h2>
+							<p>BBC Verify investigation into demolitions in Israeli-controlled areas of Gaza after the October 2025 ceasefire. The analysis used my pixel-wise t-test change detection method to flag destruction, which was then confirmed with high-resolution satellite imagery.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.economist.com/interactive/briefing/2023/02/23/data-from-satellites-reveal-the-vast-extent-of-fighting-in-ukraine" class="image"><img data-src="images/press/2023-02-23_economist.jpg" alt="Data from satellites reveal the vast extent of fighting in Ukraine" /></a>
+							<h2><span class="kicker">The Economist &middot; Feb 2023</span>Data from satellites reveal the vast extent of fighting in Ukraine</h2>
+							<p>Interactive briefing marking a year of war in Ukraine, using fire data and radar imagery. Damage estimates, such as for Bakhmut, come from SAR analysis; I&#x27;m credited among the sources.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.economist.com/graphic-detail/2023/02/16/poor-areas-suffered-35-times-more-damage-in-turkeys-earthquake" class="image"><img data-src="images/press/2023-02-16_economist.jpg" alt="Poor areas suffered 3.5 times more damage in Turkey&#x27;s earthquake" /></a>
+							<h2><span class="kicker">The Economist &middot; Feb 2023</span>Poor areas suffered 3.5 times more damage in Turkey&#x27;s earthquake</h2>
+							<p>Data analysis of building damage from the February 2023 Turkey earthquakes, linked to property prices. The Sentinel-1 damage estimates were produced by me at the Economist&#x27;s request.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://news.sky.com/story/ukraine-invasion-how-satellites-as-small-as-a-shoebox-are-giving-the-public-eyes-and-ears-on-a-conflict-zone-12556864" class="video"><video data-src="images/press/2022-03-04_sky-news.mp4" data-poster="images/press/2022-03-04_sky-news_poster.jpg" muted loop playsinline preload="none" aria-label="Ukraine invasion: How satellites as small as a shoebox are giving the public eyes and ears on a conflict zone"></video></a>
+							<h2><span class="kicker">Sky News &middot; Mar 2022</span>Ukraine invasion: How satellites as small as a shoebox are giving the public eyes and ears on a conflict zone</h2>
+							<p>Feature on commercial and open satellite imagery of the Ukraine war. Describes my Radar Interference Tracker and my use of it to detect a Russian exercise in Belarus before the invasion.</p>
+						</article>
+						<article class="thumb press-card" data-tab="journalism">
+							<a href="https://www.economist.com/briefing/2022/02/19/a-new-era-of-transparent-warfare-beckons" class="image"><img data-src="images/press/2022-02-19_economist.jpg" alt="A new era of transparent warfare beckons" /></a>
+							<h2><span class="kicker">The Economist &middot; Feb 2022</span>A new era of transparent warfare beckons</h2>
+							<p>Briefing on how commercial satellites and OSINT are making military build-ups visible ahead of Russia&#x27;s invasion of Ukraine. Describes my Radar Interference Tracker, which picked up likely radar emissions from Russia&#x27;s Pogonovo base; an image is credited to me.</p>
+						</article>
+						<article class="thumb" data-tab="journalism">
+							<a href="https://www.bellingcat.com/resources/2026/04/07/tool-damage-assessment-destruction-sentinel-satellite-imagery-iran-us-gulf/" class="image"><img data-src="images/thumbs/opt/iran_damage.jpg" alt="Iran Conflict Damage Proxy Map" /></a>
+							<h2>Iran Conflict Damage Proxy Map</h2>
+							<p>With commercial satellite imagery restricted and Iran under an internet blackout, I built this tool for Bellingcat to map likely destruction across Iran and the Gulf, using my Pixel-Wise T-Test on free Sentinel-1 radar imagery.</p>
+						</article>
+						<article class="thumb" data-tab="journalism">
+							<a href="https://www.bellingcat.com/resources/2023/11/15/a-new-tool-allows-researchers-to-track-damage-in-gaza/" class="video"><video data-src="images/thumbs/opt/gaza_damage_cumulative.mp4" data-poster="images/thumbs/opt/gaza_damage_cumulative.jpg" muted loop playsinline preload="none" aria-label="Gaza Near Real-Time Damage Assessment"></video></a>
 							<h2>Gaza Near Real-Time Damage Assessment</h2>
-							<p> This project involves the analysis of satellite imagery to assess damage in Gaza in near real-time. Using a method I developed for building damage detection in radar satellite imagery, this tool allows allows users to get estimates of building damage on a monthly basis since the beginning of the genocide.</p>
+							<p> This project involves the analysis of satellite imagery to assess damage in Gaza in near real-time. Using a method I developed for building damage detection in radar satellite imagery, this tool allows users to get estimates of building damage on a monthly basis since the beginning of the genocide.</p>
 						</article>
-						<article class="thumb">
-							<a href="https://arxiv.org/pdf/2404.07607" class="image"><img src="images/thumbs/sts_short.gif" alt="" /></a>
+						<article class="thumb" data-tab="research">
+							<a href="https://www.sciencedirect.com/science/article/pii/S0034425725004298" class="image"><img data-src="images/thumbs/opt/Rubizhne_footprints.jpg" alt="Open Access Battle Damage Detection" /></a>
+							<h2>Open Access Battle Damage Detection</h2>
+							<p>Published in <em>Remote Sensing of Environment</em> (2025). An open-source method that detects conflict damage to buildings from free Sentinel-1 radar imagery, validated on 2 million buildings across 30 cities. It powers near-real-time damage dashboards for Gaza and Ukraine.</p>
+						</article>
+						<article class="thumb" data-tab="research">
+							<a href="https://arxiv.org/pdf/2404.07607" class="video"><video data-src="images/thumbs/opt/sts_short.mp4" data-poster="images/thumbs/opt/sts_short.jpg" muted loop playsinline preload="none" aria-label="Ship-to-Ship Transfer Detection"></video></a>
 							<h2>Ship-to-Ship Transfer Detection</h2>
-							<p> Ship-to-Ship transfers involve two or more large cargo vessels meeting at sea and swapping cargo. This is often used to conceal the origin of cargo, and has been used extensively by Russian vessels to launder stolen Ukrainian grain. I train a neural network to automatically detect these transfers in satellite imagery.</p>
+							<p>Presented at IGARSS 2024. I train a neural network to detect ship-to-ship transfers in satellite imagery and cross-reference them with vessel GPS data, identifying over 400 &quot;dark&quot; transfers in the Kerch Strait since 2022.</p>
 						</article>
-						<article class="thumb">
-							<a href="https://oballinger.github.io/STS/" class="image"><img src="images/thumbs/sts_network.png" alt="" /></a>
-							<h2>Network Analysis of Ship-to-Ship Transfers</h2>
-							<p>Ship-to-Ship transfers can be modeled as a network where each ship is a node, and nodes are connected if they've conducted a transfer with each other. This enables the tracking of cargo across multiple transfers, and the identification of structurally important ships.</p>
-						</article>
-						<article class="thumb">
-							<a href="https://www.bellingcat.com/news/2023/05/11/grain-trail-tracking-russias-ghost-ships-with-satellite-imagery/" class="image"><img src="images/thumbs/sevastopol_mosaic.jpg" alt="" /></a>
+						<article class="thumb" data-tab="journalism">
+							<a href="https://www.bellingcat.com/news/2023/05/11/grain-trail-tracking-russias-ghost-ships-with-satellite-imagery/" class="image"><img data-src="images/thumbs/opt/sevastopol_mosaic.jpg" alt="Tracking Russia's Ghost Ships with Satellite Imagery" /></a>
 							<h2>Tracking Russia's Ghost Ships with Satellite Imagery</h2>
 							<p>Using optical and radar satellite imagery, we identified 180 ships with AIS turned off at the grain terminal at the occupied port of Sevastopol in the first year of the war. 
 							</p>
 						</article>
-						<article class="thumb">
-							<a href="https://www.turing.ac.uk/news/publications/data-study-group-final-report-global-witness-identifying-unregulated-mining-sites" class="image"><img src="images/thumbs/pools.png" alt="" /></a>
-							<h2>Identifying Unregulated Rare Earth Mines in Myanmar</h2>
-							<p>I was the Principal Investigator for a joint project between the Alan Turing Institute and Global Witness, in which multiple computer vision algorithms were trained to identify illegal rare earth mining in rebel-held areas the Myanmar-China border. 
-							</p>
+						<article class="thumb" data-tab="research">
+							<a href="https://www.cambridge.org/core/journals/international-review-of-the-red-cross/article/leveraging-emerging-technologies-to-enable-environmental-monitoring-and-accountability-in-conflict-zones/048F61CD42B7C21931B37C091FC2C95F" class="image"><img data-src="images/thumbs/opt/rojava.jpg" alt="Syria Makeshift Refinery Detection" /></a>
+							<h2>Syria Makeshift Refinery Detection</h2>
+							<p>Published in the <em>International Review of the Red Cross</em> (2023), with Wim Zwijnenburg. How open-source investigation and satellite imagery can document conflict-linked environmental damage, from Syria's makeshift oil refineries to Ukraine, and strengthen accountability.</p>
 						</article>
-						<article class="thumb">
-							<a href="https://www.sciencedirect.com/science/article/pii/S0034425725004298" class="image"><img src="images/thumbs/Rubizhne_footprints.jpg" alt="" /></a>
-							<h2>Open Access Battle Damage Detection</h2>
-							<p>I developed a new methodology to detect building damage in Synthetic Aperture Radar imagery. It allows users to get the number and distribution of destroyed buildings in a given area, uses georeferenced footage from social media for ground-truthing.</p>
+						<article class="thumb" data-tab="research">
+							<a href="https://oballinger.github.io/STS/" class="image"><img data-src="images/thumbs/opt/sts_network.jpg" alt="Network Analysis of Ship-to-Ship Transfers" /></a>
+							<h2>Network Analysis of Ship-to-Ship Transfers</h2>
+							<p>Ship-to-Ship transfers can be modeled as a network where each ship is a node, and nodes are connected if they've conducted a transfer with each other. This enables the tracking of cargo across multiple transfers, and the identification of structurally important ships.</p>
 						</article>
-						<article class="thumb">
-							<a href="https://www.bellingcat.com/resources/2022/02/11/radar-interference-tracker-a-new-open-source-tool-to-locate-active-military-radar-systems/" class="image"><img src="images/thumbs/RIT.jpg" alt="" /></a>
+						<article class="thumb" data-tab="journalism">
+							<a href="https://www.bellingcat.com/resources/2022/02/11/radar-interference-tracker-a-new-open-source-tool-to-locate-active-military-radar-systems/" class="image"><img data-src="images/thumbs/opt/RIT.jpg" alt="Radar Interference Tracker" /></a>
 							<h2>Radar Interference Tracker</h2>
 							<p>Many missile defense radars interfere with open source satellite imagery when they're turned on. I built a tool for Bellingcat that lets anyone monitor when and where these radars are deployed. The tool has since been featured in the Economist, Sky News, Hackaday, and beyond.</p>
 						</article>
-						<article class="thumb">
-							<a href="https://www.bellingcat.com/resources/2021/04/15/what-oil-satellite-technology-and-iraq-can-tell-us-about-pollution/" class="image"><img src="images/thumbs/mishraq.gif" alt="" /></a>
+						<article class="thumb" data-tab="journalism">
+							<a href="https://www.bellingcat.com/resources/2021/04/15/what-oil-satellite-technology-and-iraq-can-tell-us-about-pollution/" class="video"><video data-src="images/thumbs/opt/mishraq.mp4" data-poster="images/thumbs/opt/mishraq.jpg" muted loop playsinline preload="none" aria-label="Conflict and Pollution in Iraq"></video></a>
 							<h2>Conflict and Pollution in Iraq</h2>
 							<p>I co-wrote an article for Bellingcat which investigates conflict-related pollution in Iraq. I use remote sensing, machine learning, and geolocation to trace pollution back to facilities operated by multinational oil companies and map out the impacts on nearby communities.</p>
 						</article>
-						<article class="thumb">
-							<a href="https://oballinger.github.io/beirut-3D-model/" class="image"><img src="images/thumbs/beirut.gif" alt="" /></a>
+						<article class="thumb" data-tab="journalism">
+							<a href="https://oballinger.github.io/beirut-3D-model/" class="video"><video data-src="images/thumbs/opt/beirut.mp4" data-poster="images/thumbs/opt/beirut.jpg" muted loop playsinline preload="none" aria-label="3D Model of the Beirut Explosion"></video></a>
 							<h2>3D Model of the Beirut Explosion</h2>
 							<p>Following the 2020 Beirut explosion, blast damage assessment was carried out using two-dimensional satellite imagery which fails to capture damage done to the sides of buildings. I develop an alternative approach using Open Street Map data to create a 3D model of Beirut and the explosion to analyze directional blast damage.</p>
 						</article>
-						<article class="thumb">
-							<a href="https://ollielballinger.users.earthengine.app/view/ism" class="image"><img src="images/thumbs/ISM.jpg" alt="" /></a>
+						<article class="thumb" data-tab="research">
+							<a href="https://www.turing.ac.uk/news/publications/data-study-group-final-report-global-witness-identifying-unregulated-mining-sites" class="image"><img data-src="images/thumbs/opt/pools.jpg" alt="Identifying Unregulated Rare Earth Mines in Myanmar" /></a>
+							<h2>Identifying Unregulated Rare Earth Mines in Myanmar</h2>
+							<p>Alan Turing Institute report (2023). As Principal Investigator for a joint Turing and Global Witness project, I trained computer vision models to identify illegal rare earth mining in rebel-held areas on the Myanmar-China border.</p>
+						</article>
+						<article class="thumb" data-tab="research">
+							<a href="https://ollielballinger.users.earthengine.app/view/ism" class="image"><img data-src="images/thumbs/opt/ISM.jpg" alt="Informal Settlement Mapping" /></a>
 							<h2>Informal Settlement Mapping</h2>
 							<p>I built a prototype application for the U.N. World Food Programme that identifies informal settlements using a Random Forest algorithm and open source inputs (Sentinel-2 imagery and OSM footprints).</p>
 						</article>
-						<article class="thumb">
-							<a href="https://oballinger.github.io/PICAN-data/" class="image"><img src="images/thumbs/mosaic.jpg" alt="" /></a>
-							<h2>Militant Mosaic</h2>
-							<p>This mosaic is composed of 20,000 images scraped from an insurgents group's obituary website.</p>
-						</article>
-						<article class="thumb">
-							<a href="https://www.sciencedirect.com/science/article/pii/S0378873323000278" class="image"><img src="images/thumbs/network.jpg" alt="" /></a>
-							<h2>Insurgent Photo Networks</h2>
-							<p>I built an open-source Python package that uses deep learning to create a social network graph based on co-appearance in photographs. When applied to a folder of over 20,000 images scraped from a militant group's website, the resulting network closely mirrors the known structure of the insurgent group.</p>
-						</article>
-						<article class="thumb">
-							<a href="projects/abqaiq.html" class="image"><img src="images/thumbs/abqaiq.jpg" alt="" /></a>
+						<article class="thumb" data-tab="journalism">
+							<a href="projects/abqaiq.html" class="image"><img data-src="images/thumbs/opt/abqaiq.jpg" alt="Saudi Missile Strike Investigation" /></a>
 							<h2>Saudi Missile Strike Investigation</h2>
 							<p>In 2019, two Saudi Aramco facilities were hit by cruise missiles leading to the largest 1-day spike in the price of oil ever recorded. The expert consensus is that the attack succeeded because the Saudis were caught off guard. Open-source radar interference from Saudi air defenses may suggest otherwise.</p>
 						</article>
-						<article class="thumb">
-							<a href="projects/elections.html" class="image"><img src="images/thumbs/elections.gif" alt="" /></a>
-							<h2>Fixing Election Maps with Streetlights</h2>
-							<p>Rural counties take up lots of space on election maps despite being sparsely populated, creating significant visual bias. I develop a new approach to correcting this bias using nighttime satellite imagery. This post won the 2020 Mapbox Election Mapping Challenge</p>
+						<article class="thumb" data-tab="research">
+							<a href="https://www.tandfonline.com/doi/pdf/10.1080/09692290.2021.1946708" class="image"><img data-src="images/thumbs/opt/oil_nlp.jpg" alt="Shareholder Pressure on Oil Companies" /></a>
+							<h2>Shareholder Pressure on Oil Companies</h2>
+							<p>Published in <em>Review of International Political Economy</em> (2021). Building on my analysis of 1,656 earnings calls, the paper finds that no oil major shifted away from fossil fuels between 2004 and 2019; the most ambitious were merely hedging.</p>
 						</article>
-						<article class="thumb">
-							<a href="projects/turkish_elections.html" class="image"><img src="images/thumbs/turkish_elections.jpg" alt="" /></a>
-							<h2>Turkish Elections Data</h2>
-							<p>This tool visualizes 2,975,843 ballot-box level election results in Turkey spanning over 10 years and 20 elections. Data was acquired by scraping the Turkish Election Board's website using Selenium in Python. </p>
+						<article class="thumb" data-tab="research">
+							<a href="https://oballinger.github.io/PICAN-data/" class="image"><img data-src="images/thumbs/opt/mosaic.jpg" alt="Militant Mosaic" /></a>
+							<h2>Militant Mosaic</h2>
+							<p>This mosaic is composed of 20,000 images scraped from an insurgents group's obituary website.</p>
 						</article>
-						<article class="thumb">
-							<a href="#" class="image"><img src="images/thumbs/Ilisu.gif" alt="" /></a>
+						<article class="thumb" data-tab="journalism">
+							<a href="projects/hasankeyf.html" class="video"><video data-src="images/thumbs/opt/Ilisu.mp4" data-poster="images/thumbs/opt/Ilisu.jpg" muted loop playsinline preload="none" aria-label="Hasankeyf's Last Vote"></video></a>
 							<h2>Hasankeyf's Last Vote</h2>
 							<p>Months before being flooded, 55% of a town that is currently underwater voted for the party that built the dam. What follows is a geospatial analysis of this historic event, and the strange political economy that led to it.</p>
 						</article>
-						<article class="thumb">
-							<a href="#" class="image"><img src="images/thumbs/spei.jpg" alt="" /></a>
-							<h2>High Resolution Drought Index</h2>
-							<p>This post outlines a workflow for the calculation of a high-resolution version of the Stardardized Precipitation-Evapotranspiration Index (SPEI). This is accomplished in four steps, utilizing Python, R, and JavaScript.</p>
+						<article class="thumb" data-tab="research">
+							<a href="projects/elections.html" class="video"><video data-src="images/thumbs/opt/elections.mp4" data-poster="images/thumbs/opt/elections.jpg" muted loop playsinline preload="none" aria-label="Fixing Election Maps with Streetlights"></video></a>
+							<h2>Fixing Election Maps with Streetlights</h2>
+							<p>Rural counties take up lots of space on election maps despite being sparsely populated, creating significant visual bias. I develop a new approach to correcting this bias using nighttime satellite imagery. This post won the 2020 Mapbox Election Mapping Challenge</p>
 						</article>
-						<article class="thumb">
-							<a href="projects/makeshift_refineries/RojavaRefineries.html" class="image"><img src="images/thumbs/rojava.jpg" alt="" /></a>
-							<h2>Syria Makeshift Refinery Detection</h2>
-							<p>This tool uses machine learning and multispectral satellite imagery to identify oil spills resulting from makeshift oil wells and refineries operated in Northern Syria. Users can draw an box over the map to count the number of unique spills detected, as well as an estimate of the total contaminated area.</p>
-						</article>
-						<article class="thumb">
-							<a href="#" class="image"><img src="images/thumbs/voronoi.jpg" alt="" /></a>
+						<article class="thumb" data-tab="research">
+							<a href="projects/voronoi.html" class="image"><img data-src="images/thumbs/opt/voronoi.jpg" alt="Village Voronoi Polygons" /></a>
 							<h2>Village Voronoi Polygons</h2>
 							<p>Using the latitude and longitude coordinates of human settlements in Pakistan, I create polygons that approximate the shape of villages using a Voronoi tesselation in Python.</p>
 						</article>
-						<article class="thumb">
-							<a href="projects/oil_nlp.html" class="image"><img src="images/thumbs/oil_nlp.jpg" alt="" /></a>
-							<h2>Shareholder Pressure on Oil Companies</h2>
-							<p>How often do oil and gas companies talk about climate change? How do shareholders exert pressure on these issues? This project analyzes the text from 1,656 earnings calls-- over 16,000,000 words in total-- to provide answers.</p>
+						<article class="thumb" data-tab="research">
+							<a href="projects/spei.html" class="image"><img data-src="images/thumbs/opt/spei.jpg" alt="High Resolution Drought Index" /></a>
+							<h2>High Resolution Drought Index</h2>
+							<p>This post outlines a workflow for the calculation of a high-resolution version of the Standardized Precipitation-Evapotranspiration Index (SPEI). This is accomplished in four steps, utilizing Python, R, and JavaScript.</p>
+						</article>
+						<article class="thumb" data-tab="research">
+							<a href="projects/turkish_elections.html" class="image"><img data-src="images/thumbs/opt/turkish_elections.jpg" alt="Turkish Elections Data" /></a>
+							<h2>Turkish Elections Data</h2>
+							<p>This tool visualizes 2,975,843 ballot-box level election results in Turkey spanning over 10 years and 20 elections. Data was acquired by scraping the Turkish Election Board's website using Selenium in Python. </p>
+						</article>
+						<article class="thumb" data-tab="design">
+							<a href="projects/gaza_molnar.html" class="image"><img data-src="images/design/nothing_beside_remains.jpg" alt="Nothing Beside Remains" /></a>
+							<h2>Nothing Beside Remains</h2>
+							<p>Building damage across Gaza's five governorates, month by month, drawn as grids of concentric squares after Vera Moln&aacute;r's <em>Transformations</em> (1976). The more damage my radar method measured, the more the squares jitter, from order into chaos.</p>
+						</article>
+						<article class="thumb" data-tab="design">
+							<a href="projects/design/wibbler/" class="image"><img data-src="images/design/wibbler.jpg" alt="Wibbler" /></a>
+							<h2>Wibbler</h2>
+							<p>A browser-based controller for laser cymatics. Stack oscillators, pick musical intervals and chords, and add LFO modulation or frequency sweeps, then watch the waveform, spectrum and Lissajous figures the sound draws.</p>
+						</article>
+						<article class="thumb" data-tab="design">
+							<a href="projects/design/staabi-lamp/" class="image"><img data-src="images/design/staabi_lamp.jpg" alt="Staabi Lamp" /></a>
+							<h2>Staabi Lamp</h2>
+							<p></p>
+						</article>
+						<article class="thumb" data-tab="design">
+							<a href="projects/design/slide-projector/" class="image"><img data-src="images/design/slide_projector-2.jpg" alt="GB1-C Slide Projector" /></a>
+							<h2>GB1-C Slide Projector</h2>
+							<p>A slide projector built from a 3D printer, a cheap flashlight, and the lens from an old film camera (Canon FD 50mm).</p>
+						</article>
+						<article class="thumb" data-tab="design">
+							<a href="projects/design/anti-tank-lamp/" class="image"><img data-src="images/design/anti_tank_lamp.jpg" alt="Anti-Tank Lamp" /></a>
+							<h2>Anti-Tank Lamp</h2>
+							<p></p>
+						</article>
+						<article class="thumb" data-tab="design">
+							<a href="projects/design/tent-jacket/" class="image"><img data-src="images/design/tent_jacket-6.jpg" alt="Tent Jacket" /></a>
+							<h2>Tent Jacket</h2>
+							<p>Made a jacket out of my old tent.</p>
 						</article>
 					</div>
+
+				<section id="press" class="tab-section" data-tab="journalism" hidden>
+					<h2>More coverage</h2>
+					<ol>
+					<li><a class="press-item" href="https://www.geo.fr/geopolitique/dans-les-eaux-internationales-des-petroliers-russes-fantomes-apparaissent-a-deux-endroits-234123">
+						<img data-src="images/press/2026-10-22_geo.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">GEO (France) &middot; Oct 2026</p>
+							<h3>Dans les eaux internationales, des pétroliers russes fantômes apparaissent soudain à deux endroits</h3>
+							<p>French magazine&#x27;s report on Russian shadow-fleet tankers appearing in two places at once. Relays my observations from the FT.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://spravy.stvr.sk/2026/10/lode-ruskej-tienovej-flotily-v-ciernom-mori-menia-svoje-udaje-pise-ft-chrania-sa-tak-pred-dronovymi-utokmi">
+						<img data-src="images/press/2026-10-21_stvr.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">STVR &middot; Oct 2026</p>
+							<h3>Lode ruskej tieňovej flotily v Čiernom mori menia svoje údaje, píše FT</h3>
+							<p>Slovak public broadcaster&#x27;s report on Black Sea shadow-fleet ships altering location data to avoid drone strikes. Quotes me.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://www.tradewindsnews.com/tankers/russian-shadow-fleet-tankers-adopt-new-spoofing-technique-/2-1-2061027">
+						<img data-src="images/press/2026-10-20_tradewinds.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">TradeWinds &middot; Oct 2026</p>
+							<h3>Russian shadow fleet tankers &#x27;adopt new spoofing technique&#x27;</h3>
+							<p>Shipping trade press report on tankers broadcasting a fixed position alongside their real one. Built on my findings, including the tanker Pirop appearing in the Bosphorus.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://www.teraz.sk/zahranicie/ft-tankery-tienovej-flotily-falsuju/1001305-clanok.html">
+						<img data-src="images/press/2026-10-20_tasr.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">TASR (teraz.sk) &middot; Oct 2026</p>
+							<h3>Tankery tieňovej flotily údajne falšujú údaje AIS o svojej polohe</h3>
+							<p>Slovak news agency report on shadow-fleet tankers faking AIS positions, based on the FT story. I&#x27;m the cited expert.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://biz.chosun.com/en/en-international/2026/10/19/Q3CWMIJSYVEKNGVLQR6Z4EHKLE/">
+						<img data-src="images/press/2026-10-19_chosunbiz.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Chosunbiz &middot; Oct 2026</p>
+							<h3>Russia shadow fleet fakes ship locations to dodge drones and sanctions</h3>
+							<p>Korean business daily&#x27;s report on the FT story about Black Sea tankers spoofing their positions. Attributes the detection to me.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://tvpworld.com/96004280/russian-oil-tankers-fake-locations-to-evade-ukrainian-attacks-in-black-sea">
+						<img data-src="images/press/2026-10-19_tvp-world.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">TVP World &middot; Oct 2026</p>
+							<h3>Russian oil tankers fake locations to evade Ukrainian attacks</h3>
+							<p>Polish public broadcaster&#x27;s English service on shadow-fleet tankers transmitting frozen AIS positions in the Black Sea. Cites my findings as reported by the FT.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://inews.co.uk/news/why-putins-shadow-fleet-greater-danger-uk-4836697">
+						<img data-src="images/press/2026-10-19_i-paper.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">The i Paper &middot; Oct 2026</p>
+							<h3>Why Putin&#x27;s shadow fleet now poses greater danger to UK</h3>
+							<p>Analysis of the growing security threat from Russia&#x27;s shadow fleet around the UK. Mentions the &#x27;two places at once&#x27; spoofing technique first catalogued by me.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://www.bnr.nl/nieuws/internationaal/10613804/russische-schaduwvloot-gebruikt-nieuwe-misleidingsmetode-om-sancties-en-droneaanvallen-te-ontwijken">
+						<img data-src="images/press/2026-10-18_bnr.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">BNR Nieuwsradio &middot; Oct 2026</p>
+							<h3>Russische schaduwvloot gebruikt nieuwe misleidingsmethode om sancties te ontwijken</h3>
+							<p>Dutch radio news write-up of the FT shadow-fleet spoofing story. Credits my finding of at least twelve sanctioned tankers broadcasting false frozen positions.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://www.linkiesta.it/2026/04/il-satellite-europeo-che-vede-quando-gli-altri-si-spengono/">
+						<img data-src="images/press/2026-04-24_linkiesta.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Linkiesta &middot; Apr 2026</p>
+							<h3>Il satellite europeo che vede quando gli altri si spengono (The European satellite that sees when others go dark)</h3>
+							<p>Italian feature on how Sentinel-1 radar fills the gap left by commercial imagery restrictions over Iran and the Gulf. Covers Bellingcat&#x27;s damage map built on my method; figures credited to me.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://texty.org.ua/articles/117107/satellite-images-indicate-serious-damage-to-the-druzhba-oil-pipeline/">
+						<img data-src="images/press/2026-03-20_texty.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Texty.org.ua &middot; Mar 2026</p>
+							<h3>Satellite images indicate serious damage to the Druzhba oil pipeline</h3>
+							<p>Ukrainian data-journalism analysis of strike damage to a Druzhba pipeline facility. Uses my Sentinel-1 damage algorithm to confirm extensive damage.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://en.vijesti.me/world-a/globus/791462/The-Arabs-convinced-the-barterer-to-wait.">
+						<img data-src="images/press/2026-01-16_vijesti.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Vijesti &middot; Jan 2026</p>
+							<h3>The Arabs convinced the barterer to wait</h3>
+							<p>Montenegrin outlet&#x27;s version of the FT report on Gulf states lobbying Trump to delay Iran strikes. Cites satellite analysis by me tracking the USS Abraham Lincoln strike group.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://www.rivieramm.com/news-content-hub/video-us-confirms-fifth-venezuela-linked-tanker-seized-in-caribbean-sea-87366">
+						<img data-src="images/press/2026-01-09_riviera.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Riviera Maritime Media &middot; Jan 2026</p>
+							<h3>Video: US confirms fifth Venezuela-linked tanker seized in Caribbean Sea</h3>
+							<p>Maritime news report on U.S. seizures of tankers that broke out of the Venezuela blockade. Notes that the New York Times and I tracked the escaping vessels using my ship-detection program.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://meduza.io/feature/2024/10/17/za-god-boev-v-sektore-gaza-razrusheny-bolee-60-domov-my-znaem-eto-blagodarya-oon-i-karte-fiksiruyuschey-povrezhdeniya-v-realnom-vremeni">
+						<img data-src="images/press/2024-10-17_meduza.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Meduza &middot; Oct 2024</p>
+							<h3>За год боев в секторе Газа разрушены более 60% домов (More than 60% of homes in Gaza destroyed in a year of fighting)</h3>
+							<p>Russian-language interview with me about the Gaza damage map, marking a year of war in Gaza. Covers how the tool, first built for Ukraine, estimates damage from radar imagery.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://www.misbar.com/en/editorial/2024/09/25/widespread-destruction-satellite-images-disprove-israeli-us-claims-of-limited-invasion-in-rafah">
+						<img data-src="images/press/2024-09-25_misbar.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Misbar &middot; Sep 2024</p>
+							<h3>Widespread Destruction: Satellite Images Disprove Israeli, U.S. Claims of Limited Invasion in Rafah</h3>
+							<p>Fact-checking outlet&#x27;s analysis of destruction in Rafah, contradicting claims of a limited operation. Uses findings from my Gaza Damage Proxy Map.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://www.lloydslist.com/LL1146913/Russias-suspected-grain-laundering-fleet-undergoes-major-reshuffle-but-only-on-paper">
+						<img data-src="images/press/2023-10-13_lloyds-list.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Lloyd&#x27;s List &middot; Oct 2023</p>
+							<h3>Russia&#x27;s suspected grain laundering fleet undergoes major reshuffle, but only on paper</h3>
+							<p>Shipping trade press investigation into ownership changes in a fleet suspected of laundering Ukrainian grain. Features my interactive tool mapping ship-to-ship transfer networks at the Kavkaz anchorage.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://www.kyivpost.com/post/17115">
+						<img data-src="images/press/2023-05-16_kyiv-post.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Kyiv Post &middot; May 2023</p>
+							<h3>Deadline Looms Over Grain Deal Amid &#x27;Ghost Ships&#x27; and Blackmail</h3>
+							<p>Report on the Black Sea grain deal and Russian &#x27;ghost ships&#x27; moving grain from occupied Crimea. Cites Bellingcat&#x27;s satellite investigation and quotes me on ships at Sevastopol&#x27;s Avlita terminal with transponders off.</p>
+						</div>
+					</a></li>
+					<li><a class="press-item" href="https://hackaday.com/2022/03/02/you-can-find-military-radars-on-publicly-available-satellite-data/">
+						<img data-src="images/press/2022-03-02_hackaday.jpg" alt="" loading="lazy">
+						<div>
+							<p class="press-meta">Hackaday &middot; Mar 2022</p>
+							<h3>You Can Find Military Radars On Publicly-Available Satellite Data</h3>
+							<p>Explainer on how military radars leave interference stripes in Sentinel-1 imagery. Built around my Radar Interference Tracker and how it can reveal Patriot, S-400 and other systems.</p>
+						</div>
+					</a></li>
+					</ol>
+				</section>
+
+				<p id="tab-empty" hidden>Nothing here yet &mdash; check back soon.</p>
 
 				<!-- Footer -->
 			</div>
